@@ -7,7 +7,7 @@
 
 % moderncv themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstylef' and 'banking'
-% \moderncvcolor{grey}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\moderncvcolor{red}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 % \renewcommand{\familydefault}{\rmdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -37,7 +37,7 @@
 \extrainfo{\homepagesymbol \httplink{www.github.com/theroyakash}}
                 % optional, remove / comment the line if not wanted
                 % optional, remove / comment the line if not wanted
-\photo[64pt][0.4pt]{logo.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+\photo[64pt][0.4pt]{iitm.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Love thy journey, never thy destination!}                           
 %----------------------------------------------------------------------------------
 %            content
@@ -59,7 +59,7 @@
 \end{minipage}%
 \begin{minipage}{.30\textwidth}
   \centering
-  \includegraphics[height=3cm]{logo.png}
+  \includegraphics[height=3cm]{iitm.png}
 \end{minipage}
 \vspace{-1em}
 
@@ -81,11 +81,12 @@
 
 \vspace{1em}
 \section{Work Experience}
-\cventry{}{Got internship offer within one months of joining IIT Madras}{Upcoming SDE intern at Amazon India}{Summer of 2023}{}{}
+\cventry{}{Got internship offer within one months of joining IIT Madras}{SDE intern at Amazon India}{May 2023 - July 2023}{}{}
+\cvlistitem{Internship with the Registration and Core Services Team at Amazon Bangalore.}
 
 \cventry{}{Introduction to programming CS1100, Object Oriented Programming CS2810}{Teaching Assistant at Department of Computer Science, IIT Madras}{August 2022 - July 2024}{}{}
 \cvlistitem{Taught and managed total of 15 students from Mechanical, Metallurgy and Naval Architecture department students at IIT Madras for the course CS1100 Introduction to Programming from November 2022 to February 2023.}
-\cvlistitem{Taught and managed second year CS B.Tech students at IIT Madras for the course CS2810 Object Oriented design from January 2023 to May 2023.}
+\cvlistitem{Taught and managed second year CS B.Tech students at IIT Madras for the course CS2810 Object Oriented design Lab from January 2023 to May 2023. Responsibilities include Question Design, Automated testcase generation, verification of student submitted code.}
 
 \section{Publications}
 % \cventry{IIT Madras}{During M.Tech}{Distributed Systems Design, a foundational book}{Spring 2022}{Book Coming Soon}{}
@@ -99,14 +100,14 @@
 % technical skills
 \section{Technical Skills}
 \cvlistdoubleitem{
-{\textbf{Programming Language}}: C, C++, Python, Java, GoLang}{
+{\textbf{Languages}}: C, C++, Python, Java, GoLang}{
 {\textbf{Web}}: Python-Flask, Springboot}
 
 \cvlistdoubleitem{
 {\textbf{Database Systems}}: MySQL PostgreSQL, NoSQL}{
 {\textbf{Systems}}: Docker, Redis}
 
-\cvlistitem{{\textbf{Computer Science Fundamentals}:} {Operating Systems, Computer Networks, Database Management Systems, Theory of Computation, Randomized algorithms.}}
+\cvlistitem{{\textbf{Computer Science Fundamentals}:} {Operating Systems, Computer Networks, Database Management Systems, Theory of Computation, Randomized algorithms, Design and analysis of algorithms, Probabilistic and Smoothed analysis of algorithms.}}
 
 
 % KEY Projects
@@ -151,6 +152,11 @@
 % Course Work
 
 \section{Other Projects}
+
+\cventry{Government College of Engineering and Ceramic technology}{Independent Research}{\href{https://scholar.google.com/citations?view_op=view_citation&hl=en&user=AjmZ9WkAAAAJ&citation_for_view=AjmZ9WkAAAAJ:u-x6o8ySG0sC}{\textcolor{blue}{AKHCRNet}}}{April 2020 - October 2020}{}{}
+\cvlistitem{\texttt{AKHCRNet} is a state of the art deep neural architectural solution for handwritten character recognition for Bengali alphabets.}
+\cvlistitem{Gained total of 6 citations across India.}
+
 \cventry{Indian Institute of Technology, Madras}{Python, GitHub Actions Cron Jobs, RestAPI}{\textbf{\href{https://github.com/theroyakash/sosleafy}{\textcolor{blue}{@sosleafy}}} News Bot}{Jun 2021}{}{}
 \cvlistitem{\textbf{\href{https://twitter.com/sosleafy}{\textcolor{blue}{@sosleafy}}} is a twitter account and a \href{https://t.me/indiaheadline}{\textcolor{blue}{telegram group}} where every 3 hours a bot posts fresh news contents run via github actions.}
 \cvlistitem{Using Github actions and cron jobs the script takes new news contents from the web and puts it in a GitHub repository. Then once every three hours a cron job is scheduled to post new news content on Twitter and telegram.}
@@ -162,9 +168,10 @@
 \cventry{Indian Institute of Technology, Madras}{Python installable package with Pip}{\href{https://pypi.org/project/placeholderfile/}{\textcolor{blue}{placeholderfile}}}{October 2020}{}{}
 \cvlistitem{\texttt{placeholderfile} is a random filename and UUID generator installable via pip.}
 
+
 \section{Course Work}
 \cventry{Indian Institute of Technology Madras}{(Core and electives)}{Key Courses in M.Tech}{July 2022-May 2024}{}{}
-\cvlistitem{\textit{Courses}: Advanced data structures and algorithms, Randomized Algorithms, Computability and Complexity theory, Advanced Programming Lab.}
+\cvlistitem{\textit{Courses}: Advanced data structures and algorithms, Randomized Algorithms, Computability and Complexity theory, Advanced Programming Lab, Probabilistic and Smoothed Analysis of Algorithms, Security in Cyber Physical Systems, Digital System testing and testable design, Theory and application of Ontologies.}
 
 \cventry{Government College of Engineering and Ceramic technology}{(Core and electives)}{Key Courses in B.Tech}{August 2018-April 2022}{}{}
 \cvlistitem{\textit{Courses}: Theory of computation, Discrete Maths, Computer Networks, Compiler Design, Design and analysis of Algorithms, Data Structures, Object Oriented design, Digital Logic, Computer Organizations, Operating Systems, Database management systems, Machine learning, Deep learning.}
@@ -178,11 +185,11 @@
 \section{Achievements}
 
 \cvlistitem {Successfully qualified 
-\textit{GATE CS (2022) with over 98.5 percentile}}
+\textit{GATE CS (2022) with over 98.5} percentile,}
 
-\cvlistitem {Became Course topper and Elite + Silver Medal in NPTEL Cloud computing course conducted by IIT Kharagpur}
+\cvlistitem {Became Course topper and Elite + Silver Medal in NPTEL Cloud computing course conducted by IIT Kharagpur,}
 
-\cvlistitem {Scored 70\% in Theory of computation NPTEL Course conducted by IIT Kanpur}
+\cvlistitem {Topped in Theory of computation NPTEL Course conducted by IIT Kanpur.}
 
 %Languages (Spoken/known): Assamese, Bengali, English, Garo, Hindi, Nepali. 
 
@@ -194,5 +201,5 @@
 {I do hereby declare that all the details furnished above are true to the best of my knowledge and belief.}
 
 \vspace{4mm}
-{Last updated: 2023 January \hspace{35em} (Akash Roy)}
+{Last updated: 2023 March \hspace{35em} (Akash Roy)}
 \end{document}

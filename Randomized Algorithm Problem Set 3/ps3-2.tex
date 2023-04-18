@@ -1,0 +1,276 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage{amsmath,amsthm,amssymb}
+\linespread{1.05}
+\usepackage{hyperref}
+\usepackage[top=0.5in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+
+\printanswers
+\marksnotpoints
+
+\pointformat{\textcolor{Maroon}{(\thepoints)}}
+\qformat{\textcolor{Maroon}{\textbf{Problem~\thequestion}} \hfill \textcolor{Maroon}{\textbf{\totalpoints~\points}}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}         [theorem]{Lemma}
+\newtheorem{proposition}   [theorem]{Proposition}
+\newtheorem{corollary}     [theorem]{Corollary}
+\newtheorem{claim}         [theorem]{Claim}
+\newtheorem{fact}          [theorem]{Fact}
+\newtheorem{definition}    [theorem]{Definition}
+\newtheorem{example}       [theorem]{Example}
+\newtheorem{assumption}    [theorem]{Assumption}
+
+
+\newcommand{\course}{{\large CS6170: \textsc{Randomized} \textsc{Algorithms}}}
+\newcommand{\pset}[1]{{\large \textsc{Problem} \textsc{Set} \##1}}
+\newcommand{\due}[1]{{\textsc{Due}: #1}}
+\newcommand{\name}[1]{\textsc{Name}: \textcolor{Blue}{#1}}
+\newcommand{\rno}[1]{\textsc{Roll} \textsc{No}: \textcolor{Blue}{#1}}
+\pagestyle{plain}
+
+\DeclareMathOperator{\Var}{Var}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\Poi}{Poi}
+
+
+\begin{document}
+	
+	\hrule height 2pt
+	\vspace{2mm}
+	{\centering \course \par}
+	\vspace{1mm}
+	{\centering \pset{3}\par}
+	\vspace{1mm}
+	\noindent \name{Akash Roy} \\
+	\rno{CS22M007}\hfill \due{Sep 26, 23:59}
+	\vspace{2mm}
+	\hrule height 2pt
+	\vspace{2mm}
+	
+	\begin{questions}
+		
+				\question Consider the following hashing scheme where each item has two choices in the hash table to be placed. Suppose that each element is placed by choosing two positions at random, and placing it if at least one of the positions is empty. If an element encounters a collision, then the entire table is rehashed. 
+		
+			\begin{parts}
+					\part[5] Suppose that the elements are placed sequentially such that each element has two choices of where it should be placed, and is placed to avoid a collision. Show that there exists constants $c_1$ and $c_2$ such that after $c_1n^{2/3} - o(n^{2/3})$ elements are placed no collision has occurred with probability  at least $1/2$ and after $c_2n^{2/3} + o(n^{2/3})$ elements are placed at least one collision has occurred with probability at least $1/2$.
+					\begin{solution}
+						Discussed with \textbf{Krishna}
+                        Say $E_i$ is the event that ball thrown at the bins do not meet with collision.
+                        We are interested in the probability of the following event using union bound.
+                        \begin{align*}
+                            \Pr[E_1 \cup E_2 \cup \dots E_n] &\leq \displaystyle\sum_{i=1} ^{m} E_i\\
+                            &\leq \displaystyle\sum_{i=3} ^{m} \frac{(i - 1)(i - 2)}{n (n-1)}\\
+                            &\leq \frac{1}{n(n-1)} \displaystyle\sum_{i=3} ^{m} (i - 1)(i - 2)\\
+                            &\leq \frac{1}{n(n-1)} \frac{1}{3} m(m^2 - 3m + 2)
+                        \end{align*}
+                        Doing this trial for $m= an^{\frac{2}{3}} - bn^{\frac{2}{3}}$ then the probability $\Pr[E_1 \cup E_2 \cup \dots E_n]$ there is no collision becomes the following
+                        \begin{align}
+                            \Pr[E_1 \cup E_2 \cup \dots E_n] &\leq \displaystyle\sum_{i=1} ^{an^{\frac{2}{3}} - bn^{\frac{2}{3}}} E_i\\
+                            &= \frac{(a-b)(n^{\frac{4}{3}}(a-b)^2 + 3n^{\frac{2}{3}}(b-a) + 2)}{3(n-1)\sqrt[3]{n}}
+                        \end{align}
+
+                        Equation (2) is $\geq \frac{1}{2}$. With this we can say probability at least $\frac{1}{2}$ there is no collision till $an^{\frac{2}{3}} - o(n^{\frac{2}{3}})$.
+                        
+					\end{solution}
+		
+					\part[5] Generalize the result when each element has $k$ choices instead of two, with constants $c_1$ and $c_2$, and bounds $c_1n^{1-1/(k+1)} - o(n^{1-1/(k+1)})$ and $c_1n^{1-1/(k+1)} + o(n^{1-1/(k+1)})$.
+					\begin{solution}
+						Type your solution here.
+					\end{solution}
+			\end{parts}
+		
+			\question[10] Theorem~5.7 in Mitzenmacher and Upfal shows that any event that occurs with small probability in the balls and bins setting where the number of balls in each bin is an independent Poisson random variable also occurs with small probability in the standard balls and bins model. Recall that $G_{n,p}$ is a random graph model, where for each pair $(u,v)$ of vertices, we place an edge with probability $p$. Similarly $G_{n,N}$ is a random graph model, which corresponds to the uniform distribution over all graphs with $N$ edges.
+				
+			Prove that any event that occurs with small probability for a graph sampled from $G_{n,p}$ also occurs with small probability for a graph sampled from $G_{n,N}$ where $p = N/\binom{n}{2}$.
+				
+			You will have to state the corresponding theorem (analogous to Theorem~5.7) formally and prove it.
+			\begin{solution}
+				Discussed with Krishna \textbf{ee19d410@smail.iitm.ac.in}.
+    
+                Say there is some event $X$ related to the random Graph $G_{n, N}$ and $Y$ be the event in the random Graph $G_{n, p}$.
+                We are to show inequalities between event probability between Graph $G_{n, p}$ and Graph $G_{n, N}$.
+
+                Say $x_1, x_2, \dots x_{\binom{n}{2}}$ random variables taking values $1$ if $i^{th}$ edge is present in $G_{n, p}$ and $0$ otherwise.
+
+                From the structure of the graph it is clear that $\displaystyle\sum_{i} x_i = N$;
+
+                \begin{align*}
+                    \textbf{Pr}\left[\forall i \in {0 \to \binom{n}{2}} x_i = x_i^{(v)}\right] = \frac{1}{\binom{\binom{n}{2}}{N}}
+                \end{align*}
+                $x_i^{(v)}$ is some value taken by $x_i$ random variable.
+
+                Say $y_1, y_2, \dots y_{\binom{n}{2}}$ random variables takes value $1$ if $i^{th}$ edge is present in graph $G_{n, N}$, and $0$ otherwise.
+
+                \begin{align*}
+                    \textbf{Pr}\left[\forall i \: y_i = y_i ^{(v)} \bigm\vert \displaystyle\sum_{i=0} ^{\binom{n}{2}} y_i = N\right] &= \frac{\textbf{Pr}\left[\forall i \: y_i = y_i ^{(v)} \bigcap \displaystyle\sum_{i=0} ^{\binom{n}{2}} y_i = N\right]}{\textbf{Pr}\left[\displaystyle\sum_{i=0} ^{\binom{n}{2}} y_i = N\right]}\\
+                    &= \frac{p^N (1 -p)^{\binom{n}{2} - N}}{\binom{\binom{n}{2}}{N} p^N (1-p)^{\binom{n}{2} - N}}\\
+                    &= \frac{1}{\binom{\binom{n}{2}}{N}}\\
+                    &= \textbf{Pr}\left[\forall i \in {0 \to \binom{n}{2}} x_i = x_i^{(v)}\right]
+                \end{align*}
+
+                Let $f$ be a function such that maps from graph to a real positive number. Now
+                \begin{align*}
+                    E[f(y_1, y_2, \dots, y_{\binom{n}{2}})] &= \displaystyle\sum_{k = 0} ^{\binom{n}{2}} E\left[f(y_1, y_2, \dots, y_{\binom{n}{2}}) \mid \displaystyle\sum y_i = k\right] \textbf{Pr}\left[\displaystyle\sum y_i = k\right]\\
+                    &\geq E\left[f(y_1, y_2, \dots, y_{\binom{n}{2}}) \mid \displaystyle\sum y_i = N\right] \textbf{Pr}\left[\displaystyle\sum y_i = N\right]\\
+                \end{align*}
+
+                We can say that $\sum y_i \text{ is Binom}(\binom{n}{2}, p)$. Given in the question $p = \frac{N}{\binom{n}{2}}$
+                \begin{align*}
+                    E\left[f(y_1, y_2, \dots, y_{\binom{n}{2}})\right] &\geq E\left[f(y_1, y_2, \dots, y_{\binom{n}{2}}) \mid \displaystyle\sum y_i = N\right] \textbf{Pr}\left[\displaystyle\sum y_i = N\right]\\
+                    &\geq E\left[f(x_1, x_2, \dots, x_{\binom{n}{2}})\right] \frac{\binom{n}{2}! e^N}{\left(\binom{n}{2} - N!\right) e\sqrt{N} N^N} \frac{N^N}{\binom{n}{2}^N} \left(1 - \frac{N}{\binom{n}{2}}\right)^{\binom{n}{2} - N}\\
+                    &\geq E\left[f(x_1, x_2, \dots, x_{\binom{n}{2}})\right] \frac{1}{e\sqrt{N}} \frac{1}{\binom{n}{2}}^N \left(1 - \frac{N}{\binom{n}{2}}\right)^{\binom{n}{2} - N}
+                \end{align*}
+
+                $\left(1 - \frac{N}{\binom{n}{2}}\right)$ is $<1$ and rest of the terms are very low in value (1 over something exponential). So probability of happening something on Graph $G_{n, p}$ if low then its also low for that to happen in $G_{n, N}$.
+			\end{solution}
+		
+		\question In class, we saw a proof that, w.h.p, the size of any connected component in the Cuckoo graph is $O(\log n)$. In this problem, we will work out an alternate proof of the same using Cayley's formula that is given below.
+		
+		\begin{theorem}[Cayley's formula]
+			The number of distinct trees on $k$ vertices is $k^{k-2}$.
+		\end{theorem}
+		
+		Consider a random graph sampled from $G_{n,p}$ where $p=c/n$ for a constant $c<1$.
+		
+		\begin{parts}
+			\part[2] Let $X_k$ be the number of tree components on exactly $k$ vertices for a graph from $G_{n,p}$. A tree component on $k$ vertices will be connected by $k-1$ edges and will be disconnected from the remaining $n-k$ vertices. Show that
+			\begin{align*}
+				\E[X_k] &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{kn - \frac{k(k+3)}{2} +1}.
+			\end{align*}
+			\begin{solution}
+				Expected value of $X_k$ can be calculated like the following. First we choose $k$ nodes from set of $n$ nodes. That is $\binom{n}{k}$.
+
+                Number of trees possible with this $k$ number of nodes is $k^{k-2}$. For each of the trees, with $k - 1$ edges, all the $k - 1$ edges must exists each with probability $p$ hence $p^{k - 1}$.
+
+                For the rest of the $\binom{k}{2} - (k - 1)$ edges it must not exist with probability $(1-p)^{\binom{k}{2} - (k - 1)}$. Also from all the other remaining nodes $n - k$ nodes any edge must not connect to any node in the $k$ node group. Hence $(1-p)^{k(n - k)}$.
+
+                So now
+                \begin{align*}
+			     	\E[X_k] &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{\binom{k}{2} - (k - 1)} (1-p)^{k(n - k)}\\
+                    &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{\frac{k^2 -k}{2} - k + 1 + nk - k^2}\\
+                    &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{kn + \frac{-k^2 - 3k + 2}{2}}\\
+                    &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{kn - \frac{k(k+3)}{2} + 1}
+	       		\end{align*}
+   
+			\end{solution}
+			
+			\part[3] Show that for $1\leq k \leq \sqrt{n}$ 
+			\begin{align*}
+				\E[X_k] \leq C \frac{n}{ck^2} e^{(1-c+\ln c)k},
+			\end{align*}
+			for some constant $C$ and large enough $n$.
+			\begin{solution}
+                Using sterling approximation for $\binom{n}{k}$ and setting $p = \frac{c}{n}$
+				\begin{align*}
+				    \E[X_k] &= \binom{n}{k} k^{k-2} p^{k-1} (1-p)^{kn - \frac{k(k+3)}{2} + 1}\\
+                    &\leq \frac{e^k n^k}{k^k} \frac{k^k}{k^2} \frac{c^k}{n^k} \frac{n}{c} \left(1- \frac{c}{n}\right)^{kn} \left(1- \frac{c}{n}\right) \frac{1}{\left(1- \frac{c}{n}\right)^{O(k^2)}}
+				\end{align*}
+
+                For large enough n and very small $c<1$ $\left(1- \frac{c}{n}\right) \approx 1$.
+                Now we can proceed further:
+                because $1 \leq k \leq \sqrt{n}$ then we can write $O(k^2) \geq n$.
+                \begin{align*}
+				    \E[X_k] &\leq \frac{e^k n^k}{k^k} \frac{k^k}{k^2} \frac{c^k}{n^k} \frac{n}{c} \left(1- \frac{c}{n}\right)^{kn} \left(1- \frac{c}{n}\right) \frac{1}{\left(1- \frac{c}{n}\right)^{O(k^2)}}\\
+                    &\leq \frac{e^k}{k^2} c^k \frac{n}{c} e^{-ck} \frac{1}{(1 - \frac{c}{n})^n}\\
+                    &\leq \frac{e^k}{k^2} c^k \frac{n}{c} e^{-ck} e^c\\
+                    &\leq \frac{e^k}{k^2} e^{k \ln c} \frac{n}{c} e^{-ck} e^c\\
+                    &\leq \frac{1}{k^2} e^{k \ln c - ck + k} \frac{n}{c} e^c\\
+                    &\leq \frac{1}{k^2} e^{k \ln c - ck + k} \frac{n}{c} e^c\\
+                    &\leq e^c \frac{n}{ck^2} e^{k (1 + \ln c - c)}\\
+                    &\leq e^c \frac{n}{ck^2} e^{k (1 + \ln c - c)}\\
+                    &\leq C \frac{n}{ck^2} e^{k (1 + \ln c - c)}
+				\end{align*}
+                $C$ is a large enough constant.
+			\end{solution}
+			
+			\part[2] Using the same expression for $\E[X_k]$, show that
+			\begin{align*}
+				\frac{\E[X_{k+1}]}{\E[X_k]} &= (n-k)\left(1+ \frac{1}{k}\right)^{k-2} p(1-p)^{n-k-2},
+			\end{align*}
+			and in turn that,
+			\begin{align*}
+				\frac{\E[X_{k+1}]}{\E[X_k]} &\leq \left(1 - \frac{k}{n}\right)ce^{1-c(1-k/n)}\left(1 - \frac{c}{n}\right)^{-2}.
+			\end{align*}
+			\begin{solution}
+				\begin{align*}
+				    \frac{\E[X_{k+1}]}{\E[X_k]} &= \frac{\frac{n!}{(n-k-1)!(k!)(k+1)} (k+1)^{k + 1-2} p^{k - 1 + 1} (1-p)^{\left[(k + 1)n - \frac{(k+1)(k+4)}{2} + 1\right]}}{\frac{n!}{(n-k)!k!} (1 - p)^{\left[kn - \frac{k(k+3)}{2} + 1\right]} p^{k - 1}}\\
+                    &= (n-k) p (1-p)^{n - k - 2} \left[\frac{(k+1)}{k}\right]^{k-2}\\
+                    &= (n-k) \left[1 + \frac{1}{k}\right]^{k-2} p (1-p)^{n - k - 2}\\
+				\end{align*}
+
+                Putting $p = \frac{c}{n}$ the up-above equation becomes the following
+
+                \begin{align*}
+                    \frac{\E[X_{k+1}]}{\E[X_k]} &= (n - k) (1 + \frac{1}{k})^{k - 2} \frac{c}{n} (1 - \frac{c}{n})^{n - k - 2}\\
+                    &= c \frac{(n - k)}{n}(1 + \frac{1}{k})^{k - 2} (1 - \frac{c}{n})^{n - k - 2}\\
+                    &= c \left[1 - \frac{k}{n}\right](1 + \frac{1}{k})^{k - 2} (1 - \frac{c}{n})^{n - k - 2}\\
+                    &\leq c \left[1 - \frac{k}{n}\right] e^{1 - \frac{2}{k}} (1 - \frac{c}{n})^{-2} (1 - \frac{c}{n})^{n - k}\\
+                    &\leq c \left[1 - \frac{k}{n}\right] e^{1 - \frac{2}{k}} (1 - \frac{c}{n})^{-2} (e^{-c + \frac{ck}{n}})\\
+                    &\leq c \left[1 - \frac{k}{n}\right] (1 - \frac{c}{n})^{-2} (e^{1 - c(1 - k/n)}) e^{\frac{2}{k}}\\
+                    &\leq c \left[1 - \frac{k}{n}\right] e^{1 - c(1 - k/n)} \left(1 - \frac{c}{n}\right)^{-2}
+                \end{align*}
+			\end{solution}
+			
+			\part[2] Show that that $xe^{1-x} \leq 1$ for $x>0$, and conclude that
+			\begin{align*}
+				\frac{\E[X_{k+1}]}{\E[X_k]} &\leq \left(1 - \frac{c}{n}\right)^{-2}.
+			\end{align*}
+			\begin{solution}
+                We got the following equation 
+				\begin{align*}
+				    \frac{\E[X_{k+1}]}{\E[X_k]} &\leq c \left[1 - \frac{k}{n}\right] e^{1 - c(1 - k/n)} \left(1 - \frac{c}{n}\right)^{-2}
+				\end{align*}
+                For sufficiently large $n$ compared to $k$ we get the following inequalities $1- \frac{k}{n} \approx 1$, $c e^{1 - c(1 - k/n)} \approx ce^{1 - c} \leq 1$ from the question. Then $\frac{\E[X_{k+1}]}{\E[X_k]}$ becomes the following
+                \begin{align*}
+				    \frac{\E[X_{k+1}]}{\E[X_k]} &\leq c \left[1 - \frac{k}{n}\right] e^{1 - c(1 - k/n)} \left(1 - \frac{c}{n}\right)^{-2}\\
+                    &\leq 1 * 1 * \left(1 - \frac{c}{n}\right)^{-2}\\
+                    &= \left(1 - \frac{c}{n}\right)^{-2}
+				\end{align*}
+			\end{solution}
+			
+			\part[4] Using the above, argue that the maximum size of a tree component in $G$ is $O(\log n)$ with probability $1-o(1)$.
+			\begin{solution}
+				From the above formula if we set $k = \log n$ then 
+                \begin{align*}
+				    \frac{\E[X_{1 + \log n}]}{\E[X_{\log n}]} &\leq \left(1 - \frac{c}{n}\right)^{-2}
+				\end{align*}
+
+                This shows that expected number of $\log n$ tree component is much much more than expected number of $\log n + 1$ size tree component.
+                So with high probability G has a $O(\log n)$ maximum size tree component.
+                
+                Expected number of trees of size from $\log n$ size to $\log n + 1$ falls exponentially in $n$.
+			\end{solution}
+		\end{parts}
+	
+	\question Our goal in this problem is to show that there does not exist an online algorithm (randomized or deterministic) for the bipartite matching problem that gives a competitive ratio better than $1 - 1/e$. We will use Yao's minimax principle to achieve this.
+	
+	To that end, let us construct a probability distribution over the input instances of the online bipartite matching problem. First, let us assume that the $n$ vertices in $R$ are known, and let $\pi$ be a permutation of these vertices chosen uniformly at random. The $n$ vertices in $L$ arrive one-by-one and the $i^{th}$ vertex in $L$ has edges to the last $n-i+1$ vertices in $R$ according to the permutation $\pi$. 
+	
+	\begin{parts}
+		\part[1] Show that every bipartite graph sampled via the process above has a perfect matching.
+		\begin{solution}
+			Type your solution here.
+		\end{solution}
+		\part[3] Let $A$ be any deterministic online algorithm for bipartite matching. Prove that for every $i \in \{1,2,\ldots,n\}$, the probability that $A$ matches the $i^{th}$ vertex of $R$ to some vertex in $L$ is at most 
+		\begin{align*}
+			\min \left\{ \sum_{j=1}^n \frac{1}{n-j+1}, 1\right\}.
+		\end{align*}
+		\begin{solution}
+			Type your solution here.
+		\end{solution}
+		\part[3] Use the part above to conclude that for any deterministic online algorithm for bipartite matching, the expected size of the matching computed by it is at most $n(1 - 1/e)$.
+		\begin{solution}
+			Type your solution here.
+		\end{solution}
+	\end{parts}
+		
+	\end{questions}
+\end{document}

@@ -1,0 +1,165 @@
+\documentclass[12pt,a4, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+% \lhead{Leaft Header\\}
+% \rhead{Right Header\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+\newcommand{\RP}{\ensuremath{\mathsf{RP}}}
+\newcommand{\hamp}{\ensuremath{\mathsf{HamPath}}}
+\newcommand{\expect}[1]{\ensuremath{\mathbb{E}[#1]}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\NP}{\ensuremath{\mathsf{NP}}}
+\newcommand{\co}{\ensuremath{\mathsf{co}\mbox{-}}}
+
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Computability and Complexity theory\\
+    \LARGE Assignment \# 4\\[0.5em]
+    \large \today\\[0.5em]
+    \large \textsc{Roy, Akash} $\mid$ CS22M007\par
+    \large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
+\endgroup
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question Which of the following statements are true, which  are false? Give a short proof of your answers.
+    
+    \begin{parts}
+        \part If ${\sf NP} = {\sf P}$, then every  non-trivial language in ${\sf P}$ is ${\sf NP}$-complete.
+        \part Let $L, L'$ be languages that are non-trivial (i.e., neither empty nor $\Sigma^*$). If $L \subseteq L'$ and $L$ is ${\sf NP}$-hard, then $L'$ is ${\sf NP}$-hard.
+        \part There are $L$ and $L'$ such that $L \le_{m}^P L'$ but not $L' \le_{m}^P L$.
+    \end{parts}
+    
+    \begin{solution}
+        (a). The first statement is true. Every non-trivial problem in $\texttt{P}$ is then polynomial time reducible to every problem in $\texttt{NP}$ hence to SAT or Vertex-Cover, that is by definition $\texttt{NP}$ complete.
+
+        (b). Following is the definition for NP-Hardness,
+
+        \begin{define}{NP-Hardness}{define1}
+          \textit{A problem $A$ is NP-Hard if and only if all problems $y \in \text{NP} \leq_{m} ^{p}$ to A}.
+        \end{define}
+
+        From the definition any problem $y \in \text{NP}$ is polynomial time reducible to L. Now consider the language $L'$ which is from question $L \subseteq L'$ has all the strings from $L$. So L is properly contained within $L'$. So any NP problem is still poly-time reducible to strings of $L$ contained within $L'$. So all the problem in NP is now reducible to $L'$.
+
+        From definition \ref{th:define1} $L'$ is now NP-Hard. Hence the statement is true.
+
+        (c). Seems true. If $L = L'$ then it is always false. Now otherwise if $L \le_{m}^P L'$ that means there is a polynomial time computable function $f$ that checks $x \in L \iff f(x) \in L'$. Given there exists inverse of the polynomial time computable function $f^{-1}$ then it is entirely possible to construct $x \in L' \iff f^{-1}(x) \in L$. This gives $L' \le_{m}^P L$. This means if $f^{-1}$ is not possible to construct then this statement will hold for some language $L$ and $L'$.
+    \end{solution}
+    
+    \question Let $\hamp$ be the  language $\{G~|~ G \mbox{ has a Hamiltonian path}\}$.  Using the ideas used in the class, show that $\hamp$ is $\NP$-complete.
+    \newpage
+
+    % \includepdf[pages={1,2,3,4}]{np.pdf}
+
+    \question Show that  ${\sf SAT}\in \NP\cap\co\NP$ if and only if  $\NP=\co\NP$.
+
+    \begin{solution}
+        ${\sf SAT}$ is a NP complete problem. This means for all problems in NP polynomial time reducible to SAT. Say arbitrary problem $x \in$ NP.
+    
+        We can say that $x \leq_{m} ^P$ SAT. For forward direction: given SAT $\in$ NP $\cap$ $\co$NP, to show NP = $\co$NP.
+
+        \begin{theo}{$\co$NP completeness}{theoem1}
+          \textit{For all x $\in$ $\co$NP, x is poly-time reducible to any $\co$NP complete problem, for example $\co$SAT.}
+        \end{theo}
+        
+        From question SAT $\in$ NP and SAT $\in$ co-NP. As SAT $\in$ $\co$NP then we can say that SAT $\leq_{m} ^P$ $\co$SAT (from theorem \ref{th:theoem1} up above).
+
+        So let's take any problem $g \in NP$, $g \leq_{m} ^P$ SAT $\leq_{m} ^P$ $\co$SAT. This implies $g \leq_{m} ^P$ $\co$SAT. This implies $g \in$ $\co$NP. So for any $g \in$ NP $g$ is also in $\co$NP. Hence NP = $\co$NP.
+
+        \textbf{(reverse direction)} Given NP = $\co$NP, to show SAT $\in$ NP $\cap$ $\co$NP. This is trivial to show. We know SAT $\in$ NP and NP = $\co$NP, so NP = NP $\cap \: \co$NP. So SAT $\in$ NP $\cap \: \co$NP.
+
+        So we can say from the statements up above SAT $\in$ NP $\cap \: \co$NP $\iff$ NP = $\co$NP.
+    \end{solution}
+
+    \question Let $A$ be an $\NP$-complete language and $B$ be in ${\sf P}$. Prove that if $A \cap B = \phi$, then  $A \cup B$ is $\NP$-complete. What can you say about the complexity of $A \cup B$ if $A$ and $B$ are not known to be disjoint? Justify your answers.
+
+    \begin{solution}
+        There is turing machine running deterministic polynomial time accepting strings in $B$ and there is a turing machine running in non-deterministic polynomial time accepting strings in $A$. Say we construct a new non-deterministic polynomial time bounded turing machine for $A \cup B$ that'll accept strings from A as well as B in the following way
+
+        \begin{algorithm}[H]
+            \SetKwInOut{Input}{Input to the turing machine $M_{A \cup B}$}
+            \SetKwInOut{Output}{Output from turing machine}
+            
+            \Input{x}
+            \BlankLine
+            Run in parallel x on $M_A$ non-deterministically // turing machine for accepting A\\
+            Run in parallel x on $M_B$  // poly-time turing machine accepting B\\
+            \Output{Accept if either one accepts.}
+            \caption{\textsc{Turing Machine} $M_{A \cup B}$}
+        \end{algorithm}
+
+        This new turing machine has capability to accept any strings of A. A is a NP complete problem, as well as B which is in class P. So any new problem $f$ $\in NP$ I'll reduce this to A and then run on the machine $M_{A \cup B}$. This makes $A \cup B$ a NP complete problem.
+
+        No where in my solution I assumed anything about the disjoint-ness of A and B. So even if $A \cap B \neq \phi$ then also this statement holds $A \cup B$ is NP complete.
+    \end{solution}
+
+    \question Show that if ${\sf P} \ne \NP$, there cannot be a polynomial time algorithm that switches a {\sc CNF} formula to an {\sc DNF} formula preserving satisfiability.
+  
+    \begin{solution}
+        We should not be able to come up with a polynomial time conversion of \textsc{CNF} to \textsc{DNF} conditioned on the fact that $\text{P} \neq \text{NP}$. 
+
+        Say there is an algorithm $\mathbb{A}$ that converts a CNF formula to DNF formula in polynomial time. We know that 3-CNFSAT is NP complete. Now let's run the following algorithm POLY-SAT-Solver,
+
+        \newpage
+        \begin{algorithm}[H]
+            \SetKwInOut{Input}{Input to the algorithm}
+            \SetKwInOut{Output}{Output from algorithm}
+            
+            \Input{A $\phi$ formula in 3-CNF form}
+            \BlankLine
+            $\phi_{\textsc{DNF}}$ = $\mathbb{A}(\phi_{\textsc{CNF}})$   // Subroutine call to convert a CNF to DNF in polytime\\
+            Solve DNF-SAT($\phi_{\textsc{DNF}}$) in polynomial time as discussed in class.\\
+            \Output{True or False if $\phi_{\textsc{DNF}}$ is satisfiable}
+            \caption{\textsc{POLY-SAT-Solver}}
+        \end{algorithm}
+
+        Now our algorithm for 3-CNF-SAT runs in polynomial time. But as P $\neq$ NP and 3-CNF-SAT is NP complete this means 3-CNF-SAT must not run in polynomial time. So our algorithm {\sc POLY-SAT-Solver} is not possible to construct which depends upon algorithm $\mathbb{A}$, so algorithm $\mathbb{A}$ which is a poly-time CNF to DNF converter must not exist.
+    \end{solution}
+
+    \question Let $M$ be a deterministic Turing machine that only queries oracle strings that are shorter than the input string. Show that if $A = L(M^A)$ and $B = L(M^B)$ then $A = B$. (Hint: show that for all $n$, $A^{\le n} = B^{\le n}$ using induction starting with $n=1$. Here, $A^{\le n}$ represents set of all  strings of  length at most $n$ in $A$.)
+    \newpage
+    \begin{solution}
+        \begin{hypothesis}{Induction hypothesis}{theoem1}
+          \textit{$\forall x \in \{0, 1\}^{n}$ the statement L($M^{A}$) = L($M^{B}$) holds good.}
+        \end{hypothesis}
+        To show this holds good for $\forall x \in \{0, 1\}^{n + 1}$. Enough to show for all $x \in \{0, 1\}^{n + 1}$ $x \in A \iff x \in B$.
+
+        \textbf{For base case} $x = \epsilon$ this statement holds true. Because for string $\epsilon$ the turing machine $M$ do not call any oracle (there is nothing less than the size of $\epsilon$ string). So for $x = \epsilon$, $M^A = M = M^B$. So if $x \in L(M^A) = L(M)$ then $x \in L(M) = L(M^B)$.
+
+        Say $x \in A$ then from definition $M^A$ accepts $x$ because given in the question A = L($M^A$). Similarly if $x \in B$ then from definition $M^B$ accepts $x$ because given in the question B = L($M^B$).
+
+        For input $x \in \{0, 1\}^{n + 1}$ turing machine quires oracle in $\{0, 1\}^n$. From hypothesis $M^A$ can be replaced by $M^B$. For input length $n$ A = B. So changing oracle from A to B thus replacing $M^A$ with $M^B$ does not change the output of $M$, meaning $M^A = M^B$. Thus if $x \in A$ then $x \in B$ and vice versa. 
+        
+        Similarly if $x \notin A$ then $x \notin B$ and vice-versa. With this we can say $x \in A \iff x \in B$. So we can say the following theorem
+
+        \begin{theo}{}{theoem2}
+          \textit{$\forall x \in \{0, 1\}^{n}$ the statement L($M^{A}$) = L($M^{B}$) holds good if A = $L(M^A)$ and B = $L(M^B)$ where $M^l$ is a deterministic turing machine, with access to $l$ oracle and $M$ only queries shorter string than the input string.}
+        \end{theo}
+    \end{solution}
+\end{questions}
+\end{document}

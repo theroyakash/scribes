@@ -1,0 +1,110 @@
+\documentclass[12pt,a4, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+% \lhead{Leaft Header\\}
+% \rhead{Right Header\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+\newcommand{\RP}{\ensuremath{\mathsf{RP}}}
+\newcommand{\expect}[1]{\ensuremath{\mathbb{E}[#1]}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\NP}{\ensuremath{\mathsf{NP}}}
+\newcommand{\co}{\ensuremath{\mathsf{co}\mbox{-}}}
+\newcommand{\NL}{\ensuremath{\mathsf{NL}}}
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Computability and Complexity theory\\
+    \LARGE Assignment \# 5\\[0.5em]
+    \large \today\\[0.5em]
+    \large \textsc{Roy, Akash} $\mid$ CS22M007\par
+    \large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
+\endgroup
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question Which of the following statements are true, which are false? Give a short proof of your answers.
+    
+    \begin{parts}
+        \part If $L$ and $L'$ are ${\sf P}$-complete, so is $L \cup L'$.
+            \begin{solution}
+                
+            \end{solution}
+        \part If ${\sf L} = {\sf P}$, then every nontrivial language in ${\sf L}$ is ${\sf P}$-complete.
+            \begin{solution}
+                
+            \end{solution}
+        \part $\operatorname{\mathsf{PolyL}} \stackrel{\triangle}{=} \bigcup_{i \in {\mathbb N}} {\sf DSpace}(\log^i n)$ has complete problems (under log space many-one reductions).
+            \begin{solution}
+                
+            \end{solution}
+    \end{parts}
+
+    \question Show that the following problem  is hard for {\sf NL} under log-space many-one reductions. Input: A set $A$ with an associative binary operation `$*$', a subset $S\subseteq A$, and an element $w\in A$.\\
+    Output: YES if there is a set of elements $a_1, \ldots, a_k\in S$ such that $a_1*a_2*\ldots * a_k= w$.\\
+    Assume that $A$ is closed under $*$. Is the problem complete for $\NL$? Prove your answer.
+
+    \begin{solution}
+        
+    \end{solution}
+
+    \question Let $G=(V,E)$ be a directed graph. Consider two persons playing the
+    following game: The first player occupies some given vertex $v_0$.
+    Then the second player chooses a non-occupied neighbor $v_1$ of
+    $v_0$ (i.e.\ $(v_0, v_1)\in E$) and occupies it. Then the first
+    player chooses some non-occupied neighbor $v_2$ of $v_1$ and
+    occupies it (in addition to $v_0$). The game is continued in this
+    way until one play is not able to extend the path $v_0, v_1, \ldots$
+    by a non-occupied neighbor of the current vertex. The player who
+    played the last move wins the game.
+    
+    ${\sf GEO}$ is the following problem: Given a directed graph $G$ and a
+    vertex $v_0$ of $G$ decide whether the first player has a winning
+    strategy for the game above.
+    
+    Prove that ${\sf GEO}$ is ${\sf PSPACE}$-complete.
+
+    \begin{solution}
+        
+    \end{solution}
+
+    \question Let $G=(V,E)$ be a directed graph. Two vertices $u$ and $v$ are said to be strongly connected if there is a directed  path from $u$ to $v$ in $G$ as well as there is a directed path from $v$ to $u$ in $G$. Let \[ {\sf StrConn} = \{\langle G, s,t \rangle\ |\ s \text{ and } t \text{ are}  \ \text{ strongly connected in }G\}.\] Show that ${\sf StrConn}$ is $\NL$-complete (under logarithmic space many-one reductions.)
+  
+    \begin{solution}
+        
+    \end{solution}
+
+    \question A language $A$ is called \emph{downward self-reducible}, if there is a polynomial time oracle deterministic Turing machine $M$ that on input $x$, only queries oracle strings with length $< |x|$ such that $A = L(M^A)$.
+    \begin{parts}
+	\part Show that {\sf SAT} is downward self reducible.
+	\part Show that if $A$ is downward self reducible, then $A \in {\sf PSPACE}$.
+    \end{parts}
+
+    \begin{solution}
+        
+    \end{solution}
+\end{questions}
+\end{document}
