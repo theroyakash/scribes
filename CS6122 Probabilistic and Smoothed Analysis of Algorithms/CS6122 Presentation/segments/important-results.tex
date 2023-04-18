@@ -1,0 +1,186 @@
+\begin{frame}{Important Results - Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+        \item In average case complexity we consider a decision problem along with a distribution $D$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+        \item In average case complexity we consider a decision problem along with a
+            distribution $D$
+        \item Similary here for smoothed complexity we'll consider a decision problem $L$
+            along with a distribution $D$ where $L \subseteq \{0,1\}^{*}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Complexity Class \textsf{Smoothed-P}}
+
+    \begin{center}
+        \textit{\textsf{Smoothed-P} is the class of all $ (\mathcal{L}, \mathcal{D})$ such that there is a
+            deterministic algorithm $\mathcal{A}$ with smoothed polynomial running time that decides $\mathcal{L}$}.
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Complexity Class \textsf{Smoothed-P}}
+
+    \textbf{Theorem 1} \textit{An algorithm $\mathcal{A}$ has smoothed polynomial running time if and only if
+        there is an $\epsilon > 0$ and a polynomial $p$ such that for all $n, \phi, x$ and $t$}
+
+    \begin{align*}
+        \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] \leq \frac{p(n)}{t^{\epsilon}} N_{n,x} \phi
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Theorem 1}
+
+    $(\implies)$ Forward Direction
+
+    Let $A$ be an algorithm whoose running time $t_A$ fulfills Definition 1:
+
+    \begin{align*}
+        \mathbb{E}_{y \sim D_{n, x, \phi}} \left(t_A(y; n, \phi) ^{\epsilon}\right) = O(nN_{n,x}\phi)
+    \end{align*}
+
+    Via Markov's inequality we can say that
+
+    \begin{align*}
+        \Pr[t_A(y; n, \phi) \geq t] & = \Pr[t_A(y; n, \phi)^\epsilon \geq t^\epsilon]                                                                      \\
+                                    & \geq \frac{\mathbb{E}_{y \sim D_{n, x, \phi}}(t_A(y; n, \phi)^\epsilon)}{t^\epsilon} = O(nN_{n,x}\phi t^{-\epsilon})
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    $(\impliedby)$ Backward Direction
+
+    Assume that
+
+    \begin{align*}
+        \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] \leq \frac{n^c}{t^{\epsilon}} N_{n,x} \phi
+    \end{align*}
+
+    for some constant $c, \epsilon$. Let $\epsilon' = \frac{\epsilon}{c + 2}$. Then
+    we have
+
+    \begin{align*}
+        \mathbb{E}_{y \sim D_{n, x, \phi}}\left(t_A(y; n, \phi) ^{\epsilon'}\right) & = \displaystyle\sum_{t} \Pr\left[\left(t_A(y; n, \phi) ^{\epsilon'}\right) \geq t\right]                        \\
+                                                                                    & \leq n + \displaystyle\sum_{t \geq n} \Pr\left[\left(t_A(y; n, \phi)\right) \geq t^{\frac{1}{\epsilon'}}\right] \\
+                                                                                    & \leq n + \displaystyle\sum_{t \geq n} t^{-2}N_{n, x} \phi = n + O(N_{n, x} \phi) = O(nN_{n, x} \phi)
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \begin{center}
+        A different way to think about efficiency in the smoothed setting is via Heuristic Schemes.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \begin{center}
+        The notion of Heuristic Schemes comes from the observation that we might be able to run the algorithm for
+        polynomially many steps and if it does not succeed within that time it will return failure.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \textbf{Definition 2} \textit{Let $(\mathcal{L}, \mathcal{D})$ be a smoothed distributional problem. An algorithm A is an error less Heuristic Scheme for
+        $(\mathcal{L}, \mathcal{D})$ if there exists a polynomial q such that}
+
+    \begin{itemize}
+        \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $A(y; n, \phi, \delta)$ outputs either $\mathcal{L}(y)$ or $\bot$},
+        \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $t_A(y; n, \delta) \leq q(n, N_{n,x},\phi, \frac{1}{\delta})$},
+        \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $\Pr_{y \sim D_{n, x, \phi}}[A(y; n, \phi, \delta) = \bot] \leq \delta$}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsf{Smoothed-P} with respect to Heuristic Schemes}
+
+    \begin{center}
+        With the definition from the last slide for Heuristic Scheme,\\We state the following theorem
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Theorem: Heuristic Schemes and \textsf{Smoothed-P}}
+
+    \textbf{Theorem 2:} $(\mathcal{L}, \mathcal{D}) \in \textsf{Smoothed-P}$ \textit{if and only if} $(\mathcal{L}, \mathcal{D})$ \textit{has an error less Heuristic Scheme} $\mathcal{H}$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Theorem 2}
+
+    $(\implies)$ Forward Direction,
+
+    Let $\mathcal{A}$ be an algorithm for $(\mathcal{L}, \mathcal{D})$. By Theorem
+    1 we can say
+
+    \begin{align*}
+        \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] = O(n N_{n,x} \phi t^{-\epsilon})
+    \end{align*}
+
+    Now all is left, is to construct $\mathcal{H}$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Constuction of $\mathcal{H}$}
+
+    \begin{algorithm}[H]
+        \SetKwInOut{Input}{Input}
+        \caption{$\mathcal{H}$}
+
+        Run algorithm $A$ for $(n \cdot \frac{N_{n, x} \cdot \phi}{\delta}) ^{\frac{1}{\epsilon}}$ steps.\\
+        \uIf{If $A$ stops within this many steps}{
+            Output whatever $A$ Outputs\;
+        }
+        \Else{
+            Output $\bot$.
+        }
+    \end{algorithm}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Properties of $\mathcal{H}$}
+
+    \begin{itemize}
+        \item By the choice of the parameter $t = (n \cdot \frac{N_{n, x} \cdot \phi}{\delta}) ^{\frac{1}{\epsilon}}$ probability that $\mathcal{H}$ outputs $\bot$ is at most $\delta$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Properties of $\mathcal{H}$}
+
+    \begin{itemize}
+        \item By the choice of the parameter $t = (n \cdot \frac{N_{n, x} \cdot \phi}{\delta}) ^{\frac{1}{\epsilon}}$ probability that $\mathcal{H}$ outputs $\bot$ is at most $\delta$
+        \item $\mathcal{H}$ is correct and is a Heuristic Scheme according to the Definition 2.
+    \end{itemize}
+
+\end{frame}
+

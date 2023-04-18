@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  17 APR 2023 21:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/theroyakash/Documents/scribe/CS6122 Presentation/main.tex"
-(/Users/theroyakash/Documents/scribe/CS6122 Presentation/main.tex
+**"/Users/theroyakash/Documents/scribe/CS6122 Probabilistic and Smoothed Analysis of Algorithms/CS6122 Presentation/main.tex"
+(/Users/theroyakash/Documents/scribe/CS6122 Probabilistic and Smoothed Analysis of Algorithms/CS6122 Presentation/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/02/20 v3.69 A class for typesetting presentations
@@ -588,31 +588,81 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box85
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.0.1'
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count341
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@tcb@cnt@theo=\count341
-\c@tcb@cnt@hypothesis=\count342
-\c@tcb@cnt@define=\count343
+\algocf@hangindent=\skip65
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count342
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip66
+\skiplinenumber=\skip67
+\skiprule=\skip68
+\skiphlne=\skip69
+\skiptext=\skip70
+\skiplength=\skip71
+\algomargin=\skip72
+\skipalgocfslide=\skip73
+\algowidth=\dimen296
+\inoutsize=\dimen297
+\inoutindent=\dimen298
+\interspacetitleruled=\dimen299
+\interspacealgoruled=\dimen300
+\interspacetitleboxruled=\dimen301
+\algocf@ruledwidth=\skip74
+\algocf@inoutbox=\box86
+\algocf@inputbox=\box87
+\AlCapSkip=\skip75
+\AlCapHSkip=\skip76
+\algoskipindent=\skip77
+\algocf@nlbox=\box88
+\algocf@hangingbox=\box89
+\algocf@untilbox=\box90
+\algocf@skipuntil=\skip78
+\algocf@capbox=\box91
+\algocf@lcaptionbox=\skip79
+\algoheightruledefault=\skip80
+\algoheightrule=\skip81
+\algotitleheightruledefault=\skip82
+\algotitleheightrule=\skip83
+\c@algocfline=\count343
+\c@algocfproc=\count344
+\c@algocf=\count345
+\algocf@algoframe=\box92
+\algocf@algobox=\box93
+)
+\c@tcb@cnt@theo=\count346
+\c@tcb@cnt@hypothesis=\count347
+\c@tcb@cnt@define=\count348
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -650,16 +700,16 @@ LaTeX Font Info:    ... okay on input line 35.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count344
-\scratchdimen=\dimen296
-\scratchbox=\box86
-\nofMPsegments=\count345
-\nofMParguments=\count346
+\scratchcounter=\count349
+\scratchdimen=\dimen302
+\scratchbox=\box94
+\nofMPsegments=\count350
+\nofMParguments=\count351
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count347
-\MPscratchDim=\dimen297
-\MPnumerator=\count348
-\makeMPintoPDFobject=\count349
+\MPscratchCnt=\count352
+\MPscratchDim=\dimen303
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
 \everyMPtoPDFconversion=\toks48
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -667,7 +717,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 37.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -688,7 +738,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 <iitm.png, id=41, 823.075pt x 863.225pt>
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 36.
+Package pdftex.def Info: iitm.png  used on input line 38.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -885,14 +935,14 @@ Package pdftex.def Info: iitm.png  used on input line 12.
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 20.
+Package pdftex.def Info: iitm.png  used on input line 22.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [28
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 31.
+Package pdftex.def Info: iitm.png  used on input line 32.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [29
 
@@ -924,6 +974,62 @@ Package pdftex.def Info: iitm.png  used on input line 94.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [33
 
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 103.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [34
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 116.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [35
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 125.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [36
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 132.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [37
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 147.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [38
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 165.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [39
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 175.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [40
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 185.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [41
+
 ])
 \tf@nav=\write6
 \openout6 = `main.nav'.
@@ -939,18 +1045,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 12A49A76DDE0ECA311CE569BF4801766;360.
  ) 
 Here is how much of TeX's memory you used:
- 25470 strings out of 476025
- 524282 string characters out of 5790017
+ 26555 strings out of 476025
+ 542966 string characters out of 5790017
  1865388 words of memory out of 5000000
- 45314 multiletter control sequences out of 15000+600000
+ 46367 multiletter control sequences out of 15000+600000
  527921 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,122p,437b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,122p,494b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (33 pages, 903181 bytes).
+Output written on main.pdf (41 pages, 923805 bytes).
 PDF statistics:
- 1179 PDF objects out of 1200 (max. 8388607)
- 1058 compressed objects within 11 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 1420 PDF objects out of 1440 (max. 8388607)
+ 1289 compressed objects within 13 object streams
+ 86 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
