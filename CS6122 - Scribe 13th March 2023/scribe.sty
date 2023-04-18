@@ -1,0 +1,37 @@
+\oddsidemargin 0in \evensidemargin 0in \marginparwidth 40pt
+\marginparsep 10pt \topmargin 0pt \headsep 0in \headheight 0in
+\textheight 8.5in \textwidth 6.5in \brokenpenalty=10000
+
+\def\ScribeStr{??}
+\def\LecStr{??}
+\def\LecNum{??}
+\def\LecTitle{??}
+\def\LecDate{??}
+\newcommand{\Scribe}[1]{\def\ScribeStr{Scribe: #1}}
+\newcommand{\Scribes}[1]{\def\ScribeStr{Scribes: #1}}
+\newcommand{\Lecturer}[1]{\def\LecStr{Lecturer: #1}}
+\newcommand{\Lecturers}[1]{\def\LecStr{Lecturers: #1}}
+\newcommand{\LectureNumber}[1]{\def\LecNum{#1}}
+\newcommand{\LectureDate}[1]{\def\LecDate{#1}}
+\newcommand{\LectureTitle}[1]{\def\LecTitle{#1}}
+
+\newdimen\headerwidth
+
+\newcommand{\MakeScribeTop}{
+\noindent
+\begin{center}
+  \framebox{
+    \vbox{
+      \headerwidth=\textwidth
+      \advance\headerwidth by -0.22in
+      \hbox to \headerwidth {\hfill CS6122 - Probabilistic and smoothed analysis of Algorithms}
+      \vspace{4mm}
+      \hbox to \headerwidth {{\Large \hfill Lecture \LecNum: {\LecTitle} \hfill}}
+      \vspace{2mm}
+      \hbox to \headerwidth {\hfill \LecDate \hfill}
+      \vspace{2mm}
+      \hbox to \headerwidth {{\it \LecStr \hfill \ScribeStr}}
+      }
+    }
+\end{center}
+\vspace*{4mm}}

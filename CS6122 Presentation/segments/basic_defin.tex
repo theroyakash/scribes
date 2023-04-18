@@ -1,0 +1,140 @@
+\begin{frame}{Basic Definitions}
+    \begin{itemize}
+        \item In numerical problems it is easy to let an adversary come up with worst case example and then perturb the instance via some distribution (for example Gaussian Perturbation).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Definitions}
+    \begin{itemize}
+        \item In numerical problems it is easy to let an adversary come up with worst case example and then perturb the instance via some distribution (for example Gaussian Perturbation).
+        \item However for general problems this model can not be used.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Definitions}
+    \begin{itemize}
+        \item In numerical problems it is easy to let an adversary come up with worst case example and then perturb the instance via some distribution (for example Gaussian Perturbation).
+        \item However for general problems this model can not be used.
+        \item From Beier Vöcking's model we'll let an adversary choose the whole probability distribution. Let's define the model more formally,
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beier Vöcking's One Step Model}
+    \textit{Any input $X$ of length $n$ with $X = (x_1, \dots, x_n) \in F^n$ where $F$ is the domain, with parameter $\phi$ and an adversary who chooses density functions bounded by $\phi$ as $\{f_1, \dots, f_n\}$ such that $f_i:F\to [0, \phi]$, an algorithm $\mathcal{A}$'s smoothed performance measure given by the following}
+    \begin{center}
+        \begin{align*}
+            \textit{smoothed performance }(\mathcal{A}) = \: \substack{\mathbb{E} \\ {X = (x_1, \dots, x_n), \: x_i \sim f_i: D_{n, x, \phi}}} \left[\mathcal{A}(X)\right]
+        \end{align*}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Formal Definition of the Model}
+    \begin{center}
+        Our perturbation models are families of distribution $\mathcal{D} = (D_{n, \phi, x})$ where $n$ is the size of the input $x$, and $\phi$ is the upper bound on the maximum density of the probability distributions.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Properties of Distribution}
+
+    \begin{center}
+        For every $n, x, \phi$ the support of the distribution should be
+        of size $\{0,1\} ^{\leq \text{poly}(n)}$.
+    \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{$N_{n, x} \textsf{ and } S_{n, x}$}
+
+    \begin{center}
+        We define $N_{n, x} \text{ and } S_{n, x}$ here.
+    \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{$N_{n, x} \textsf{ and } S_{n, x}$}
+
+    \begin{align*}
+        S_{n, x} &= \{y \: \vert \: D_{n, x, \phi}(y) > 0 \text{ for some } \phi\} \\
+        N_{n, x} &= \vert S_{n, x} \vert
+    \end{align*}
+
+\end{frame}
+
+
+\begin{frame}{Some Properties of Distribution}
+    \begin{itemize}
+        \item We say $\mathcal{D}$ is parameterized by $n, \phi, x$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Some Properties of Distribution}
+    \begin{itemize}
+        \item We say $\mathcal{D}$ is parameterized by $n, \phi, x$.
+        \item For all $n, \phi, x$ and $y$ we demand $D_{n, \phi, x}(y) \leq \phi$,
+        We choose $\phi$ $\in [\frac{1}{N_{n, x}}, 1]$ and $n$ is the size of input $x$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Some Properties of Distribution}
+    \begin{itemize}
+        \item We say $\mathcal{D}$ is parameterized by $n, \phi, x$.
+        \item For all $n, \phi, x$ and $y$ we demand $D_{n, \phi, x}(y) \leq \phi$,
+        We choose $\phi$ $\in [\frac{1}{N_{n, x}}, 1]$ and $n$ is the size of input $x$.
+        \item Choice of $\phi$ determines the strength of perturbation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Some Properties of Distribution}
+    \begin{itemize}
+        \item We say $\mathcal{D}$ is parameterized by $n, \phi, x$.
+        \item For all $n, \phi, x$ and $y$ we demand $D_{n, \phi, x}(y) \leq \phi$,
+        We choose $\phi$ $\in [\frac{1}{N_{n, x}}, 1]$ and $n$ is the size of input $x$.
+        \item Choice of $\phi$ determines the strength of perturbation.
+        \item If we choose $\phi = 1$ this corrsoponds to worst case complexity and setting $\phi = \frac{1}{N_{x, \phi}}$ is average case complexity. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Some Properties of Distribution}
+    \begin{itemize}
+        \item We say $\mathcal{D}$ is parameterized by $n, \phi, x$.
+        \item For all $n, \phi, x$ and $y$ we demand $D_{n, \phi, x}(y) \leq \phi$,
+        We choose $\phi$ $\in [\frac{1}{N_{n, x}}, 1]$ and $n$ is the size of input $x$.
+        \item Choice of $\phi$ determines the strength of perturbation.
+        \item If we choose $\phi = 1$ this corrsoponds to worst case complexity and setting $\phi = \frac{1}{N_{x, \phi}}$ is average case complexity. 
+        \item The choice of $\phi$ must be discretized such that it can be represented within polynomial many bits.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Smoothed Polynomial Running Time}
+
+    \textbf{Definition 1} \textit{An algorithm $\mathcal{A}$ has smoothed polynomial
+    running time with respect to the distribution family $\mathcal{D}$
+    if there exists an $\epsilon > 0$ such that, for all $n, \phi, x$, we have}
+
+    \begin{align*}
+        \mathbb{E}_{y \sim D_{n, x, \phi}} \left(t_A(y; n, \phi) ^{\epsilon}\right) = O(nN_{n,x}\phi)
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analysing the Definition}
+    
+    \begin{center}
+        Note that the up-above result do not speak about the expected running time, it takes
+        into account for the $\epsilon$ moment of the expected running time.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analysing the Definition}
+    
+    \begin{center}
+        This is because the expected running time is not robust.
+    \end{center}
+\end{frame}

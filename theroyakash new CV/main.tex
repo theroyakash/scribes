@@ -1,0 +1,198 @@
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[10pt,a4paper]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstylef' and 'banking'
+% \moderncvcolor{grey}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% \renewcommand{\familydefault}{\rmdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{fontspec}
+\setmainfont{CMUSerif}
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+% adjust the page margins
+\usepackage[scale=0.9]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+
+% personal data
+\name{Roy}{Akash}
+\title{CS22M007}
+\insti{M.Tech CS | Indian Institute of technology, Madras}
+% \extrainfo{Roll Number: CS22M007}
+% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{+91-9163611726}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{hey@theroyakash.com}                               % optional, remove / comment the line if not wanted
+\homepage{www.theroyakash.com}                         % optional, remove / comment the line if not wanted
+
+\extrainfo{\homepagesymbol \httplink{www.github.com/theroyakash}}
+                % optional, remove / comment the line if not wanted
+                % optional, remove / comment the line if not wanted
+\photo[64pt][0.4pt]{logo.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Love thy journey, never thy destination!}                           
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+%\makecvtitle
+\hypersetup{
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\noindent
+\begin{minipage}{.78\textwidth}
+ \makecvtitle
+\end{minipage}%
+\begin{minipage}{.30\textwidth}
+  \centering
+  \includegraphics[height=3cm]{logo.png}
+\end{minipage}
+\vspace{-1em}
+
+\section{Education}
+\begin{minipage}{\textwidth}
+\centering
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|p{3cm}|p{8cm}|p{2cm}|p{3cm}|}
+\hline
+\textbf{Program} & \textbf{Institution} & \textbf{\%/CGPA} & \textbf{Year} \\ \hline
+\textbf{M.Tech in CS} & Indian Institute of Technology, Madras & 8.25/10 & 2022-2024 \\ \hline
+\textbf{B.Tech in CS} & Government College of Engineering and Ceramic technology & 8.94/10 & 2018-2022 \\ \hline
+\textbf{HS (Class 12)} & Barasat Mahatma Gandhi Memorial High School & 78.60\% & 2018 \\\hline
+\textbf{Class 10} & Barasat Mahatma Gandhi Memorial High School & 88.71\% & 2016 \\
+\hline
+\end{tabular}
+
+\end{minipage}
+
+\vspace{1em}
+\section{Work Experience}
+\cventry{}{Got internship offer within one months of joining IIT Madras}{Upcoming SDE intern at Amazon India}{Summer of 2023}{}{}
+
+\cventry{}{Introduction to programming CS1100, Object Oriented Programming CS2810}{Teaching Assistant at Department of Computer Science, IIT Madras}{August 2022 - July 2024}{}{}
+\cvlistitem{Taught and managed total of 15 students from Mechanical, Metallurgy and Naval Architecture department students at IIT Madras for the course CS1100 Introduction to Programming from November 2022 to February 2023.}
+\cvlistitem{Taught and managed second year CS B.Tech students at IIT Madras for the course CS2810 Object Oriented design from January 2023 to May 2023.}
+
+\section{Publications}
+% \cventry{IIT Madras}{During M.Tech}{Distributed Systems Design, a foundational book}{Spring 2022}{Book Coming Soon}{}
+% \cvlistitem{Building distributed systems is difficult, often challenging. To get started with system designing I wrote this book when I was starting to learn distributed systems from scratch}
+% \cvlistitem{This book introduces people to the concept of distributed systems, tools and algorithms that one need to build those systems helping them switch from \textbf{monolith} to \textbf{microservices} if needed in no time.}
+
+\vspace{2mm}
+\cventry{}{Over 400+ five star ratings}{Python basics to get started book}{Spring 2020}{Available on \href{https://play.google.com/store/books/details/theroyakash_Python_Basics_to_get_started?id=ZaSTDwAAQBAJ}{\textcolor{blue}{Google Play}}}{}
+\cvlistitem{Python basics to get started is a introductory python book for first year freshman students to get started with programming with python. With over 20,000 copies sold in last 3 years, my python introduction book is widely used by my juniors from B.Tech college and received over 400+ five star ratings.}
+
+% technical skills
+\section{Technical Skills}
+\cvlistdoubleitem{
+{\textbf{Programming Language}}: C, C++, Python, Java, GoLang}{
+{\textbf{Web}}: Python-Flask, Springboot}
+
+\cvlistdoubleitem{
+{\textbf{Database Systems}}: MySQL PostgreSQL, NoSQL}{
+{\textbf{Systems}}: Docker, Redis}
+
+\cvlistitem{{\textbf{Computer Science Fundamentals}:} {Operating Systems, Computer Networks, Database Management Systems, Theory of Computation, Randomized algorithms.}}
+
+
+% KEY Projects
+
+\section{Key Projects}
+
+\cventry{Indian Institute of Technology, Madras}{Bootstrap CSS, Python, Flask, Sessions, SQLite3}
+{{\href{https://github.com/theroyakash/passwordManager}{\textcolor{blue}{Password Manager}}}}{March 2022 to July 2022}{}{}
+\cvlistitem{Web-based locally-runnable password manager, that stores unlimited passwords in a local SQLite3 database,}
+\cvlistitem{Users are supposed to create a local account with a master password to manage and store passwords under that account. Data is stored in the user's personal computer so there is no chance of data leak, users also have the option to self-host on any PaaS platform.}
+\cvlistitem{Users have the options to create multiple local profiles and store separate login information in separate profiles and users also have the option to generate really long hard to guess, random passwords that they can use in any services they want.}
+
+\cventry{Indian Institute of Technology, Madras}{Free interview preparation platform}
+{{\href{https://algorithms.theroyakash.com}{\textcolor{blue}{algorithms.theroyakash.com}}}}{Feb 2022 to Aug 2022}{}{}
+\cvlistitem{Used by 400+ monthly active users, these are materials for FAANG and top startup coding interviews,}
+\cvlistitem{Has over 130+ interview questions with detailed explanations on several data structures and algorithm concepts. It is used as a starting point for bachelor and master in computer science students to start their interview preparations.}
+
+\vspace{2mm}
+
+% \cventry{Indian Institute of Technology, Madras}{Python, Flask, Redis, MySQL, Docker}
+% {\textit{{\href{https://github.com/dnofs}{\textcolor{blue}{DNofS}}}} }{Aug 2022}{}{}
+% \cvlistitem{DNofS is a \textbf{Flask Python} based \textbf{distributed} notification service implementation that can scale up to \textbf{millions of customers} to \textbf{reliably} deliver notifications,}
+% \cvlistitem{The primary purpose of such service is to provide central or local government or the police the capability to deliver disaster notifications to \textbf{millions of residences}.}
+% \cvlistitem{DNofS includes a client-side end-point that users can opt-out of, a client to issue notifications from, databases to store subscribers, and a soft real-time system server.}
+
+% \vspace{2mm}
+
+\cventry{}{Python Package with PIP}
+{\textit{{\href{https://github.com/theroyakash/AKDSFramework}{\textcolor{blue}{AKDSFramework}}}}}{Nov 2020 - Sep 2021}{}{}
+\cvlistitem{Pure pythonic, efficient implementations for all popular data-structures and algorithms. AKDSFramework provides one line \href{https://publications.theroyakash.com/benchmark-your-python-program}{\textcolor{blue}{benchmarking tools}}, easy to use, one of a kind \href{https://publications.theroyakash.com/introducing-an-efficient-big-o-analyzer}{\textcolor{blue}{Big O analyzer}}, and also  \href{https://publications.theroyakash.com/cache-your-code}{\textcolor{blue}{ a caching decorator}}.}
+\cvlistitem{AKDSFramework has API to draw graphs from a AKDSFramework graph object (using mermaid-js API in Python which is contributed to {\href{https://github.com/mermaid-js/mermaid/issues/1791}{\textcolor{blue}{ the mermaid project}}} by me). All run-able functions, modules are tested with python unit tests using github actions on three different major operating systems.}
+\cvlistitem{See open source on  \href{https://github.com/theroyakash/AKDSFramework}{\textcolor{blue}{github}}  and \href{https://docs.akdsframework.theroyakash.com/}{\textcolor{blue}{docs}}.}
+
+\vspace{2mm}
+
+\cventry{Indian Institute of Technology, Madras}{Python}
+{{\href{https://theroyakash.notion.site/BOT-037afbdb4cd1417db23573e9434ef06b}{\textcolor{blue}{Multipurpose discord bot}}}}{April 2021 - Currently}{}{}
+\cvlistitem{This Python-based discord bot is a multipurpose discord bot consisting of many fun features including getting memes from subreddits, getting a random non-existent AI-generated image (calling APIs), searching music on YouTube (using Google APIs), resizing, black and white, and bluring images right from the chat,}
+\cvlistitem{Bot also has a feature, to call Google News to find new news happening across India. It has a built-in XML parser that parses the RSS contents from Google News. All the Google News links are shortened using TinyURL API and then sent to the chat.}
+% \cvlistitem{The discord bot also has a wine recommendation system that recommends wines from user inputs matching with the description in the database using \textbf{fuzzzy search}. Data is stored in a \textbf{SQLite} database.}
+
+% Course Work
+
+\section{Other Projects}
+\cventry{Indian Institute of Technology, Madras}{Python, GitHub Actions Cron Jobs, RestAPI}{\textbf{\href{https://github.com/theroyakash/sosleafy}{\textcolor{blue}{@sosleafy}}} News Bot}{Jun 2021}{}{}
+\cvlistitem{\textbf{\href{https://twitter.com/sosleafy}{\textcolor{blue}{@sosleafy}}} is a twitter account and a \href{https://t.me/indiaheadline}{\textcolor{blue}{telegram group}} where every 3 hours a bot posts fresh news contents run via github actions.}
+\cvlistitem{Using Github actions and cron jobs the script takes new news contents from the web and puts it in a GitHub repository. Then once every three hours a cron job is scheduled to post new news content on Twitter and telegram.}
+\cvlistitem{In it's operation \textbf{\href{https://twitter.com/sosleafy}{\textcolor{blue}{@sosleafy}}} posted over \textbf{11K} tweets on twitter and currently shut down.}
+
+\cventry{Indian Institute of Technology, Madras}{Language: C++}{\href{http://github.com/theroyakash/tinyds}{\textcolor{blue}{tinyds}}}{May 2022 to July 2022}{}{}
+\cvlistitem{\texttt{tinyds} is a small and simple C++ implementation library for most of data structures and algorithms that are asked in SDE I or II interviews at FAANGs that one can implement in an exam setting if asked.}
+
+\cventry{Indian Institute of Technology, Madras}{Python installable package with Pip}{\href{https://pypi.org/project/placeholderfile/}{\textcolor{blue}{placeholderfile}}}{October 2020}{}{}
+\cvlistitem{\texttt{placeholderfile} is a random filename and UUID generator installable via pip.}
+
+\section{Course Work}
+\cventry{Indian Institute of Technology Madras}{(Core and electives)}{Key Courses in M.Tech}{July 2022-May 2024}{}{}
+\cvlistitem{\textit{Courses}: Advanced data structures and algorithms, Randomized Algorithms, Computability and Complexity theory, Advanced Programming Lab.}
+
+\cventry{Government College of Engineering and Ceramic technology}{(Core and electives)}{Key Courses in B.Tech}{August 2018-April 2022}{}{}
+\cvlistitem{\textit{Courses}: Theory of computation, Discrete Maths, Computer Networks, Compiler Design, Design and analysis of Algorithms, Data Structures, Object Oriented design, Digital Logic, Computer Organizations, Operating Systems, Database management systems, Machine learning, Deep learning.}
+
+\section{Positions of Responsibility}
+\begin{itemize}
+\item \textit{Teaching Assistant} for Computer Science Department, Indian Institute of Technology, Madras (2022-2024).
+\end{itemize}
+
+
+\section{Achievements}
+
+\cvlistitem {Successfully qualified 
+\textit{GATE CS (2022) with over 98.5 percentile}}
+
+\cvlistitem {Became Course topper and Elite + Silver Medal in NPTEL Cloud computing course conducted by IIT Kharagpur}
+
+\cvlistitem {Scored 70\% in Theory of computation NPTEL Course conducted by IIT Kanpur}
+
+%Languages (Spoken/known): Assamese, Bengali, English, Garo, Hindi, Nepali. 
+
+% \section{Others}
+% \cvlistdoubleitem{Hobbies: Video Making, Photography, Apps making}{Languages: Bengali, Hindi, English.}
+
+
+\section{Declaration}
+{I do hereby declare that all the details furnished above are true to the best of my knowledge and belief.}
+
+\vspace{4mm}
+{Last updated: 2023 January \hspace{35em} (Akash Roy)}
+\end{document}

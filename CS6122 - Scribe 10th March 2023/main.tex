@@ -1,0 +1,153 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{scribe}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{lemma}{Lemma}%
+{colback=yellow!30,colframe=red!75!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+% RANDOM COMMANDS
+\newcommand{\tsp}{{\sf TSP}}
+\newcommand{\mst}{{\sf MST}}
+\newcommand{\mm}{{\sf MM}}
+\newcommand{\mwt}{{\sf MWT}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\ch}{{\sf CH}}
+
+\newcommand{\distras}[1]{%
+    \savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+    \savebox{\mysim}{\hbox{$\sim$}}%
+    \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}%
+}
+
+% DETAILS
+\Scribe{Roy, Akash}
+\Lecturer{Raghavendra Rao, B. V.}
+\LectureNumber{25}
+\LectureDate{March 10, 2023}
+\LectureTitle{Analysis of 2-{\sf OPT} Algorithm}
+
+\begin{document}
+\MakeScribeTop
+
+\textbf{Topics}: Continuation of analysis of the 2-{\sf OPT} algorithm.
+
+\section{Analysis of theorem for $\phi$ perturbed graph}
+
+\begin{theo}{Longest Path Theorem}{theo1}
+    \textit{Expected length of the longest path in any 2-{\sf OPT}
+    configuration graph where 2-{\sf OPT} is run on $\phi$ perturbed graph
+    is bounded by} $O(m^{1 + \epsilon} n \phi)$ \textit{for} $\phi$ \textit{perturbed graph
+        with $n$ vertices and $m$ edges}.
+
+\end{theo}
+
+\noindent The runtime of our 2-{\sf OPT} algorithm depends upon the
+longest path in the 2-{\sf OPT} configuration tree by intuition.
+Our theorem 3.1 captures the expected size of such longest paths.
+This will upperbound our running time for the 2-{\sf OPT} algorithm.
+We'll prove a weaker version of theorem 3.1 for $\phi$ perturbed graph with $n$ vertices and $m$ edges.
+
+\bigskip
+
+\noindent \textbf{Proof.} Suppose $G$ is a fixed graph on $n$ vertices and $m$ edges.
+
+\noindent Weight function $w:E \to [0,1]$ be $\phi$ perturbed weights such that $w(e) \sim f_e:[0,1] \to [0, \phi]$.
+
+\noindent Consider any 2-edges $e_1$ and $e_2$. Suppose after performing a 2-exchange the cost of the tour reduces and the new edges are $e_3$ and $e_4$. $(e_i)_{i \in {1,2,3,4}}$ creates a four-cycle.
+
+\noindent Say the change in weight is $\Delta(e_1, \dots, e_4)$. We define the following
+
+\begin{align*}
+    \Delta(e_1, \dots, e_4) = \displaystyle\sum_{i \in {1,2}} e_i - \displaystyle\sum_{i \in {3,4}} e_i
+\end{align*}
+
+\noindent Let $\Delta_{\text{min}}$ be minimum across all such 4-cycles $\Delta_{\text{min}} = \min_{(e_1, \dots, e_4), \: \Delta(e_1, \dots, e_4) \geq 0} \Delta(e_1, \dots, e_4)$.
+Then the running time of the algorithm is $O(\frac{n}{\Delta_{\text{min}}})$.
+
+\begin{lemma}{$\Delta_{\text{min}}$ do not have large values}{lemma1}
+    \textit{$\Delta_{\text{min}}$ do not have large values is captured by the following probability measure.}
+    \begin{align*}
+        \forall \: \epsilon > 0 \: \exists \Pr[\Delta \leq \epsilon] \leq m^2 \epsilon \phi
+    \end{align*}
+\end{lemma}
+
+\noindent The up-above lemma shows that the probability of gaining during an
+2-{\sf OPT} step at most $\epsilon$ is at most $m^2 \epsilon \phi$.
+
+\noindent \textbf{Proof of Lemma 1.1}: Consider a fixed 2-exchange
+$\{e_1, \dots, e_4\}$. Then from definition
+
+\begin{align*}
+    \Delta(e_1, \dots, e_4) = \displaystyle\sum_{i \in {1,2}} e_i - \displaystyle\sum_{i \in {3,4}} e_i
+\end{align*}
+
+\noindent Now
+
+\begin{align*}
+    &\Pr[\Delta(e_1, \dots, e_4) \leq \epsilon]\\
+    &= \Pr[\left(w(e_1) + w(e_2) - w(e_3) - w(e_4)\right) \in [0, \epsilon]]\\
+\end{align*}
+
+\noindent We set edge weight $w(e_1) = x_1$, $w(e_2) = x_2$, $w(e_3) = x_3$, 
+$w(e_4) = x_4$ where $(x_i)_{i \in {1,2,3,4}}$ are random variables. Now we fix values for 
+$(x_i)_{i \in {2,3,4}}$. For this fixed values 
+$\Pr\left[\sum_{i \in {1,2}} x_i - \sum_{i \in {3,4}}  x_i\right] \in [0, \epsilon]$ is equivalent
+to $x_1 \in [k, k + \epsilon]$ for some $k$.
+
+\begin{align*}
+    &\Pr\left[\sum_{i \in {1,2}} (x_i) - \sum_{i \in {3,4}} \in [0, \epsilon]\right]
+    \leq \Pr\left[x_1 \in [k, k + \epsilon]\right]
+\end{align*}
+
+\noindent The graph is a $\phi$ perturbed instance so $\Pr[\Delta(e_1, \dots, e_4) \leq \epsilon] \leq \epsilon \phi$. Now
+Using union bound we can say
+
+\begin{align*}
+    \Pr[\Delta_{\text{min}} \leq \epsilon] &= \Pr\left[\exists \: (e_1, e_2, e_3, e_4), \: \Delta(e_1, e_2, e_3, e_4) \leq \epsilon\right]\\
+    &\leq \displaystyle\sum_{e_1, e_2, e_3, e_4} \Pr[\Delta(e_1, e_2, e_3, e_4) \leq \epsilon]\\
+    &\leq m^2 \epsilon \phi
+\end{align*}
+
+\bigskip
+
+\noindent \textbf{Proof of Theorem 1.1}: Suppose diameter of the 2-{\sf OPT} graph is $T$. Then the
+following is true from lemma 1.1
+
+\begin{align*}
+    \Pr[T \geq t] &\leq \Pr\left[\Delta_{\text{min}} \leq \frac{n}{t}\right]\\
+    &\leq \frac{m^2n \phi}{t}
+\end{align*}
+
+\noindent Expected Value of the 2-{\sf OPT} diameter length then becomes
+
+\begin{align*}
+    \mathbb{E}[T] &= \displaystyle\sum_{t = 1}^{n!} \Pr[T \geq t]\\
+    &= \displaystyle\sum_{t = 1}^{n!} \frac{m^2n \phi}{t}\\
+    &= m^2 n \phi * O(\lg{n!})\\
+    &\leq m^2 n^2 \phi \lg{n}
+\end{align*}
+
+\noindent This analysis shows that the bound on the 2-{\sf OPT} configuration graph
+diameter's expected length is polynomial, which determines the runtime of the 
+2-{\sf OPT} algorithm.
+
+\noindent We'll see a much better analysis of the 2-{\sf OPT} algorithm that'll improve the bound and the running time in the next lecture.
+
+\end{document}

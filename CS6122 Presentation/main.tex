@@ -1,0 +1,48 @@
+\documentclass[aspectratio=169, compress]{beamer}
+% \usetheme{Boadilla}
+% \usecolortheme{beaver}
+
+\usetheme{Boadilla}
+\usecolortheme{default}
+\usepackage{beamerthemesplit}
+
+\usefonttheme{serif}
+
+\usepackage{lipsum}
+\usepackage{graphicx,xcolor}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+
+\title[Smoothed Complexity Theory \hspace{0.5cm}\insertframenumber/\inserttotalframenumber]{Smoothed Complexity Theory}
+\institute{\textsc{Indian Institute of Technology Madras}}
+\logo{\includegraphics[height=0.75cm]{iitm.png}}
+\author{theroyakash}
+
+\date{\today{}}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+\input{segments/introduction}
+
+\section{Basic Definition}
+\input{segments/basic_defin}
+
+\section{Important Results}
+\input{segments/important-results}
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{scribe}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{lemma}{Lemma}%
+{colback=yellow!30,colframe=red!75!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+% RANDOM COMMANDS
+\newcommand{\tsp}{{\sf TSP}}
+\newcommand{\mst}{{\sf MST}}
+\newcommand{\mm}{{\sf MM}}
+\newcommand{\mwt}{{\sf MWT}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\ch}{{\sf CH}}
+
+\newcommand{\distras}[1]{%
+    \savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+    \savebox{\mysim}{\hbox{$\sim$}}%
+    \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}%
+}
+
+
+% DETAILS
+\Scribe{Roy, Akash}
+\Lecturer{Raghavendra Rao, B. V.}
+\LectureNumber{24}
+\LectureDate{\today}
+\LectureTitle{Introduction to smoothed analysis}
+
+
+\begin{document}
+\MakeScribeTop
+
+\textbf{Topics}: Introduction to smoothed analysis, smoothed analysis of 2-{\sf OPT} algorithm.
+
+\section{Introduction to smoothed analysis}
+In the last class we discussed why worst-case and average case analysis fails to analyse the behaviour of some \textit{algorithms} run on real-world data. We'll do smoothed analysis in more detail on \tsp, {\sf Knapsac}, {\sf Network Flows}, {\sf KMeans} and also on some data structures like {\sf Binary Search Tree}.
+
+We'll discuss $\tsp$'s 2-{\sf OPT} algorithm, partitioning algorithm, and at the end make a general framework (quantaization) to analyze smoothed analysis. We'll discuss basic models of {\sf Smoothed Analysis Techniques} below.
+
+\section{Models of Smoothed Analysis}
+\subsection{Two step model}
+
+\begin{define}{2-Step Model}{twostepdefn}
+	\textit{Any input domain $\mathcal{I}$ with parameter $\pi$ and some $x \in \mathcal{I}$ with $N_{\pi}(x)$ being a neighborhood or a distribution, then for algorithm $\mathcal{A}$ smoothed performance of $\mathcal{A}$ is defined as following}
+
+    \begin{align*}
+        \textit{smoothed performance }(A) = \max_{x \in \mathcal{I}} \:\:\: \mathbb{E}_{{Y \sim {N_{\pi}(x)}}}[A(Y)]
+    \end{align*}
+\end{define}
+
+The model is called 2-step model because in step 1, adversary chooses $X$ with this $N_{\pi}(X)$ get's choosen. After that as defined neighborhood we take the expectation of the performance of the algorithm. In short adversary chooses an arbitrary instance, then the instance are perturbed with random variables from any specific distribution. The smoothed performance is the maximum expected performance over all the adversarial choices.
+
+\subsection{One step model of Beier and Vöcking}
+\begin{define}{One Step Model}{onestepdefn}
+    \textit{Any input $X$ of length $n$ with $X = (x_1, \dots, x_n) \in F^n$ where $F$ is the domain, with parameter $\phi$ and an adversary who chooses density functions bounded by $\phi$ as $\{f_1, \dots, f_n\}$ such that $f_i:F\to [0, \phi]$, an algorithm $\mathcal{A}$'s smoothed performance measure given by the following}
+
+    \begin{align*}
+        \textit{smoothed performance }(A) = \: \substack{\mathbb{E} \\ {X = (x_1, \dots, x_n), \: x_i \sim f_i \textit{ independently at random}}} \left[A(X)\right]
+    \end{align*}
+\end{define}
+
+\noindent Here adversary specifies probability density functions for each of the $x_i \in X$ then all numbers are drawn independently according to their respective density function. This one step model is equivalent to two step model, it also finds out the maximum expected performance. Adversary implicitly chooses maximum over all the points then expectation is taken.
+
+\section{Analysis of 2-{\sf OPT} algorithm for \tsp}
+Let's recall the 2-{\sf OPT} algorithm for \tsp.
+
+\begin{algorithm}[H]
+    \SetKwInOut{Input}{Input}
+    
+    \Input{Graph $\mathbb{G}$}
+    \BlankLine
+    Start with some arbitrary tour $\tau$\\
+    Perform $2$-exchanges of $\tau$ until no more improvement is possible.\\
+    \caption{\textsc{2-{\sf OPT} Algorithm}}
+\end{algorithm}
+
+\noindent $2$-OPT algorithm is unlikely to find the most optimal $\tsp$ tour, but will find a local minimum such that doing $2$ exchanges no longer reduce the tour cost. It is proven in the worst case this runs in exponential time $O(2^n)$ with worst case approximation ratio $\frac{\lg n}{\lg \lg n}$. But this worst case analysis do not reflect the widespread real world usage of this algorithm on the real world data. In the coming parts we'll try to understand what's going on.
+
+\noindent Let's look at the following theorem.
+
+\begin{theo}{Longest Path Theorem}{theo1}
+    \textit{Expected length of the longest path in any 2-{\sf OPT} configuration graph is bounded by}
+
+    \begin{itemize}
+        \item $O(n^4 \phi)$ for $\phi$ perturbed $L_1$ metric instances.
+        \item $O(n^{4 + \frac{1}{3}} \phi^{\frac{8}{3}} \lg n \phi)$ for $\phi$ perturbed $L_2$ metric instances.
+        \item $O(m^{1 + \epsilon} n \phi)$ for $\phi$ perturbed graph with $n$ vertices and $m$ edges.
+    \end{itemize}
+\end{theo}
+
+\noindent Let's understand what the theorem is saying. First let's define 2-{\sf OPT} configuration graph and $\phi$ perturbed graph.
+
+\begin{define}{2-{\sf OPT} configuration graph}{confdefn}
+    \textit{2-{\sf OPT} configuration graph is graph with $n!$ many vertices each representing one permutation of tour of the main graph, and this configuration graph has edge $(u, v)$ if and only if from tour $u$, tour $v$ is one 2-exchange away.}
+\end{define}
+
+\begin{define}{$\phi$ perturbed graph}{confdefn2}
+    \textit{A $\phi$ perturbed graph is a graph with $n$ vertices and $m$ edges with weight function $w:E \to [0,1]$, such that $\forall$ $e \in E$ $\exists$ $f_e:[0,1] \to [0, \phi]$ and wt.(e) is drawn according to $f_e$}.
+\end{define}
+
+\noindent The runtime of our 2-{\sf OPT} algorithm will depend upon the longest path in the 2-{\sf OPT} configuration tree by intuition. Our theorem 3.1 captures the expected size of such longest paths. This will upperbound our running time for the 2-{\sf OPT} algorithm. We'll prove a weaker version of theorem 3.1 for $\phi$ perturbed graph with $n$ vertices and $m$ edges.
+
+\bigskip
+
+\noindent \textbf{Proof.} Suppose $G$ is a fixed graph on $n$ vertices and $m$ edges.
+
+\noindent Weight function $w:E \to [0,1]$ be $\phi$ perturbed weights such that $w(e) \sim f_e:[0,1] \to [0, \phi]$.
+
+\noindent Consider any 2-edges $e_1$ and $e_2$. Suppose after performing a 2-exchange the cost of the tour reduces and the new edges are $e_3$ and $e_4$. $(e_i)_{i \in {1,2,3,4}}$ creates a four-cycle.
+
+\noindent Say the change in weight is $\Delta(e_1, \dots, e_4)$. We define the following
+
+\begin{align*}
+    \Delta(e_1, \dots, e_4) = \displaystyle\sum_{i \in {1,2}} e_i - \displaystyle\sum_{i \in {3,4}} e_i
+\end{align*}
+
+\noindent Let $\Delta$ be minimum across all such 4-cycles $\Delta = \min_{(e_1, \dots, e_4), \: \Delta(e_1, \dots, e_4) \geq 0} \Delta(e_1, \dots, e_4)$. Then the running time of the algorithm is $O(\frac{n}{\Delta})$.
+
+\begin{lemma}{$\Delta$ do not have large values}{lemma1}
+    \textit{$\Delta$ do not have large values is captured by the following probability measure.}
+    \begin{align*}
+        \forall \: \epsilon > 0 \: \exists \Pr[\Delta \leq \epsilon] \leq m^2 \epsilon \phi
+    \end{align*}
+\end{lemma}
+
+\end{document}

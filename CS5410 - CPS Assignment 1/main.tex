@@ -1,0 +1,98 @@
+\documentclass[12pt, a4paper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+% \lhead{Leaft Header\\}
+% \rhead{Right Header\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+\newcommand{\RP}{\ensuremath{\mathsf{RP}}}
+\newcommand{\expect}[1]{\ensuremath{\mathbb{E}[#1]}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\NP}{\ensuremath{\mathsf{NP}}}
+\newcommand{\co}{\ensuremath{\mathsf{co}\mbox{-}}}
+\newcommand{\NL}{\ensuremath{\mathsf{NL}}}
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Security in Cyber Physical System\\
+    \LARGE Tutorial \# 1\\[0.5em]
+    \large \today\\[0.5em]
+    \large \textsc{Roy, Akash} $\mid$ CS22M007\par
+    \large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
+\endgroup
+\pointsdroppedatright %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question What are the mathematical properties that are used for the secure exchange of keys (hint: in terms of symmetry equivalence etc.)?
+
+    \begin{solution}
+        For symmetry equivalence during the key exchange we have the followings a generator number $g$, a large prime number $n$, the two exchanging parties have two private keys $a, b$.
+
+        The goal is to establish a secret key that's same for both the parties (symmetric key exchange).
+
+        Suppose Alice is a party that has private key $a$, Bob is another party who has private key $b$. Alice will compute $g^a \text{ mod } n$. Bob will compute $g^b \text{ mod } n$. These two can be exchanged via public non-encrypted channel because finding what is $a$ from $g^a \text{ mod } n$ is computationally extremely hard.
+
+        Now Alice has $g^b \text{ mod } n$, multiplying with $g^a \text{ mod } n$, Alice will get $g^{ab} \text{ mod } n$. Similarly Bob will multiply $g^a \text{ mod } n$ with $g^b \text{ mod } n$, then Bob will get $g^{ab} \text{ mod } n$.
+
+        Now this number $g^{ab} \text{ mod } n$ is a secret value that is not in the public domain and can not be derived from all the variables available in the public domain. Thus giving us a symmetric key $g^{ab} \text{ mod } n$.
+
+        So the properties are following
+        \begin{itemize}
+            \item Given a function $f$, and two keys $a, b$, and some operation
+            $\text{op}$, $f(a) \text{ op } f(b) = f(b) \text{ op } f(a)$
+            \item $f^{-1}$ is not easy to calculate.
+        \end{itemize}
+        
+    \end{solution}
+
+    \question Discuss how the above function can be used as your algorithm for the secure exchange of keys.
+
+    \begin{solution}
+        Suppose I've one function $f$ and have the following properties
+        
+        \begin{itemize}
+            \item Given a function $f$, and two keys $a, b$, and some operation
+            $\text{op}$, $f(a) \text{ op } f(b) = f(b) \text{ op } f(a)$
+            \item $f^{-1}$ is not easy to calculate.
+        \end{itemize}
+
+        Now our key-exchange algorithm would be the following
+
+        \begin{algorithm}[H]
+            \SetKwInOut{Input}{Input}
+            
+            \Input{Private variable $a$ for Alice and variable $b$ for Bob, and one suitable operation \textsc{OP}}
+            \BlankLine
+            Calculate $f(a)$ from Alice's end.\\
+            Calculate $f(b)$ from Bob's end.\\
+            Exchange $f(a)$ and $f(b)$ with each other\\
+            Use $f(a) \textsc{ OP } f(b)$ as the symmetric key for encryption.
+            \caption{\textsc{Key-Exchange Algorithm}}
+        \end{algorithm}
+        
+    \end{solution}
+\end{questions}
+\end{document}

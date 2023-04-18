@@ -1,0 +1,127 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{scribe}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\setlength\parindent{0pt}
+
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{lemma}{Lemma}%
+{colback=yellow!30,colframe=red!75!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+% RANDOM COMMANDS
+\newcommand{\tsp}{{\sf TSP}}
+\newcommand{\mst}{{\sf MST}}
+\newcommand{\mm}{{\sf MM}}
+\newcommand{\mwt}{{\sf MWT}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\ch}{{\sf CH}}
+
+\newcommand{\distras}[1]{%
+    \savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+    \savebox{\mysim}{\hbox{$\sim$}}%
+    \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}%
+}
+
+
+% DETAILS
+\Scribe{Roy, Akash}
+\Lecturer{Raghavendra Rao, B. V.}
+\LectureNumber{26}
+\LectureDate{March 13, 2023}
+\LectureTitle{Improved Bound on 2-{\sf OPT} Algorithm}
+
+
+\begin{document}
+\MakeScribeTop
+
+\textbf{Topics}: Improved bound on the 2-{\sf OPT} algorithm for $\tsp$ tour.
+
+\section{Improved Analysis}
+
+Last class we looked at the upper bound on the running time of 2\textsf{-OPT} algorithm 
+is $m^2n^2\phi \lg n$. In this lecture we'll try to improve this bound. In order to do this 
+we need the concept of linked $2$ exchanges. The idea is we start with some tour, be it 
+Christofides or Double tree, then we start 2-{\sf OPT} exchanges. Now let's suppose
+$(S, \dots, S_t)$ be any sequence of exchanges. Suppose $S_i$ and $S_j$ be any two exchanges in the
+sequence where $S_i$ happend before $S_j$. We say $(S_i, S_j)$ are linked
+if there exists some edge $e_i$ added in $S_i$ and got removed in $S_j$.
+
+\begin{lemma}{Lower bound on the number of linked disjoint pairs}{lemma1}
+    \textit{In any sequence of $t$ many exchanges by 2-OPT algorithm there are at least}
+    $\frac{2t - n}{7}$ \textit{ disjoint pairs that are linked.}
+\end{lemma}
+
+\textbf{Proof.} Suppose $(S, \dots, S_t)$ be any sequence of exchanges.
+Iterativly construct a set $\mathcal{L}$ of linked 2 exchanges. Now construct
+$\mathcal{L}'$ from $\mathcal{L}$ by removing intersecting paris. Now
+$\mathcal{L}'$ has only disjoint pairs. Disjoint pair $(S_i, S_j), (S_i', S_j')$ 
+is such that $S_i \neq S_j', S_i'$ and $S_j \neq S_j', S_i'$.
+
+\textbf{Observation.} Every pair $(S_i, S_j)$ is disjoint from $\mathcal{L}$
+except $6$ pairs. So
+
+\begin{align*}
+    \vert \mathcal{L}' \vert &\geq \frac{\vert \mathcal{L} \vert}{7}\\
+    &\geq \frac{2t - n}{7}\\
+    &\geq \frac{t}{4}
+\end{align*}
+
+\begin{lemma}{Estimation Improvement in 2-OPT}{lemma2}
+    \textit{In $\phi$ purturbed graphs of n vertices and m edges, the probability that there exists
+    a pair of linked $2$ exchanges with improvements by at most $\epsilon$ is} $O(m^3 \epsilon^2 \phi^2)$
+\end{lemma}
+
+\textbf{Proof.} Let $(S, S')$ be a linked pair. $S$ has the following edges $\{e_1, e_2, e_3, e_4\}$
+and $S'$ has the following edges $\{e_3, e_5, e_6, e_7\}$. Suppose in the first exchange edeges $e_1, e_2$
+are being exchanged with $e_3, e_4$, in the second exchange edeges $e_4, e_5$, are exhanged with edges
+$e_6, e_7$. We need to bound the probability of $\Delta(e_1, e_2, e_3, e_4) \leq \epsilon$ and $\Delta(e_3, e_5, e_6, e_7) \leq \epsilon$. We'll use the principle of deffered decision to bound the probability. 
+Probability of $\Delta\{e_1, e_2, e_3, e_4\} \in (0, \epsilon)$ is equivalent to the probability of $\textsf{dist}(e_1) \in (\kappa, \kappa + \epsilon)$ and $\Delta\{e_4, e_5, e_6, e_7\} \in (0, \epsilon)$
+is same as the probability of $\textsf{dist}(e_6) \in (\kappa_2 - \epsilon, \kappa_2)$. Here $e_1$ is the edge going out and $e_6$ is edge coming in and
+$\kappa = \textsf{dist}(e_3) + \textsf{dist}(e_4) - \textsf{dist}(e_2)$ and $\kappa_2 = \textsf{dist}(e_4) + \textsf{dist}(e_5) - \textsf{dist}(e_7)$.
+
+$\textsf{dist}(e_1)$ and $\textsf{dist}(e_6)$ are random variables with densities bound from above
+by $\phi\epsilon$. This makes $\Pr[\textsf{dist}(e_1) \in (0, \epsilon) \wedge \Pr[\textsf{dist}(e_6)] \in (0, \epsilon)] \leq \phi^2\epsilon^2$.
+There are at most $O(m^3)$ number of linked 2-exchanges, so via union bound we can conclde the proof of lemma
+1.2 that $\Pr[\Delta^* \leq \epsilon] \leq m^3\epsilon^2\phi^2$.
+
+Based on the Estimation Improvement in 2-OPT lemma and Lower bound on the number of linked disjoint pairs
+lemma we can state the following theorem.
+
+\begin{theo}{Estimation Improvement in 2-OPT}{theorem1.1}
+    \textit{In $\phi$ purturbed graphs of n vertices and m edges, excepted length of the longest path
+    in the 2-\textsf{OPT} configuration graph is} $O(m^{\frac{3}{2}} n \phi)$
+\end{theo}
+
+\textbf{Proof:} Suppose $\tau$ be the longest path in the configuration graph of the
+2-\textsf{OPT} algorithm. Let $\Delta^*$ be the smallest improvement during any pair of linked 2 exchanges.
+
+If $T \geq t$ then there must be a sequence of $t$ 2-exchanges in the configuration graph of the 2-\textsf{OPT} algorithm.
+From lemma 1.1 we can say that there is at least $z = \frac{2t - n}{7}$ many pairs. From lemma 1.1
+
+\begin{align*}
+    \Pr[T \geq t] &\leq \Pr\left[\Delta^* \leq \frac{4n}{t}\right] \leq O(m^3 t^{-2} \phi^2 n^2)\\
+    \mathbb{E}[T] &= \displaystyle\sum_{t = 1} ^{n!} \Pr[T \geq t]\\
+    &\leq \displaystyle\sum_{t = 1} ^{n!} \min(1, c_1 m^3 t^{-2} \phi^2 n^2)\\
+    &\leq \displaystyle\sum_{t = 1} ^{n \phi m^{3/2}} 1 + \displaystyle\sum_{t = n \phi m^{3/2} + 1} ^{n!} c_1 m^3 t^{-2} \phi^2 n^2\\
+    &\leq m^{3/2} n \phi + \int_{n \phi m^{3/2} + 1}^{\infty} c_1 m^3 t^{-2} \phi^2 n^2 dt\\
+    &= m^{3/2} n \phi + \left[ - c_1m^3n^2 \phi \right]_{m^{3/2}n^2 \phi} ^{\infty}\\
+    &= O(m^{\frac{3}{2}}n \phi)
+\end{align*}
+
+\end{document}

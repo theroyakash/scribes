@@ -1,0 +1,78 @@
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Goal of the complexity theory is to understand computational difficulty of engineering problems.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Goal of the complexity theory is to understand computational difficulty of engineering problems.
+        \item So we've developed theory to classify problems according to their worst case behaviour. These classes are \textsc{P}, \textsc{NP} etc.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Goal of the complexity theory is to understand computational difficulty of engineering problems.
+        \item So we've developed theory to classify problems according to their worst case behaviour. These classes are \textsc{P}, \textsc{NP} etc.
+        \item \textsc{P} class contains all the computational problems that in the worst case completes in polynomial time with respect to the size of the input.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{center}
+        In our \textsc{CS6122} Course we've already seen that real world instances for few NP-Complete problems performs \textbf{good} in terms of running time.
+    \end{center}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{center}
+        Thus we must develop theory that'll classify problems of their computational difficulty \textbf{with respect to real world performance} as well. Thus we develop smooth complexity theory.
+    \end{center}
+\end{frame}
+
+\begin{frame}{Topics we'll look into}
+    In this presentation we'll look into the following
+    \begin{itemize}
+        \item Basic Definitions and assumptions, $\textsf{Smoothed-P}$ Class.
+            \begin{itemize}
+                \item 2-step vs 1-step model, why we are using one step models,
+                \item Support of the distribution, notion of $N_{x, n}$.
+                \item Concept of Family of Distribution
+                \item Definition of smoothed polynomial running time \textbf{Definition 2.1},
+                \item Definition of $\textsf{Smoothed-P}$
+                \item \textbf{Theorem 2.3} \textit{An algorithm A has smoothed polynomial running time if and only if there is an} $\epsilon > 0$ \textit{and a polynomial} $p$ \textit{such that for all n, x, $\phi$ and t} $$\Pr_{y \sim D_{n, \phi, x}}[t_A(y; n, \phi) \geq t] \leq \frac{p(n)}{t^\epsilon} N_{n, x} \phi$$
+            \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Topics - Continued}
+    \begin{itemize}
+        \item Heurisitic Schemes, error less heuristic schemes in $\textsf{Smoothed-P}$.
+        \item Notion of Reduciblity, define $L_{ds}$, notion of completeness.
+            \begin{itemize}
+                \item Distributional problems
+                \item Polynomial time smoothed reductions $\leq_{smoothed}$
+                \item Transitivity of $\leq_{smoothed}$ [via theorem 3.4]
+                \item Theorem 3.5 $(L, D) \in \textsf{Smoothed-P}$ if and only if $(L_{ds}, D) \in \textsf{Smoothed-P}^{\textsf{obl}} _{ds}$
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Topics - Continued}
+    \begin{itemize}
+        \item Parameterized Distributional NP $\textsf{Dist-NP}_{\text{para}}$
+            \begin{itemize}
+                \item Introduction
+                \item One $\textsf{Dist-NP}_{\text{para}}$ complete problem to show $\textsf{Dist-NP}_{\text{para}}$ has complete problems
+                \item \textbf{Weird looking theorem} \textit{$(\textsf{Tiling}, U^{\textsf{Tiling}})$ is $\textsf{Dist-NP}_{\text{para}}$-complete for some $U^{\textsf{Tiling}} \in \textsf{PComp}_{para}$ under polynomial time smoothed reductions}.
+            \end{itemize}
+
+        \item Basic Relation to Worst case complexity
+        \item Notion of unsatisfiability and $\textsf{Smoothed-RP}$
+        \item Theorem $k \textsf{UNSAT}_{\beta} \in \textsf{Smoothed-RP}$ for $\beta = \Omega(\sqrt{n \log \log n})$
+        \item Concluding remarks
+    \end{itemize}
+\end{frame}
