@@ -150,7 +150,7 @@
     \frametitle{Constuction of $\mathcal{H}$}
 
     \begin{algorithm}[H]
-        \SetKwInOut{Input}{Input}
+        % \SetKwInOut{Input}{Input}
         \caption{$\mathcal{H}$}
 
         Run algorithm $A$ for $(n \cdot \frac{N_{n, x} \cdot \phi}{\delta}) ^{\frac{1}{\epsilon}}$ steps.\\
@@ -184,3 +184,56 @@
 
 \end{frame}
 
+\begin{frame}
+    \frametitle{Proof: Continued}
+
+    $(\impliedby)$ Backward Direction
+    For the other direction suppose we have $\mathcal{H}$ an errorless heuristic scheme, we need to find a smoothed polynomial time
+    algorithm $\mathcal{A}$.
+
+    \vspace{2em}
+
+    Constuction of $\mathcal{A}$
+
+    \begin{algorithm}[H]
+        \caption{Construction of Algorithm $\mathcal{A}$}
+        i $\gets$ 1;\\
+        \While{True}{
+            Run $\mathcal{H}$ with $\delta = \frac{1}{2^i}$;\\
+            \uIf{$\mathcal{H}$ does not output $\bot$}{
+                \textbf{return} whatever $\mathcal{H}$ says.
+            }
+            i $\gets$ i + 1;\\
+        }
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analysis of Algorithm {$\mathcal{A}$}}
+
+    Heuristic Scheme $\mathcal{H}$ will eventually stop at some $i$ with delta begin set to $\frac{1}{2^i}$.
+
+    Then from \textbf{Definition 2} $\exists$ a polynomial $q$ such that
+
+    
+    \begin{align*}
+        t_{\mathcal{H}} &\leq \displaystyle\sum_{j = 1}^{i} q(n, N_{n,x} \phi, 2^j)\\
+        &\leq \text{Poly}(n, N_{n,x} \phi) \cdot 2^{ci}
+    \end{align*}
+
+    Heuristic Scheme $\mathcal{H}$ will eventually stop when $\delta < D_{n,x,\phi}(y)$ from definition of Heuristic Scheme.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Disjoint Support}
+
+    Let's define pair $\langle x, y \rangle$ as ``$y$ was drawn according to $D_{n,x,\phi}$''.
+    For a parameterized distributional problem $(\mathcal{L}, \mathcal{D})$ we define
+
+
+    \begin{align*}
+        L_{\text{ds}} = \{\langle x, y \rangle \: \vert \: y \in \mathcal{L} \text{ and } \vert \: y \: \vert \leq \text{poly}(\mid x\mid)\}
+    \end{align*}
+
+\end{frame}
