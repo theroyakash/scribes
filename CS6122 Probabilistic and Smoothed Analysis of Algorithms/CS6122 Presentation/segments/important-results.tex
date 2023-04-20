@@ -212,7 +212,7 @@
 \begin{frame}
     \frametitle{Analysis of Algorithm {$\mathcal{A}$}}
 
-    Heuristic Scheme $\mathcal{H}$ will eventually stop at some $i$ with delta begin set to $\frac{1}{2^i}$.
+    Heuristic Scheme $\mathcal{H}$ will eventually stop at some $i$ with delta being set to $\frac{1}{2^i}$.
 
     Then from \textbf{Definition 2} $\exists$ a polynomial $q$ such that
 
@@ -223,6 +223,7 @@
     \end{align*}
 
     Heuristic Scheme $\mathcal{H}$ will eventually stop when $\delta < D_{n,x,\phi}(y)$ from definition of Heuristic Scheme.
+    Thus Algorithm $\mathcal{A}$ has smoothed polynomial time algorithm (it has a pseudo polynomial time algorithm).
 \end{frame}
 
 \begin{frame}
@@ -235,5 +236,12 @@
     \begin{align*}
         L_{\text{ds}} = \{\langle x, y \rangle \: \vert \: y \in \mathcal{L} \text{ and } \vert \: y \: \vert \leq \text{poly}(\mid x\mid)\}
     \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Disjoint Support Continued, Reducibility}
+
+    With this notion of $L_{\text{ds}}$ we define the notion of reducibility.
 
 \end{frame}

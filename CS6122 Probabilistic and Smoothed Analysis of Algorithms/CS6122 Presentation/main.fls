@@ -1729,6 +1729,10 @@ INPUT ./iitm.png
 INPUT ./iitm.png
 INPUT iitm.png
 INPUT ./iitm.png
+INPUT ./iitm.png
+INPUT ./iitm.png
+INPUT iitm.png
+INPUT ./iitm.png
 OUTPUT main.nav
 OUTPUT main.toc
 OUTPUT main.snm
