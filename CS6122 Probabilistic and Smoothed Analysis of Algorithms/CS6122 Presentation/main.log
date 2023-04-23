@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  20 APR 2023 15:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  23 APR 2023 20:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,29 +640,30 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algobox=\box93
 )
 \c@tcb@cnt@theo=\count346
-\c@tcb@cnt@hypothesis=\count347
-\c@tcb@cnt@define=\count348
+\c@tcb@cnt@lemm=\count347
+\c@tcb@cnt@hypothesis=\count348
+\c@tcb@cnt@define=\count349
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -700,16 +701,16 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count349
+\scratchcounter=\count350
 \scratchdimen=\dimen302
 \scratchbox=\box94
-\nofMPsegments=\count350
-\nofMParguments=\count351
+\nofMPsegments=\count351
+\nofMParguments=\count352
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count352
+\MPscratchCnt=\count353
 \MPscratchDim=\dimen303
-\MPnumerator=\count353
-\makeMPintoPDFobject=\count354
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
 \everyMPtoPDFconversion=\toks48
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -717,7 +718,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 40.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -738,7 +739,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 <iitm.png, id=41, 823.075pt x 863.225pt>
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 38.
+Package pdftex.def Info: iitm.png  used on input line 41.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -795,14 +796,14 @@ Package pdftex.def Info: iitm.png  used on input line 48.
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 61.
+Package pdftex.def Info: iitm.png  used on input line 59.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [8
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 78.
+Package pdftex.def Info: iitm.png  used on input line 68.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [9
 
@@ -900,21 +901,21 @@ Package pdftex.def Info: iitm.png  used on input line 111.
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 123.
+Package pdftex.def Info: iitm.png  used on input line 125.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [23
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 132.
+Package pdftex.def Info: iitm.png  used on input line 134.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [24
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 140.
+Package pdftex.def Info: iitm.png  used on input line 142.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [25
 
@@ -928,84 +929,84 @@ Package pdftex.def Info: iitm.png  used on input line 5.
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 12.
+Package pdftex.def Info: iitm.png  used on input line 13.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [27
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 22.
+Package pdftex.def Info: iitm.png  used on input line 23.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [28
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 32.
+Package pdftex.def Info: iitm.png  used on input line 33.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [29
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 44.
+Package pdftex.def Info: iitm.png  used on input line 46.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [30
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 64.
+Package pdftex.def Info: iitm.png  used on input line 66.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [31
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 86.
+Package pdftex.def Info: iitm.png  used on input line 88.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [32
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 94.
+Package pdftex.def Info: iitm.png  used on input line 96.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [33
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 103.
+Package pdftex.def Info: iitm.png  used on input line 105.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [34
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 116.
+Package pdftex.def Info: iitm.png  used on input line 120.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [35
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 125.
+Package pdftex.def Info: iitm.png  used on input line 129.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [36
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 132.
+Package pdftex.def Info: iitm.png  used on input line 136.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [37
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 147.
+Package pdftex.def Info: iitm.png  used on input line 151.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [38
 
@@ -1019,44 +1020,394 @@ Package pdftex.def Info: iitm.png  used on input line 165.
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 175.
+Package pdftex.def Info: iitm.png  used on input line 176.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [40
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 185.
+Package pdftex.def Info: iitm.png  used on input line 188.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [41
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 210.
+Package pdftex.def Info: iitm.png  used on input line 213.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [42
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 227.
+Package pdftex.def Info: iitm.png  used on input line 232.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [43
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 240.
+Package pdftex.def Info: iitm.png  used on input line 241.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [44
 
 ]
 File: iitm.png Graphic file (type png)
 <use iitm.png>
-Package pdftex.def Info: iitm.png  used on input line 247.
+Package pdftex.def Info: iitm.png  used on input line 255.
 (pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
  [45
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 265.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [46
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 278.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [47
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 293.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [48
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 305.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [49
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 315.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [50
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 327.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [51
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 340.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [52
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 356.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [53
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 373.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [54
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 391.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [55
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 402.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [56
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 413.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [57
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 421.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [58
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 452.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [59
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 462.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [60
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 475.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [61
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 490.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [62
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 508.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [63
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 521.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [64
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 535.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [65
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 551.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [66
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 569.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [67
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 589.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [68
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 602.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [69
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 614.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [70
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 632.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [71
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 651.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [72
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 660.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [73
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 669.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [74
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 676.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [75
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 692.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [76
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 704.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [77
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 714.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [78
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 724.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [79
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 735.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [80
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 748.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [81
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 760.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [82
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 777.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [83
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 789.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [84
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 801.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [85
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 815.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [86
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 822.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [87
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 833.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [88
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 844.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [89
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 860.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [90
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 877.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [91
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 894.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [92
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 906.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [93
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 918.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [94
+
+]
+File: iitm.png Graphic file (type png)
+<use iitm.png>
+Package pdftex.def Info: iitm.png  used on input line 931.
+(pdftex.def)             Requested size: 20.34573pt x 21.33955pt.
+ [95
 
 ])
 \tf@nav=\write6
@@ -1073,18 +1424,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 12A49A76DDE0ECA311CE569BF4801766;360.
  ) 
 Here is how much of TeX's memory you used:
- 26570 strings out of 476025
- 543106 string characters out of 5790017
+ 26849 strings out of 476025
+ 546223 string characters out of 5790017
  1865388 words of memory out of 5000000
- 46374 multiletter control sequences out of 15000+600000
- 527921 words of font info for 88 fonts, out of 8000000 for 9000
+ 46540 multiletter control sequences out of 15000+600000
+ 527161 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,122p,494b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (45 pages, 935502 bytes).
+ 128i,23n,122p,494b,663s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (95 pages, 1039521 bytes).
 PDF statistics:
- 1540 PDF objects out of 1728 (max. 8388607)
- 1403 compressed objects within 15 object streams
- 94 named destinations out of 1000 (max. 500000)
+ 3032 PDF objects out of 3580 (max. 8388607)
+ 2837 compressed objects within 29 object streams
+ 206 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -112,22 +112,24 @@
 
 \begin{frame}
     \frametitle{Smoothed Polynomial Running Time}
-
-    \textbf{Definition 1} \textit{An algorithm $\mathcal{A}$ has smoothed polynomial
-    running time with respect to the distribution family $\mathcal{D}$
-    if there exists an $\epsilon > 0$ such that, for all $n, \phi, x$, we have}
-
-    \begin{align*}
-        \mathbb{E}_{y \sim D_{n, x, \phi}} \left(t_A(y; n, \phi) ^{\epsilon}\right) = O(nN_{n,x}\phi)
-    \end{align*}
+    
+    \begin{define}{Smoothed Polynomial Running Time}{defn1}
+        \textit{An algorithm $\mathcal{A}$ has smoothed polynomial
+        running time with respect to the distribution family $\mathcal{D}$
+        if there exists an $\epsilon > 0$ such that, for all $n, \phi, x$, we have}
+        
+            \begin{align*}
+                \mathbb{E}_{y \sim D_{n, x, \phi}} \left(t_A(y; n, \phi) ^{\epsilon}\right) = O(nN_{n,x}\phi)
+            \end{align*}
+    \end{define}
 \end{frame}
 
 \begin{frame}
     \frametitle{Analysing the Definition}
     
     \begin{center}
-        Note that the up-above result do not speak about the expected running time, it takes
-        into account for the $\epsilon$ moment of the expected running time.
+        Note that the up-above result do not speak about the expected running time, it calculates expected running
+        time to the power some $\epsilon > 0$.
     \end{center}
 \end{frame}
 
