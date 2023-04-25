@@ -1,0 +1,20 @@
+\acswitchoff 
+\contentsline {chapter}{\numberline {1}Basic Python Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}What is a program?}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Formal and natural languages}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}First program}{2}{subsection.1.1.2}%
+\contentsline {chapter}{\numberline {2}Few cool things}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Order of operations}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Comments}{3}{section.2.2}%
+\contentsline {chapter}{\numberline {3}If-else statements}{4}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Introduction to Loops}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}What is Loop}{6}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Types of Loops}{6}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Arrays and Lists}{8}{chapter.5}%
+\contentsline {section}{\numberline {5.1}What is array?}{8}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Accessing elements from a list}{8}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Inserting into lists}{8}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Deleting a specific item from a list}{9}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Updating a specific element in list}{9}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Announcement}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Currently and in the future}{10}{section.6.1}%

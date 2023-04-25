@@ -1,0 +1,19 @@
+\contentsline {chapter}{\numberline {1}Introduction to Distributed systems}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}What is a distributed system?}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Failures, problems in distributed systems}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}When to use distributed systems?}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Concepts to build Distributed Systems}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Remote Procedure Calls}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}RPC marshalling}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Problems with RPCs}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Time, Clocks, Event Orders}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Physical Clocks and Logical Clocks}{6}{subsection.2.2.1}%
+\contentsline {chapter}{\numberline {3}Key-Value Database}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Requirement Analysis}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Monolith Design vs Distributed Design}{7}{section.3.3}%
+\contentsline {paragraph}{Capacity Constraints:}{7}{section*.2}%
+\contentsline {section}{\numberline {3.4}Distributed Design}{8}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Basic terms related to distributed systems}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}CDN}{9}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Design URL Shortener Service}{10}{chapter.5}%

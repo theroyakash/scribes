@@ -1,0 +1,41 @@
+\documentclass[a4paper,10pt, oneside]{book}
+\usepackage{geometry}
+
+\geometry{
+a4paper,
+total={150mm,237mm},
+left=30mm,
+top=30mm,
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr} 
+\fancyhf{}
+\cfoot{\thepage}
+
+
+\setlength{\parskip}{0.5em}
+
+\begin{document}
+
+\author{\Large{\textbf{theroyakash}}\\\\\textsc{Masters in Computer Science} \\ \textsc{Indian Institute of Technology, Madras}\\\textsc{Chennai, India}}
+\title{Distributed System Design}
+\date{Winter of 2022 to Summer of 2023}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+\include{./TeX_files/chapter00}
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+\include{./TeX_files/chapter03}
+\include{./TeX_files/chapter04}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\end{document}

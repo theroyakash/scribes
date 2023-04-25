@@ -1,0 +1,42 @@
+\chapter{Introduction to Loops}
+\section{What is Loop}
+\noindent Now, let's think about a real life challenge. Suppose you have a number and you have to find whether the number is even or odd? Wait! you know how to work with if-else statements right? So, first think about it. Okay, here how to solve it. You just have to check whether the number is divisible with 2 or not, if the number is divisible by 2 then the number is even, otherwise the number will be odd, simple right? Now, suppose you have given a sequence of numbers and now you have to find the even numbers from that sequence. Here comes the factor called loop. A loop is used to iterate over a sequence, where the sequence can be list, tuples, dictionary, set or string. You'll find what those are in the following chapters.\\
+
+So, now let's implement a loop in order to solve this problem. First we have to traverse over the sequence of numbers and have to check each element whether that particular element is an even, if so then we have to insert that element into the final list and after finishing the iteration, the final list will be the output of our question.\\
+
+\section{Types of Loops}
+There are two types of loops first is `for` loop and other is `while` loop. Using which we'll implement the upper problem.\\
+
+\noindent Here's the python code with for loop
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+given_list_of_element = [6, 9, 2, 1, 8]
+final_list = []
+
+for i in given_list_of_element:
+    if i%2==0:
+        final_list.append(i)
+        
+print(final_list) # [6, 2, 8]
+\end{lstlisting}
+\end{minipage}
+
+\noindent Here's the python code with while loop
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+given_list_of_element = [6, 9, 2, 1, 8]
+final_list = []
+i = 0
+
+while i < len(given_list_of_element):
+    if given_list_of_element[i]%2==0:
+        final_list.append(given_list_of_element[i])
+        
+    i+=1 # Increase i so that the while loop doesn't get stuck in a forever loop
+        
+print(final_list) # [6, 2, 8]
+\end{lstlisting}
+
+\end{minipage}

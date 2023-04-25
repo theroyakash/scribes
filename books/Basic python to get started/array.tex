@@ -1,0 +1,74 @@
+\chapter{Arrays and Lists}
+
+\section{What is array?}
+
+\noindent Until this moment what we did here was that we stored some values in some location and gave that location a name to reference that stored data. We called this variables. What if we wanted to store more than one thing like sequence of numbers or list of all students in a variable?\\
+
+\noindent Now we implement arrays (Python doesn't have builtin support for this instead we use lists here). The difference between arrays and list is that list can hold values of multiple types meaning it can store a integer and a string and a float together. But for arrays, they can only store a single type of data. In python you'll define a list like this
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+list_of_elements = [1, 2, 3, 4, 5, "Hello World"]
+\end{lstlisting}
+\end{minipage}
+
+\section{Accessing elements from a list}
+\noindent We can access specific elements from a list. We have to specify an index(position) from where we want to see the values. These indexes starts from zero in python. You need to use the index operator \texttt{[ ]} to access an item in a array. The index must be an integer. Now to access the 0th element from the variable \texttt{list\_of\_elements} We'll write the following code and it'll return \texttt{1}
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+print(list_of_elements[0])   # --> This will print 1
+\end{lstlisting}
+\end{minipage}
+
+\noindent To see how many elements you have in your array you can use a builtin function \texttt{len()}. There is a shortcut to quickly accessing the last element in the list: to use \texttt{[-1]} index.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+print(list_of_elements[-1])   # --> This will print "Hello World"
+
+# Returning the size of the list
+print(len(list_of_elements))  # --> This will print 6
+\end{lstlisting}
+\end{minipage}
+
+\section{Inserting into lists}
+\noindent Inserting into lists are super easy to do. There is a built in function called \texttt{.append()}, when you call this function on a list it'll add new numbers to the end of the list. Here is how you will do it
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+list_of_elements = [1, 2, 3, 4, 5, "Hello World"]
+list_of_elements.append(7)
+
+print(list_of_elements)  # --> This will print [1, 2, 3, 4, 5, "Hello World", 7]
+# The length of the list_of_elements will also increase by 1.
+print(len(list_of_elements))  # --> 7
+\end{lstlisting}
+\end{minipage}
+
+
+\section{Deleting a specific item from a list}
+\noindent Just like inserting deleting also a very easy task to do. Just use the keyword \texttt{del} in front of the index to delete the element from the index. Here's how you need to do it
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+list_of_elements = [1, 2, 3, 4, 5, "Hello World"]
+del list_of_elements[5]
+
+print(list_of_elements)  # --> This will print [1, 2, 3, 4, 5]
+# The length of the list_of_elements will also decrease by 1.
+print(len(list_of_elements))  # --> 5
+\end{lstlisting}
+\end{minipage}
+
+\section{Updating a specific element in list}
+\noindent To update a specific element you can just reassign the element to the new one. Let's say we need to change the 1st element (\textit{0th element is the 1st, and 1st element is the 2nd as python has zero based indexing}), you will use the following code:
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+list_of_elements = [1, 2, 3, 4, 5]
+list_of_elements[0] = 102
+
+print(list_of_elements)  # --> This will print [102, 2, 3, 4, 5]
+\end{lstlisting}
+\end{minipage}

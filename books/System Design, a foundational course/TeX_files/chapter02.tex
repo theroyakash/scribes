@@ -1,0 +1,31 @@
+\chapter{Key-Value Database}
+\section{Introduction}
+
+A key value database is a database service that provides a efficient storage for a key-value pair. Every unique key must be paired with one and only key. For example the following may be a key-value database instance for a website.
+
+$$\begin{array}{ll}
+	\mbox{ip\_addr} & \mbox{252.236.1.55} \\
+	\mbox{client\_port\_num} & \mbox{6677} \\
+	\mbox{username} & \mbox{theroyakash} \\
+	\mbox{mail\_id} & \mbox{hey@theroyakash.com} \\
+	\mbox{hashed\_password} & \mbox{e5de9701e9a15b1bf134db2da57ab9c2}	
+\end{array}$$
+
+\section{Requirement Analysis}
+When designing a Key-Value database we must consider a trade-off between consistency and availability. Let's design our database highly available to make it usable as a cache. So let's draw our little requirements chart:
+
+\begin{itemize}
+	\item Highly available,
+	\item Low latency output
+	\item Each of the entry will be small. Let's bound that to 1-2 KB
+	\item Huge amount of records to be stored.
+\end{itemize}
+
+\section{Monolith Design vs Distributed Design}
+Developing a single server key-value storage makes it a single-point failure service. In designing systems we must avoid such single point of failures.
+
+\paragraph{Capacity Constraints:}
+To make the data access faster we may store the entire database as a hashtable in RAM. But storing records in a single server [RAM] do not support for large scale data storage. You can quickly fill up the entire RAM with the database data. Then multiple page-fault and thrashing will make your system a high latency product.
+
+\section{Distributed Design}
+A distributed key-value pair storage is also called distributed hash table. From CAP theorem it is impossible to design a distributed system that gurrantees more than 2 of these 3 things: \textsc{Consistency, availability,} and \textsc{partition tolarance}.

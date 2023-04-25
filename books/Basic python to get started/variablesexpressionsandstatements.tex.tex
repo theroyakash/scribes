@@ -1,0 +1,92 @@
+\chapter{Variables, expressions and statements}
+
+\section{Values and types}
+\noindent A value is one of the fundamental things—like a letter or a number—that a program manipulates. The values we have seen so far are 2 (the result when we added 1 + 1), and ’Hello, World!’.\\
+
+\noindent These values belong to different types: 2 is an integer, and ’Hello, World!’ is a string, so- called because it contains a “string” of letters. You (and the interpreter) can identify strings because they are enclosed in quotation marks.
+The print statement also works for integers.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/hello2.py}
+\end{minipage}
+
+If you are not sure what type a value has, the interpreter can tell you. To see what is the type of an object type the following code like this
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/object.py}
+\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/object2.py}
+\end{minipage}
+
+Not surprisingly, strings belong to the type $str$ and integers belong to the type int. Less obviously, numbers with a decimal point belong to a type called float, because these numbers are represented in a format called floating-point.
+
+\subsection{Variables}
+
+\noindent One of the most powerful features of any programming language is the ability to manipulate variables. A variable is a name that refers to a value.\\
+
+\noindent The assignment statement creates new variables and gives them values,
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/varassign.py}
+\end{minipage}
+
+
+\noindent This way you can store any value during any time of execution of your code/program.
+
+
+\subsection{Variable names and python keywords}
+\noindent Programmers can choose names for their variables alright. Variable names can be of arbitrary length. They can have letter and numbers in them but they shouldn't start with numbers. It's illegal to use numbers in the beginning, $ \$ sign$ and the brackets. \\
+
+If you give illegal names to variables you'll generate syntax error when running the code.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/error.py}
+\end{minipage}
+
+\noindent It's understandable to generate error in the first two but why error in the class variable? It's because it's python's reserved keyword so you can't use them for variables. The class keyword defines the object oriented rules for Python. So python expects the usage of class keyword for only creating class not variables.
+
+\noindent Python has total of 29 keywords and these are the followings\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/key.py}
+\end{minipage}
+
+\section{The Global Variable}
+In Python, global keyword allows you to modify the variable outside of the current scope. It is used to create a global variable and make changes to the variable in a local context.
+
+\subsection{Rules of global Keyword}
+The basic rules for global keyword in Python are:
+\begin{itemize}
+    \item When we create a variable inside a function, it is local by default.
+    \item When we define a variable outside of a function, it is global by default. You don't have to use global keyword.
+    \item We use global keyword to read and write a global variable inside a function.
+    \item Use of global keyword outside a function has no effect.
+\end{itemize}
+
+\subsection{Use of global Keyword}
+Let's take an example.\\
+\noindent Example 1: Accessing global Variable From Inside a Function. However, we may have some scenarios where we need to modify the global variable from inside a function.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/glob1.py}
+\end{minipage}
+
+
+\noindent Example 2: Modifying Global Variable From Inside the Function.\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/glob2.py}
+\end{minipage}
+
+\noindent When we run the above program, the output shows an error: UnboundLocalError: local variable 'c' referenced before assignment. This is because we can only access the global variable but cannot modify it from inside the function. The solution for this is to use the global keyword.\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[style=python]{code_examples/glob3.py}
+\end{minipage}
+
+When we run the above program, the output will be:
+\texttt{Inside add(): 2  In main: 2}
+In the above program, we define c as a global keyword inside the $add()$ function. Then, we increment the variable $c$ by $1$, i.e $c = c + 2$. After that, we call the $add()$ function. Finally, we print the global variable $c$. As we can see, change also occurred on the global variable outside the function, $c = 2$.
+

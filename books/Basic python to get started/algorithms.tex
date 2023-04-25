@@ -1,0 +1,91 @@
+\chapter{If-else statements}
+Alright let's think of real life: if you have 20 lakh Rupees you would most certainly buy a car or a house in the suburbs. So let's make this statement into code
+
+\noindent Let's first store your income into some variables.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+myTotalMoney = 2000
+# or you can name your variable with (_)s
+total_money = 2000
+\end{lstlisting}
+\end{minipage}
+
+Now we need to check whether my total money is greater than 20 lakh so that I can buy a 15 lakh rupees car.
+So to check this we need to use the python's if keyword (remember in the last chapter).
+
+Let's do that now. To define an if statement we write if then we write conditions for the if block then a colon:\\
+\noindent Then in the next line with indentation we write out all the things we want to do in for that condition. So our pseudo-code would look like the following
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+total_money = 2000
+
+if (...conditions...):
+    # Do something
+    
+\end{lstlisting}
+\end{minipage}
+
+\noindent So writing this in python would look like the following:
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+total_money = 2000
+
+if total_money > 2000000:
+    # Deduct the money from the total balance
+    total_money -= 1500000 # Buying an car of 15 Lakh
+    # Now print that the transaction was successful
+    print('Transaction Successful')
+\end{lstlisting}
+\end{minipage}
+
+\noindent As we don't have money grater than the 20 Lakh mark so our program would not write anything. It'll go to the if statement, seeing the condition doesn't met, it'll do nothing. To tackle this we can write an optional else statement which will be executed when the if block's condition is not met.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+total_money = 2000
+
+if total_money > 2000000:
+    # Deduct the money from the total balance
+    total_money -= 1500000 # Buying an car of 15 Lakh
+    # Now print that the transaction was successful
+    print('Transaction Successful')
+else:
+    print('Sorry You do not have 15 lakh rupees so you can not buy this car')
+\end{lstlisting}
+\end{minipage}
+
+\noindent Your conditions for if statement can be of multiple conditions, you'd join them with and keyword. Let's see an example:
+
+\noindent Let's say you want to buy a 15 Lakh car if the car is of TATA brand and you also have money more than 20 lakh in your pocket. So you would write the following code:
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+total_money = 2000000000
+brand = 'TATA'
+
+if total_money > 2000000 and brand == 'TATA':
+    # Deduct the money from the total balance
+    total_money -= 1500000 # Buying an car of 15 Lakh
+    # Now print that the transaction was successful
+    print('Transaction Successful')
+\end{lstlisting}
+\end{minipage}
+
+
+\noindent Let's say you have the sufficient money but you want to buy car whether it's TATA or MARUTI and you don't want to buy car if the car is anything other than that so you'll use the or keyword in place of and keyword. So the code will look like the following;
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=python]
+total_money = 2000000000
+brand = 'TATA'
+
+if brand == 'MARUTI' or brand == 'TATA':
+    # Deduct the money from the total balance
+    total_money -= 1500000 # Buying an car of 15 Lakh
+    # Now print that the transaction was successful
+    print('Transaction Successful')
+\end{lstlisting}
+\end{minipage}
