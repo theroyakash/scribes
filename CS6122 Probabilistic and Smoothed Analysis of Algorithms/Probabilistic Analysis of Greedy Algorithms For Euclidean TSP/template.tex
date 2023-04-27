@@ -35,7 +35,7 @@
 \title{Analysis of Greedy Heuristic for Euclidean Travelling Salesman Problem}
 
 \author{
-    theroyakash\thanks{Dept. of Computer Science, submitted for course \sf CS6122, \href{https://theroyakash.com}{theroyakash.com}}\\
+    theroyakash\thanks{\textsf{Department of Computer Science, submitted for course} \textsf{CS6122}, \href{https://theroyakash.com}{\textsf{theroyakash.com}}}\\
     Indian Institute of Technology Madras \\
     \texttt{royakashappleid@icloud.com} \\
 }
@@ -61,8 +61,7 @@ a tour. This tour is not the minimum cost tour.
 
 \subsection{Naïve Greedy Algorithm For Euclidean TSP}
 
-\begin{algorithm}[H]
-    \label{alg:1}
+\begin{algorithm}[H]\label{alg:1}
     \SetKwInOut{Input}{Input}
 
     \Input{Graph $G$}
@@ -84,13 +83,16 @@ a tour. This tour is not the minimum cost tour.
 \end{algorithm}
 
 \subsection{Euclidean Functional}
-We define the output of the algorithm~\ref{alg:1} as the euclidean functional.
+We define the cost of the TSP tour from the output of the algorithm~\ref{alg:1} as the euclidean functional.
 We'll refer to that as $\textsf{NGA}$.
 \begin{align*}
-    \textsf{NGA} \stackrel{\textsf{def}}{=} \text{Output of Algorithm~\ref{alg:1}}
+    \textsf{NGA} \stackrel{\textsf{def}}{=} \text{cost of the TSP tour from the output of Algorithm~\ref{alg:1}}
 \end{align*}
 
 \section{Mathematical Properties}
+
+% Simple Superadditivity %
+
 \subsection{Simple Superadditivity}
 
 \begin{define}{Simple Superadditivity}{defin1}
@@ -107,7 +109,9 @@ Thus greedy tour on the union of the two graphs will be $a + a + b + b = 2a +
     2b$. This is clearly less than $2a + 2a = 4a$ which is the sum of tours for the
 individual graphs.
 
-\subsection*{Weak Superadditivity}
+% Weak Superadditivity
+
+\subsection{Weak Superadditivity}
 
 Simple superadditivity~\ref{th:defin1} is one of the most strongest forms of
 superadditivity. This is not often not required. Most of the time it is enough
@@ -121,13 +125,17 @@ property. First we define weak superadditivity.
         $f(X \cup Y) \ge f(X) + f(Y) - O(1)$.}
 \end{define}
 
-Our euclidean functional \textsf{NGA} does not show weak superadditivity.
+Our euclidean functional \textsf{NGA} does not show weak superadditivity as per the definition~\ref{th:defin123}.
 
-\subsection{Geometric Superadditivity}
+% Example how it is not showing weak superadditivity
+If we could get an instance where the error term exceeds some constant term $O(1)$
+then this would be a counter example to weak superadditivity.
 
-\begin{define}{Geometric Superadditivity}{defin12}
-    \textit{A functional $f$ is geometric superadditive if $f(X \cup Y) \geq f(X) + f(Y)$}
-\end{define}
+% \subsection{Geometric Superadditivity}
+
+% \begin{define}{Geometric Superadditivity}{defin12}
+%     \textit{A functional $f$ is geometric superadditive if $f(X \cup Y) \geq f(X) + f(Y)$}
+% \end{define}
 
 % Subadditivity %
 
@@ -153,16 +161,22 @@ Smoothness as defined in Yukitch's Book is given below.
 
 \begin{define}{Smoothness}{defin2}
     \textit{An euclidean functional $f$ is said to be smooth if $f(X \cup Y) - f(X)\leq c\mid Y\mid^{\frac{d-1}{d}}$
-        $\forall$ $S, T \in [0,1]^d$}.
+        $\forall$ $S, T \in \left[0,1 \right]^d$}.
 \end{define}
 
 If a functional is monotone then we can easily prove that the functional along
 with subadditivity shows smoothness. So we explore the monotonicity of
 $\textsf{NGA}$ algorithm.
 
-\begin{lemma}{Monotonicity and smoothness}{lemma1}
-    \textit{An euclidean functional of representing some graph algorithm is said to be showing monotonicity if reducing points from a graph reduces the functional value.
-        If an euclidean functional is showing monotonicity then with subadditivity and growth bound euclidean functional shows smoothness.}
-\end{lemma}
+An euclidean functional of representing some graph algorithm is said to be showing monotonicity if reducing points from a graph reduces the functional value.
+If an euclidean functional is showing monotonicity then with subadditivity and growth bound euclidean functional shows smoothness.
+
+\begin{define}{Monotonicity}{defmono}
+    \textit{If $F \subseteq G$ in some arbitrary region $\mathcal{H}$ then an monotone euclidean function
+    must hold the following inequality $f(F, \mathcal{H}) \leq f(G, \mathcal{H})$}
+\end{define}
+
+Our \textsf{NGA} functional do not show monotone property according to the definition above. This can be proved
+by the following family of counter example below.
 
 \end{document}

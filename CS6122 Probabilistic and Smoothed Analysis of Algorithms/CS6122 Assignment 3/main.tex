@@ -1,0 +1,161 @@
+\documentclass[12pt, a4paper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\graphicspath{ {./images/} }
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+% \lhead{Leaft Header\\}
+% \rhead{Right Header\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+\newcommand{\RP}{\ensuremath{\mathsf{RP}}}
+\newcommand{\expect}[1]{\ensuremath{\mathbb{E}[#1]}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\NP}{\ensuremath{\mathsf{NP}}}
+\newcommand{\co}{\ensuremath{\mathsf{co}\mbox{-}}}
+\newcommand{\NL}{\ensuremath{\mathsf{NL}}}
+
+\begin{document}
+
+\hrule
+\vspace{1em}
+
+\begingroup
+	\centering
+	\LARGE Probabilistic and Smoothed Analysis of Algorithms\\
+	\LARGE Assignment \# 3\\[0.5em]
+	\large \today\\[0.5em]
+	\large \textsc{Roy, Akash} $\mid$ CS22M007\par
+	\large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
+\endgroup
+\pointsdroppedatright %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\vspace{1em}
+\hrule
+\vspace{0.2em}
+
+\begin{center}
+	\textsc{Answering any} $5$.
+\end{center}
+
+\vspace{0.2em}
+\hrule
+\vspace{1em}
+
+\begin{questions}
+
+	\question[10]  This exercise is to demonstrate the limitations of considering expected running time of an algorithm as a useful measure. For any $n>0$, describe  a function $f:\{0,1\}^n \to \mathbb{N}$ such that
+	\begin{itemize}
+		\item $\mathbb{E}[f] = \mathbb{E}_{x\in \{0,1\}^n}[f(x)] = n^c$ for some constant $c$ and
+		\item ${\sf var}[f] = E[f^2] - (E[f])^2 = \Omega(2^n)$.
+	\end{itemize}
+	I.e., there can be performance measures $f$ which is polynomial in expectation, but variance being exponential. Give formal justification for your answer (i.e., computation of expectation and variance for the function $f$ constructed).  Further, write your views on why the function $f$ that you have constructed may/maynot be a good performance measure for any algorithm in practice.
+
+	\question[10]  Compute the Fourier expansion of the following Boolean functions. (Note the functions are described in the Boolean/Fourier domain, you need to convert the function to Fourier domain first.)
+	\begin{parts}
+		\part[2] Majority function $MAJ_3 \{ -1,1\}^n \to \{-1,1\}$, $MAJ_3(x_1,x_2,x_3) =
+			{\sf sgn}(x_1+x_2+x_3)$.
+		\part[3] $NAE_n:\{-1,1\}^n \to \mathbb{R}$, $NAE_n(x) =1$ if not all of the input
+		bits are equal, and $0$ otherwise. Compute the Fourier coefficients for $n=4$.
+		\part[5] The inner product function: $IP_{2n}:\{-1,1\}^n \times \{-1,1\}^n \to
+			\{-1,1\}$, given by $IP_{2n}(x,y) = {\sf sgn}(\sum_{i=1}^n x_iy_i) $. First
+		write down the Fourier coefficients for the case of $n=2$ (3 points) and then
+		obtain a general formula (2 points). No proof needed for the general formula.
+	\end{parts}
+	%\begin{solution}
+	%{\bf Collaborators}:\\ 
+	%Write solutions  afer uncommenting the lines above and below.
+	%\end{solution}
+
+	\question[10] Exercise 1.8 in the book `` Analysis of Boolean Functions'' by Ryan O'Donnel. Point split: 4+2+4.
+	%\begin{solution}
+	%{\bf Collaborators}:\\ 
+	%Write solutions  afer uncommenting the lines above and below.
+	%\end{solution}
+	\question[10]
+	\begin{parts}
+		\part[5] Exercise 1.15 in the book Analysis of Boolean Functions by Ryan O'Donnell.
+		\par[5] Let $f:\{-1,1\}^n\to \{-1,1\}$ be a Boolean function. For $k\in [1,n]$, let $f^{=k}$ be the function given by $f^{=k}(x) = \sum_{S\subset [n], |S| = k} \widehat{f}(S) \chi_S(x)$.  Prove the formula for $\langle f^{=k}, f^{=\ell} \rangle$ given in Exercise 1.18 of the book  `` Analysis of Boolean Functions'' by Ryan O'Donnel.
+	\end{parts}
+	\question[10]  We had stated in the class that  Knapsack problem admits a pseudo linear time algorithm. This question is on developing such an algorithm and using it for a simple approximation algorithm for Knapsack.
+	\begin{parts}
+		\part[5] Using the standard dynamic programing approach, develop a $O({\sf
+					poly}(n)W)$ time algorithm for the Knapsack problem with $n$ items. Clearly
+		mention each step and give a complexity analysis of the algorithm.
+		
+		\begin{solution}
+			\textbf{Collaborators: }
+		\end{solution}
+		
+		\part[5] Using the above algorithm, devlop an algorithm that given $\epsilon$,
+		obtains an $1-\epsilon$ approximate solution(i.e., outputs a solution with
+		profit at least (1-$\epsilon$) times the maximum) in time ${\sf
+					poly}(n,1/epsilon)$.
+
+		\begin{solution}
+			\textbf{Collaborators: }
+		\end{solution}
+	\end{parts}
+
+	\question[10]  Let $A$ be an algorithm for a Euclidean optimization problem ${\cal P}$. in the plane. Consider  an input instance $x$ and the simple perturbation model with a given parameter $\delta\in (0,1/2)$.  Let $x\in ([0,1]^2)^n$. A $\delta$ perturbation of $x$ is given by $(x_1+y_1,\ldots, x_n+y_n)$, where $y_1,\ldots, y_n$ are chosen uniformly and independent on $[-\delta, \delta]$.  The  algorithm  $A$ is said to be $(\epsilon,\delta)$ stable with respect to $x$, if $Pr[|A(x) - A(y)|\le  \epsilon] = 1-o(1)$, where $y$ is a $\delta$ perturbation of $x$.
+
+	\begin{parts}
+		\part[5] Consider the Christofide's algorithm for ETSP (Euclidean TSP) in the
+		plane. Construct an infinite family of inputs $X= (X_n)_{n>0}$ (i.e., for every
+		$n>0$, construct an instance $X_n$ with $O(n)$ many points) such that $CHR(X_n)
+			= (1.5-o(n)) TSP(X))$.
+
+		\begin{solution}
+			\textbf{Collaborators: }
+		\end{solution}
+
+		\part[5] Are the instance you have constructed above $(\epsilon,\delta)$ stable for
+		suitable values of $\delta$ and $\epsilon$? Give a detailed justification to
+		your answer.
+
+		\begin{solution}
+			\textbf{Collaborators: }
+		\end{solution}
+	
+	\end{parts}
+
+	\question[10] This question uses the same notion of perturbation as in the above question.  Let ${\cal P}$ be a Euclidean optimization problem in the plane and $x\in (\mathbb{R})^2)^n$ be an input instance and $y$ be a $\delta$ perturbation of $x$.  We say that ${\cal P}$ is $(\epsilon,\delta)$ stable at $x$, if $Pr[{|\cal P}(x)-{\cal P}(y)| \le \epsilon] = 1-o(1)$.
+	\begin{parts}
+		\part[6] Suppose ${\cal P}$ be an $\NP$ hard Euclidean optimization problem such
+		that $\forall x \in (\mathbb{R}^2)^n$, ${\cal P}$ is $(\epsilon, \delta)$
+		stable at $x$, for some $\epsilon$ and $\delta$. Can we have a smoothed
+		polynomial time algorithm that solves ${\cal P}$ exactly? Justify your answer.
+		\part[4] Suppose $A$ is approximation algorithm for ${\cal P}$ with some
+		approximation performance $\gamma$. Assume that $ X = (X_n)$ is an infinite
+		family of worst case instances for $A$ (i.e., approximation ratio of $A$ on
+		$X_n$ is $\gamma -o(1)$ ). Further, suppose that $X_n$ is $(\epsilon,\delta)$
+		stable for ${\cal P}$ for every $n$. What will be the best possible smoothed
+		approximation ratio of $A$ under $\delta$ perturbations? Prove your answers.
+	\end{parts}
+	\question[10] Consider the {\sf pathTSP} problem: Given a set of $n$ points  $x_1,\ldots, x_n \in [0,1]^2$, in the Euclidean plane, compute the minimum weight of a Hamiltonian path through the points.  Define a Euclidean functional corresponding to ${\sf pathTSP}$. Decide if the newly defined function satisfy any of the properties among  subadditivity, superadditivity, smoothness, growth bound. Give detailed arguments justifying your answer.
+\end{questions}
+
+\begin{center}
+	{\bf Bonus}
+\end{center}
+\begin{questions}
+	\question[5] Let $X$ be an instance of the $k$-means clusturing problem, with $|X| = n$. Let $B_1,\ldots, B_r$ be a sequence of clusturings obtained by the $k$-means algorithm. Show that there is some constant $c$ such that if $r>c$, then at least one of the clusters among the clusterings $B_1,\ldots, B_r$, has seen at least three different configurations. ({\bf Note:} in the class we had shown this for $r>2^k$, using the pigeonhole principle.)
+\end{questions}
+\end{document}
