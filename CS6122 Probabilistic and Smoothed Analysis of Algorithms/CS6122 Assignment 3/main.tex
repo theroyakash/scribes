@@ -36,12 +36,12 @@
 \vspace{1em}
 
 \begingroup
-	\centering
-	\LARGE Probabilistic and Smoothed Analysis of Algorithms\\
-	\LARGE Assignment \# 3\\[0.5em]
-	\large \today\\[0.5em]
-	\large \textsc{Roy, Akash} $\mid$ CS22M007\par
-	\large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
+\centering
+\LARGE Probabilistic and Smoothed Analysis of Algorithms\\
+\LARGE Assignment \# 3\\[0.5em]
+\large \today\\[0.5em]
+\large \textsc{Roy, Akash} $\mid$ CS22M007\par
+\large \textsc{M.Tech CS} $\mid$ \textsc{Indian Institute of Technology, Madras}\par
 \endgroup
 \pointsdroppedatright %Self-explanatory
 \printanswers
@@ -70,40 +70,198 @@
 
 	\question[10]  Compute the Fourier expansion of the following Boolean functions. (Note the functions are described in the Boolean/Fourier domain, you need to convert the function to Fourier domain first.)
 	\begin{parts}
-		\part[2] Majority function $MAJ_3 \{ -1,1\}^n \to \{-1,1\}$, $MAJ_3(x_1,x_2,x_3) =
-			{\sf sgn}(x_1+x_2+x_3)$.
+		\part[2] Majority function $\text{MAJ}_3 \{ -1,1\}^n \to \{-1,1\}$,
+		$\text{MAJ}_3(x_1,x_2,x_3) = {\sf sgn}(x_1+x_2+x_3)$.
+
+		\begin{solution}
+			$\text{MAJ}_3$ computes Majority of three boolean variables $x_1$ and $x_2$ and $x_3$.
+
+			We can plot the truth table for the $\text{MAJ}_3$ function which is the
+			following,
+
+			\vspace{0.7em}
+
+			\begin{tabular}{|r|r|r|r|}
+				\hline
+				$x_1$ & $x_2$ & $x_3$ & $\text{Maj}_3(x_1, x_2, x_3)$ \\ \hline
+				$1$   & $1$   & $1$   & $1$                           \\ \hline
+				$1$   & $1$   & $-1$  & $1$                           \\ \hline
+				$1$   & $-1$  & $1$   & $1$                           \\ \hline
+				$-1$  & $1$   & $1$   & $1$                           \\ \hline
+				$-1$  & $1$   & $-1$  & $-1$                          \\ \hline
+				$-1$  & $-1$  & $1$   & $-1$                          \\ \hline
+				$1$   & $-1$  & $-1$  & $-1$                          \\ \hline
+				$-1$  & $-1$  & $-1$  & $-1$                          \\ \hline
+			\end{tabular}
+
+			Following this truth table we can arrive at the equation for $\text{Maj}_3$ via
+			interpolation. For each point $(x_1, x_2, x_3)$ we need to cook a polynomal
+			that is $1$ at $(x_1, x_2, x_3)$ and $0$ everywhere else.
+
+			Such polynomal is the following. As $x_i \in \{-1,1\}$
+
+			\begin{align*}
+				\left( \frac{1 + a_1 x_1}{2} \cdot \frac{1 + a_2 x_2}{2} \cdot \frac{1 + a_3 x_3}{2} \right) =
+				\begin{cases}
+					1 \textsf{ if } (a_i) = \textsf{sgn}(x_i) \textsf{ and } x_i  = |x_i| \\
+					0 \textsf{ otherwise}
+				\end{cases}
+			\end{align*}
+
+			\begin{align*}
+				\text{Maj}_3(x_1, x_2, x_3) =
+				 & (+1) \left( \frac{1 + x_1}{2} \cdot \frac{1 + x_2}{2} \cdot \frac{1 + x_3}{2} \right) + \\
+				 & (+1) \left( \frac{1 + x_1}{2} \cdot \frac{1 + x_2}{2} \cdot \frac{1 - x_3}{2} \right) + \\
+				 & (+1) \left( \frac{1 + x_1}{2} \cdot \frac{1 - x_2}{2} \cdot \frac{1 + x_3}{2} \right) + \\
+				 & (+1) \left( \frac{1 - x_1}{2} \cdot \frac{1 + x_2}{2} \cdot \frac{1 + x_3}{2} \right) + \\
+				 & (-1) \left( \frac{1 - x_1}{2} \cdot \frac{1 + x_2}{2} \cdot \frac{1 - x_3}{2} \right) + \\
+				 & (-1) \left( \frac{1 - x_1}{2} \cdot \frac{1 - x_2}{2} \cdot \frac{1 + x_3}{2} \right) + \\
+				 & (-1) \left( \frac{1 + x_1}{2} \cdot \frac{1 - x_2}{2} \cdot \frac{1 - x_3}{2} \right) + \\
+				 & (-1) \left( \frac{1 - x_1}{2} \cdot \frac{1 - x_2}{2} \cdot \frac{1 - x_3}{2} \right)
+			\end{align*}
+
+			Simplifying this will result into the following equation
+
+			\begin{align*}
+				\textsf{Maj}_3(x_1, x_2, x_3) = \frac{1}{2} x_1 + \frac{1}{2} x_2 + \frac{1}{2} x_3 - \frac{1}{2} x_1 \cdot x_2 \cdot x_3
+			\end{align*}
+
+		\end{solution}
+
 		\part[3] $NAE_n:\{-1,1\}^n \to \mathbb{R}$, $NAE_n(x) =1$ if not all of the input
 		bits are equal, and $0$ otherwise. Compute the Fourier coefficients for $n=4$.
+
+		\begin{solution}
+			Using interpolation technique we can get the truth table based representation of the function
+			which is the following
+
+			\begin{align*}
+				\text{NAE}_4(x_1, x_2, x_3, x_4) &= \frac{1}{16}(1-x_1)(1-x_2)(1-x_3)(1-x_4) \cdot 0 \\ 
+				&+\frac{1}{16}(1-x_1)(1-x_2)(1+x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1-x_1)(1-x_2)(1+x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1-x_1)(1+x_2)(1-x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1-x_1)(1+x_2)(1-x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1-x_1)(1+x_2)(1+x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1-x_1)(1+x_2)(1+x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1-x_2)(1-x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1-x_2)(1-x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1-x_2)(1+x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1-x_2)(1+x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1+x_2)(1-x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1+x_2)(1-x_3)(1+x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1+x_2)(1+x_3)(1-x_4) \cdot 1\\ 
+				&+\frac{1}{16}(1+x_1)(1+x_2)(1+x_3)(1+x_4) \cdot 0\\
+			\end{align*}
+
+		\end{solution}
+
 		\part[5] The inner product function: $IP_{2n}:\{-1,1\}^n \times \{-1,1\}^n \to
 			\{-1,1\}$, given by $IP_{2n}(x,y) = {\sf sgn}(\sum_{i=1}^n x_iy_i) $. First
 		write down the Fourier coefficients for the case of $n=2$ (3 points) and then
 		obtain a general formula (2 points). No proof needed for the general formula.
-	\end{parts}
-	%\begin{solution}
-	%{\bf Collaborators}:\\ 
-	%Write solutions  afer uncommenting the lines above and below.
-	%\end{solution}
 
-	\question[10] Exercise 1.8 in the book `` Analysis of Boolean Functions'' by Ryan O'Donnel. Point split: 4+2+4.
+		\begin{solution}
+
+		\end{solution}
+
+	\end{parts}
+
+	\question[10] Exercise 1.8 in the book Analysis of Boolean Functions by Ryan O'Donell. Point split: 4+2+4.
+
+	The (Boolean) dual of $f:\{-1,1\}^n\to \mathbb{R}$ is the function $f^{t}$
+	defined by $f^{t} = - f(-x)$. The function $f$ is said to be odd if it equals
+	its dual, equivalently if $f(-x) = -f(x) \: \forall x$. The function $f$ is
+	said to be even if $f(-x) = f(x) \: \forall x$. Given any function
+	$f:\{-1,1\}^n \to \mathbb{R}$ its odd part is the function $f^{\text{odd}} =
+		\frac{f(x) - f(-x)}{2}$ and its even part is the function $f^{\text{even}} =
+		\frac{f(x) + f(-x)}{2}$
+
+	\begin{parts}
+		\part Express $\hat{f}^{t}(S)$ in terms of $\hat{f}(S)$.
+		\begin{solution}
+
+		\end{solution}
+
+		\part Verify that $f = f^{\text{even}} + f^{\text{odd}}$ and that $f$ is odd
+		(respectively, even) if and only if $f = f^{\text{odd}}$.
+	\end{parts}
+
 	%\begin{solution}
 	%{\bf Collaborators}:\\ 
 	%Write solutions  afer uncommenting the lines above and below.
 	%\end{solution}
 	\question[10]
 	\begin{parts}
-		\part[5] Exercise 1.15 in the book Analysis of Boolean Functions by Ryan O'Donnell.
-		\par[5] Let $f:\{-1,1\}^n\to \{-1,1\}$ be a Boolean function. For $k\in [1,n]$, let $f^{=k}$ be the function given by $f^{=k}(x) = \sum_{S\subset [n], |S| = k} \widehat{f}(S) \chi_S(x)$.  Prove the formula for $\langle f^{=k}, f^{=\ell} \rangle$ given in Exercise 1.18 of the book  `` Analysis of Boolean Functions'' by Ryan O'Donnel.
+		\part[5] Exercise 1.15 in the book Analysis of Boolean Functions by Ryan O'Donell.
+		\part[5] Let $f:\{-1,1\}^n\to \{-1,1\}$ be a Boolean function. For $k\in [1,n]$,
+		let $f^{=k}$ be the function given by $f^{=k}(x) = \sum_{S\subset [n], |S| = k}
+			\widehat{f}(S) \chi_S(x)$. Prove the formula for $\langle f^{=k}, f^{=\ell}
+			\rangle$ given in Exercise 1.18 of the book `` Analysis of Boolean Functions''
+		by Ryan O'Donnel.
+		\begin{solution}
+			{\bf Collaborators}: None\\
+			We need to show the following
+			\begin{align*}
+				\langle f^{=k}, f^{=l} \rangle =
+				\begin{cases}
+					W^{k}[f] \textsf{ if } k = l \\
+					0 \textsf{ otherwise}
+				\end{cases}
+			\end{align*}
+
+			\textbf{Definition} \textit{For $f: \{-1, 1\}^n \to \mathbb{R}$
+				and $0 \leq k \leq n$ Fourier weight at degree $k$ is the following}
+
+			\begin{align}
+				W^k[f] = \displaystyle\sum_{\underset{S \subseteq [n]}{card(S) = k}} \hat{f}(S)^2
+			\end{align}
+
+			Using Definition (1) we can arrive at the inner product asked in the question.
+			From Parseval's theorem we can say that $W^{k}[f] = ||f^{=k}||_2 ^{2}$. Where
+			$f^{=k} = \sum_{card(S) = k} \hat{f}(S) \chi_{S}$.
+
+			Now we calculate $\langle f^{=k}, f^{=l} \rangle$
+
+			\begin{align}
+				\langle f^{=k}, f^{=l} \rangle & = \left\langle \displaystyle\sum_{card(S) = k} \hat{f}(S) \chi_S, \displaystyle\sum_{card(T) = l} \hat{f}(T) \chi_T \right\rangle \\
+				                               & = \displaystyle\sum_{card(S) = k} \displaystyle\sum_{card(T) = l} \hat{f}(S) \hat{f}(T) \langle \chi_S, \chi_T \rangle
+			\end{align}
+
+			From class we know that the quantity $\langle \chi_S, \chi_T \rangle = 1$ if $S
+				= T$ hence $\langle \chi_S, \chi_T \rangle = 1$ \textit{iff} $card(S) = card(T)
+				= k$.
+
+			\vspace{1em}
+
+			Continuing from (3)
+
+			\begin{align}
+				\langle f^{=k}, f^{=l} \rangle & = \displaystyle\sum_{card(S) = k} \hat{f}(S)^2
+			\end{align}
+
+			(4) is defined to be $W^k[f]$. Hence the following is proved.
+
+			\begin{align*}
+				\langle f^{=k}, f^{=l} \rangle =
+				\begin{cases}
+					W^{k}[f] \textsf{ if } k = l \\
+					0 \textsf{ otherwise}
+				\end{cases}
+			\end{align*}
+
+		\end{solution}
 	\end{parts}
+
 	\question[10]  We had stated in the class that  Knapsack problem admits a pseudo linear time algorithm. This question is on developing such an algorithm and using it for a simple approximation algorithm for Knapsack.
 	\begin{parts}
 		\part[5] Using the standard dynamic programing approach, develop a $O({\sf
 					poly}(n)W)$ time algorithm for the Knapsack problem with $n$ items. Clearly
 		mention each step and give a complexity analysis of the algorithm.
-		
+
 		\begin{solution}
 			\textbf{Collaborators: }
 		\end{solution}
-		
+
 		\part[5] Using the above algorithm, devlop an algorithm that given $\epsilon$,
 		obtains an $1-\epsilon$ approximate solution(i.e., outputs a solution with
 		profit at least (1-$\epsilon$) times the maximum) in time ${\sf
@@ -133,7 +291,7 @@
 		\begin{solution}
 			\textbf{Collaborators: }
 		\end{solution}
-	
+
 	\end{parts}
 
 	\question[10] This question uses the same notion of perturbation as in the above question.  Let ${\cal P}$ be a Euclidean optimization problem in the plane and $x\in (\mathbb{R})^2)^n$ be an input instance and $y$ be a $\delta$ perturbation of $x$.  We say that ${\cal P}$ is $(\epsilon,\delta)$ stable at $x$, if $Pr[{|\cal P}(x)-{\cal P}(y)| \le \epsilon] = 1-o(1)$.
