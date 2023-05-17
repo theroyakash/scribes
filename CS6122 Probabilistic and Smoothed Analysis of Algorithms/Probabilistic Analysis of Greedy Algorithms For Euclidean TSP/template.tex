@@ -63,7 +63,7 @@
     In this report I discuss mathematical properties of
     naïve greedy heuristic for the euclidean travelling salesman problem.
     I define an euclidean functional for the greedy heuristic and explore
-    subadditivity, superadditivity, and smoothness for the defined
+    subadditivity, superadditivity, monotonicity for the defined
     euclidean functional.
 \end{abstract}
 
@@ -158,6 +158,14 @@ property. First we define weak superadditivity.
 \begin{proof}
     If we could get an instance where the error term exceeds some constant term $O(1)$
     then this would be a counter example to weak superadditivity.
+
+    Let's consider the following implementation of graph $G$ and $F$ as the following
+    
+    \includegraphics[scale=0.17]{simple-superadditive.png}
+
+    The graph G and F upabove clearly shows that union tour is strictly smaller than the sum of the individual tour.
+    Hence it is now showing simple superadditive properties. Here the error term is not constant, it depends on the size
+    of the boundary $O(diam R)$ because $b$ depends on $a$ and $a$ is bounded by the size of the region.
 \end{proof}
 
 % \subsection{Geometric Superadditivity}
@@ -173,7 +181,6 @@ property. First we define weak superadditivity.
     \textit{A functional $f$ is simple subadditive if $f(X \cup Y) \leq f(X) + f(Y)$}
 \end{define}
 
-\vspace{0.5em}
 
 \begin{lemma}
     Our euclidean functional \textsf{NGA} does not show simple subadditivity.
@@ -198,10 +205,22 @@ property. First we define weak superadditivity.
     That's why it'll first consider the edge CD and at the end AJ to complete the tour.
 
     \includegraphics[scale=0.13]{non-subadditive2.png}
+
+    For better results we should show this does not hold for arbitrary number of points $n$.
+    
+    Suppose the following construction of graph G and F. Let us consider from A $\to $ B and $J \to E$ there
+    is infinitely many points over the euclidean graph. Then this construction holds for arbitrary $n$ over the euclidean
+    region.
 \end{proof}
 
 % Example to show that simple subadditivity do not hold [small example]
 
+\subsection{Geometric Subadditivity, Superadditivity}
+From the construction of the graphs if we divide the region into $R_1, R_2$ by going through
+the middle of the graph then all the proofs provided up above will also be a proof showing
+\textsf{NGA} do not show Geometric Subadditivity, Superadditivity with constant error term.
+
+However I did not check the geometric subadditivity with slightly higher error term of $O(diamR)$.
 
 \subsection{Smoothness and Monotonicity Properties}
 
@@ -231,6 +250,11 @@ If an euclidean functional is showing monotonicity then with subadditivity and g
 
 \begin{proof}
     We prove this by constructing a counter example.
+
+    \includegraphics[scale=0.3]{non-monotone.png}
+
+    On Introduction of unbounded many points tour cost as computed by \textsf{NGA} algorithm reduces.
+    Thus violating Monotonicity as defined by Definition 2.5.
 \end{proof}
 
 \end{document}
