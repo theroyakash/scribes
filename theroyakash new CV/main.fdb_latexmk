@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1681981277 "/Users/theroyakash/Documents/scribe/theroyakash new CV/main.tex" "main.pdf" "main" 1681981277 2
-  "/Users/theroyakash/Documents/scribe/theroyakash new CV/main.tex" 1681981276 15596 ad43ff62709e7f3fd7212563b9959f01 ""
+["pdflatex"] 1684885231 "/Users/theroyakash/Documents/scribe/theroyakash new CV/main.tex" "main.pdf" "main" 1684885231 2
+  "/Users/theroyakash/Documents/scribe/theroyakash new CV/main.tex" 1684885231 15754 62502dc55bb157ff684cae5e9fc90482 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/marvosym/umvs.tfm" 1313968873 1772 135d23849cb646acc6bb1ae8d73e3f78 ""
@@ -37,8 +37,8 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1681731088 7883452 9b84ca35e0150a8be287e242b9833976 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "collection.sty" 1681769804 3357 fa8af90db3bc17504a336e4bf5223dfa ""
-  "main.aux" 1681981277 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "main.tex" 1681981276 15596 ad43ff62709e7f3fd7212563b9959f01 ""
+  "main.aux" 1684885231 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1684885231 15754 62502dc55bb157ff684cae5e9fc90482 ""
   "moderncv.cls" 1681769804 25656 f117d01d9e9e90c6b2954cb4509cd1ba ""
   "moderncvcolorred.sty" 1681769804 998 c49690534742e9fe921b3cd1635c7ea5 ""
   "moderncvcompatibility.sty" 1681769804 4245 d6f474403bf64fa8e2e65e1aa8d4bfe1 ""

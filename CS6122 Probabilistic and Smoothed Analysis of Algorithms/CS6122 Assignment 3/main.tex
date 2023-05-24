@@ -68,6 +68,38 @@
 	\end{itemize}
 	I.e., there can be performance measures $f$ which is polynomial in expectation, but variance being exponential. Give formal justification for your answer (i.e., computation of expectation and variance for the function $f$ constructed).  Further, write your views on why the function $f$ that you have constructed may/maynot be a good performance measure for any algorithm in practice.
 
+	\begin{solution}
+		Suppose $f$ satisfy the following properties
+
+		\begin{align*}
+			f(x) =
+			\begin{cases}
+				O(n^{c'}) \: \forall x \in \{0, 1\}^n \text{ except for one index }\\
+				2^n \text{ at only one } x
+			\end{cases}
+		\end{align*}
+		
+		Then for this function $f$ the expected value is
+
+		\begin{align*}
+			\mathbb{E}[f] = \mathbb{E}_{x \in \{0, 1\}^n}[f(x)] &= \frac{2^{n - 1} * O(n^{c'}) + 2^n}{2^n}\\
+			&= O(n^c)
+		\end{align*}
+
+		for some constant $c$.
+
+		Now if we calculate $\textbf{var}[f] = \mathbb{E}[f^2] - (\mathbb{E}[f])^2$
+
+		\begin{align*}
+			\textsf{var}[f] &= \mathbb{E}[f^2] - (E[f])^2\\
+			&= \frac{n^{2 \cdot c'} \cdot 2^{n - 1} + 2^{2n}}{2^n} - O(n^c)\\
+			&= \Omega(2^n)
+		\end{align*}
+
+		Suppose $f$ is a performance (time) measures of some algorithm $\mathcal{A}$. Then
+		it says that for all possible inputs over $\{0,1\}^n$ the runtime of the algorithm is bound from above by a polynomial in $n$.
+	\end{solution}
+
 	\question[10]  Compute the Fourier expansion of the following Boolean functions. (Note the functions are described in the Boolean/Fourier domain, you need to convert the function to Fourier domain first.)
 	\begin{parts}
 		\part[2] Majority function $\text{MAJ}_3 \{ -1,1\}^n \to \{-1,1\}$,
@@ -259,7 +291,33 @@
 		mention each step and give a complexity analysis of the algorithm.
 
 		\begin{solution}
-			\textbf{Collaborators: }
+
+			\begin{algorithm}[H]
+				\caption[]{Knapsack Dynamic Programming Algorithm}
+				\textbf{Procedure} \textsf{knapsack}(k,w)\;
+				\Begin{
+					\If{$table[k][w]$ $\neq 0$} {
+						\Return{$table[k][w]$}\;
+					}
+
+					\uIf {$w[k] \leq w$} {
+						\textsf{with} = v[k] + \textsf{knapsack}(k-1, w-w[k])
+					}
+					\Else{
+						\textsf{with} = 0
+					}
+					\textsf{without} = \textsf{knapsack}(k-1,w)\;
+				}
+
+				$table[k][w] = \textit{max} \{\textsf{with}, \textsf{without}\}$\;
+
+				\Return{max \{\textsf{with}, \textsf{without}\}}
+				
+			\end{algorithm}
+
+			This algorithm runs in $O(n \cdot W)$ time filling each entry in the table 
+			at most once where there are $nW$ spaces in the table.
+
 		\end{solution}
 
 		\part[5] Using the above algorithm, devlop an algorithm that given $\epsilon$,
@@ -307,7 +365,29 @@
 		stable for ${\cal P}$ for every $n$. What will be the best possible smoothed
 		approximation ratio of $A$ under $\delta$ perturbations? Prove your answers.
 	\end{parts}
+	
 	\question[10] Consider the {\sf pathTSP} problem: Given a set of $n$ points  $x_1,\ldots, x_n \in [0,1]^2$, in the Euclidean plane, compute the minimum weight of a Hamiltonian path through the points.  Define a Euclidean functional corresponding to ${\sf pathTSP}$. Decide if the newly defined function satisfy any of the properties among  subadditivity, superadditivity, smoothness, growth bound. Give detailed arguments justifying your answer.
+
+	\begin{solution}
+		\textbf{Collaborators: None}
+
+		\textsf{pathTSP} shows neither simple superadditivity as well as simple subadditivity.
+		We begin by showing counter examples
+
+		\includegraphics*[scale = 0.27]{non-monotone.png}
+
+		Hence union of the graph is a bit higher, and the distance is bounded by $O(diam R)$.
+		Hence this does not show simple subadditivity.
+
+		\includegraphics*[scale = 0.25]{sub.png}
+
+		In the above example the union of the graph's cost is less than the sum of the individual graph's \textsf{pathTSP} cost.
+		Hence this is not showing simple superadditivity.
+
+		The functional shows weak form of superadditivity with error terms
+		bounded by $O(diam R)$. This functional also shows monotone properties,
+		hence together we can say this functional shows smoothness.
+	\end{solution}
 \end{questions}
 
 \begin{center}
