@@ -1,0 +1,931 @@
+\begin{frame}{Important Results - Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+        \item In average case complexity we consider a decision problem along with a
+              distribution $D$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Complexity Class $\textsf{Smoothed-P}$}
+    \begin{itemize}
+        \item In classical complexity theory we only consider decision problems,
+        \item In average case complexity we consider a decision problem along with a
+              distribution $D$
+        \item Similary here for smoothed complexity we'll consider a decision problem $L$
+              along with a distribution $D$ where $L \subseteq \{0,1\}^{*}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Complexity Class \textsf{Smoothed-P}}
+
+    \begin{center}
+        \textit{\textsf{Smoothed-P} is the class of all $ (\mathcal{L}, \mathcal{D})$ such that there is a
+            deterministic algorithm $\mathcal{A}$ with smoothed polynomial running time that decides $\mathcal{L}$}.
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Complexity Class \textsf{Smoothed-P}}
+
+    \begin{theo}{\textsf{Smoothed-P} has polynomially decreasing tail bounds}{theo1}
+        \textit{An algorithm $\mathcal{A}$ has smoothed polynomial running time if and only if
+            there is an $\epsilon > 0$ and a polynomial $p$ such that for all $n, \phi, x$ and $t$}
+        \begin{align*}
+            \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] \leq \frac{p(n)}{t^{\epsilon}} N_{n,x} \phi
+        \end{align*}
+    \end{theo}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Theorem 3.1}
+
+    $(\implies)$ Forward Direction
+
+    Let $A$ be an algorithm whoose running time $t_A$ fulfills Definition 2.1:
+
+    \begin{align*}
+        \mathbb{E}_{y \sim D_{n, x, \phi}} \left(t_A(y; n, \phi) ^{\epsilon}\right) = O(nN_{n,x}\phi)
+    \end{align*}
+
+    Via Markov's inequality we can say that
+
+    \begin{align*}
+        \Pr[t_A(y; n, \phi) \geq t] & = \Pr[t_A(y; n, \phi)^\epsilon \geq t^\epsilon]                                                                      \\
+                                    & \geq \frac{\mathbb{E}_{y \sim D_{n, x, \phi}}(t_A(y; n, \phi)^\epsilon)}{t^\epsilon} = O(nN_{n,x}\phi t^{-\epsilon})
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    $(\impliedby)$ Backward Direction
+
+    Assume that
+
+    \begin{align*}
+        \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] \leq \frac{n^c}{t^{\epsilon}} N_{n,x} \phi
+    \end{align*}
+
+    for some constant $c, \epsilon$. Let $\epsilon' = \frac{\epsilon}{c + 2}$. Then
+    we have
+
+    \begin{align*}
+        \mathbb{E}_{y \sim D_{n, x, \phi}}\left(t_A(y; n, \phi) ^{\epsilon'}\right) & = \displaystyle\sum_{t} \Pr\left[\left(t_A(y; n, \phi) ^{\epsilon'}\right) \geq t\right]                        \\
+                                                                                    & \leq n + \displaystyle\sum_{t \geq n} \Pr\left[\left(t_A(y; n, \phi)\right) \geq t^{\frac{1}{\epsilon'}}\right] \\
+                                                                                    & \leq n + \displaystyle\sum_{t \geq n} t^{-2}N_{n, x} \phi = n + O(N_{n, x} \phi) = O(nN_{n, x} \phi)
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \begin{center}
+        A different way to think about efficiency in the smoothed setting is via Heuristic Schemes.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \begin{center}
+        The notion of Heuristic Schemes comes from the observation that we might be able to run the algorithm for
+        polynomially many steps and if it does not succeed within that time it will return failure.
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heuristic Schemes}
+
+    \begin{define}{Heuristic Scheme}{defn2}
+        \textit{Let $(\mathcal{L}, \mathcal{D})$ be a smoothed distributional problem. An algorithm A is an error less Heuristic Scheme for
+            $(\mathcal{L}, \mathcal{D})$ if there exists a polynomial q such that}
+        \begin{itemize}
+            \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $A(y; n, \phi, \delta)$ outputs either $\mathcal{L}(y)$ or $\bot$},
+            \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $t_A(y; n, \delta) \leq q(n, N_{n,x},\phi, \frac{1}{\delta})$},
+            \item \textit{For every $n, x, \phi, \delta > 0, y \in \text{supp}D_{n, x, \phi}$ we have $\Pr_{y \sim D_{n, x, \phi}}[A(y; n, \phi, \delta) = \bot] \leq \delta$}.
+        \end{itemize}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsf{Smoothed-P} with respect to Heuristic Schemes}
+
+    \begin{center}
+        With the definition from the last slide for Heuristic Scheme,\\We state the following theorem
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Theorem: Heuristic Schemes and \textsf{Smoothed-P}}
+
+    \textbf{Theorem 2:} $(\mathcal{L}, \mathcal{D}) \in \textsf{Smoothed-P}$ \textit{if and only if} $(\mathcal{L}, \mathcal{D})$ \textit{has an error less Heuristic Scheme} $\mathcal{H}$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Theorem 2}
+
+    $(\implies)$ Forward Direction,
+
+    Let $\mathcal{A}$ be an algorithm for $(\mathcal{L}, \mathcal{D})$. By Theorem
+    1 we can say
+
+    \begin{align*}
+        \Pr_{y \sim D_{n, \phi, x}}[t_A(y;n, \phi) \geq t] = O(n N_{n,x} \phi t^{-\epsilon})
+    \end{align*}
+
+    Now all is left, is to construct $\mathcal{H}$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Constuction of $\mathcal{H}$}
+
+    \begin{algorithm}[H]
+        % \SetKwInOut{Input}{Input}
+        \caption{$\mathcal{H}$}
+
+        Run algorithm $A$ for $(n \cdot \frac{N_{n, x} \cdot \phi}{\delta})
+            ^{\frac{1}{\epsilon}}$ steps.\\ \uIf{If $A$ stops within this many steps}{
+            Output whatever $A$ Outputs\; } \Else{ Output $\bot$. }
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Properties of $\mathcal{H}$}
+
+    \begin{itemize}
+        \item By the choice of the parameter $t = (n \cdot \frac{N_{n, x} \cdot
+                      \phi}{\delta}) ^{\frac{1}{\epsilon}}$ probability that $\mathcal{H}$ outputs
+              $\bot$ is at most $\delta$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Properties of $\mathcal{H}$}
+
+    \begin{itemize}
+        \item By the choice of the parameter $t = (n \cdot \frac{N_{n, x} \cdot
+                      \phi}{\delta}) ^{\frac{1}{\epsilon}}$ probability that $\mathcal{H}$ outputs
+              $\bot$ is at most $\delta$
+        \item $\mathcal{H}$ is correct and is a Heuristic Scheme according to the Definition 2.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof: Continued}
+
+    $(\impliedby)$ Backward Direction
+    For the other direction suppose we have $\mathcal{H}$ an errorless heuristic scheme, we need to find a smoothed polynomial time
+    algorithm $\mathcal{A}$.
+
+    \vspace{2em}
+
+    Constuction of $\mathcal{A}$
+
+    \begin{algorithm}[H]
+        \caption{Construction of Algorithm $\mathcal{A}$}
+        i $\gets$ 1;\\
+        \While{True}{
+            Run $\mathcal{H}$ with $\delta = \frac{1}{2^i}$;\\
+            \uIf{$\mathcal{H}$ does not output $\bot$}{
+                \textbf{return} whatever $\mathcal{H}$ says.
+            }
+            i $\gets$ i + 1;\\
+        }
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analysis of Algorithm {$\mathcal{A}$}}
+
+    Heuristic Scheme $\mathcal{H}$ will eventually stop at some $i$ with delta
+    being set to $\frac{1}{2^i}$.
+
+    Then from \textbf{Definition 2} $\exists$ a polynomial $q$ such that
+
+    \begin{align*}
+        t_{\mathcal{H}} & \leq \displaystyle\sum_{j = 1}^{i} q(n, N_{n,x} \phi, 2^j) \\
+                        & \leq \text{Poly}(n, N_{n,x} \phi) \cdot 2^{ci}
+    \end{align*}
+
+    Heuristic Scheme $\mathcal{H}$ will eventually stop when $\delta <
+        D_{n,x,\phi}(y)$ from definition of Heuristic Scheme. Thus Algorithm
+    $\mathcal{A}$ has smoothed polynomial time algorithm (it has a pseudo
+    polynomial time algorithm).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tractability: Integer Programming}
+
+    We show that if a binary integer linear program can be solved in
+    pseudo-polynomial time, then the corresponding decision problem belongs to
+    \textsf{Smoothed-P}.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Basic Setup}
+
+    We take the example of knapsack as a binary optimization problem, it is an
+    optimization problem of the form
+
+    \begin{align*}
+         & \textsf{Maximize } p^T x                         \\
+         & \textsf{subject to } w^T x \leq t \textsf{ and } \\
+         & \textsf{Such that } x \in S \subseteq \{0,1\}^n
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Considering the Decision version of the Optimization problem}
+
+    \begin{itemize}
+        \item We use the standard approach and introduce a threshold for the objective
+              function.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Considering the Decision version of the Optimization problem}
+
+    \begin{itemize}
+        \item We use the standard approach and introduce a threshold for the objective
+              function.
+        \item This means that the optimization problem becomes the question of whether there
+              is an $x \in S$ that fulfills $p^T x \geq b$ and $ w^T x \leq t$. We call this
+              type of problems binary decision problems.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Considering the Decision version of the Optimization problem}
+
+    \begin{itemize}
+        \item We use the standard approach and introduce a threshold for the objective
+              function.
+        \item This means that the optimization problem becomes the question of whether there
+              is an $x \in S$ that fulfills $p^T x \geq b$ and $ w^T x \leq t$. We call this
+              type of problems binary decision problems.
+        \item For ease of presentation, we assume that we have just one linear constraint and
+              everything else is encoded in the set $S$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Binary Decision Problem}
+
+    This means that the binary decision problem that we want to solve is the
+    following
+
+    \begin{center}
+        \textit{Does there exist an $x \in S$ with $w^T x \leq t$ with properly updated S}.
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+        \item Each $w_i$ is drawn according to independent distributions. Threshold $t$ and
+              set $S$ are not subject to any randomness.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+        \item Each $w_i$ is drawn according to independent distributions. Threshold $t$ and
+              set $S$ are not subject to any randomness.
+        \item $\textsf{card}(N_{n, (S, w, t)}) = 2^{n^2}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+        \item Each $w_i$ is drawn according to independent distributions. Threshold $t$ and
+              set $S$ are not subject to any randomness.
+        \item $\textsf{card}(N_{n, (S, w, t)}) = 2^{n^2}$
+        \item We assume that S can be encoded by a polynomially long string. (This is
+              fulfilled for most natural optimization problems, such as TSP, matching,
+              shortest path, or knapsack.)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+        \item Each $w_i$ is drawn according to independent distributions. Threshold $t$ and
+              set $S$ are not subject to any randomness.
+        \item $\textsf{card}(N_{n, (S, w, t)}) = 2^{n^2}$
+        \item We assume that S can be encoded by a polynomially long string. (This is
+              fulfilled for most natural optimization problems, such as TSP, matching,
+              shortest path, or knapsack.)
+        \item $w = (w_1, w_2, \dots w_n)$ are drawn independently, means that the probability for one coefficient to assume a specific value is bounded from above by $\phi^{\frac{1}{n}}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Charactaristics of the Binary Decision Problem}
+
+    \begin{itemize}
+        \item The values $w = (w_1, w_2, \dots w_n)$ each are $n$ bit numbers. Thus each $w_i
+                  \in \{0, \dots, 2^n - 1\}$
+        \item Each $w_i$ is drawn according to independent distributions. Threshold $t$ and
+              set $S$ are not subject to any randomness.
+        \item $\textsf{card}(N_{n, (S, w, t)}) = 2^{n^2}$
+        \item We assume that S can be encoded by a polynomially long string. (This is
+              fulfilled for most natural optimization problems, such as TSP, matching,
+              shortest path, or knapsack.)
+        \item $w = (w_1, w_2, \dots w_n)$ are drawn independently, means that the probability for one coefficient to assume a specific value is bounded from above by $\phi^{\frac{1}{n}}$
+        \item $\phi \in [2^{-n^2}, 1]$. $1$ for the worst case and $2^{-n^2}$ for the average case.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Idea}
+
+    \textbf{Main Idea} is as follows: if we have a pseudo-polynomial algorithm, then we can solve instances with
+    $O(\lg n)$ bits per coefficient efficiently.
+
+    \textbf{Our goal} is thus to show that $\approx O(\lg n)$ many bits
+    would suffice with high probability.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lemma for probability bound on value of $n$ bit numbers}
+
+    \begin{lemm}{Lemma for probability bound on value of $n$ bit numbers}{lem1}
+        \textit{Let $\delta, z \in \mathbb{N}$, Let a be an n-bit coefficient drawn according to some discrete
+            probability distribution bounded from above by $\phi ^{\frac{1}{n}}$
+            Then $\Pr[a \in [z, z + \delta]] \leq \phi ^{\frac{1}{n}} \delta$}
+    \end{lemm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    \textbf{Proof}: There are exactly $\delta$ outcomes of $a$ that lead to $a \in [z, z + \delta]$, thus
+    $\Pr[a \in [z, z + \delta]] \leq \phi ^{\frac{1}{n}} \delta$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Goal}
+
+    If we could show there is roughly $O(\lg n)$ bits for each coefficient suffice
+    to determine whether a solution exists then we have an algorithm in
+    \textsf{Smoothed-P}. The algorithm goes like this with the pseudo-polynomial
+    time algorithm $\mathcal{A}$
+
+    \begin{algorithm}[H]
+        \SetKwInOut{Input}{Input}
+        \Input{A pseudo-polynomial time algorithm $\mathcal{A}$}
+        \caption{Algorithm for knapsack (as binary decision problem)}
+
+        $i \gets 0$\\
+
+        \While{We don't get a solution for true coefficients of $w$}{
+            Run the algorithm $\mathcal{A}$ with highest $O(\lg n) + i$ many bits by rounding.\\
+
+            \uIf{We find a solution}{
+                Then check it against the true coefficients of $w$
+            }
+            \uElse{
+                $i \gets i + 1$ // take one more bit for each coefficient and continue.
+            }
+        }
+    \end{algorithm}
+
+    We need to upper bound the running time of this while loop.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Lemmas to understand the runtime of Algorithm 3}
+
+    \begin{itemize}
+        \item Suppose we take only first $\lg n$ bits, then it is not sufficient for an $x
+                  \in S$ to just satisfy $w^T \leq t$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Lemmas to understand the runtime of Algorithm 3}
+
+    \begin{itemize}
+        \item Suppose we take only first $\lg n$ bits, then it is not sufficient for an $x
+                  \in S$ to just satisfy $w^T \leq t$.
+        \item Because of the rounding, we might find that $x$ is feasible with respect to the
+              rounded coefficients, whereas $x$ is infeasible with respect to the true
+              coefficients.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Lemmas to understand the runtime of Algorithm 3}
+
+    \begin{itemize}
+        \item Suppose we take only first $\lg n$ bits, then it is not sufficient for an $x
+                  \in S$ to just satisfy $w^T \leq t$.
+        \item Because of the rounding, we might find that $x$ is feasible with respect to the
+              rounded coefficients, whereas $x$ is infeasible with respect to the true
+              coefficients.
+        \item Thus we need an $x$ such that $w^T x$ is sufficiently smaller than $t$ so the
+              rounding does not affect the feasibility.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Lemmas to understand the runtime of Algorithm 3}
+
+    \begin{itemize}
+        \item Suppose we take only first $\lg n$ bits, then it is not sufficient for an $x
+                  \in S$ to just satisfy $w^T \leq t$.
+        \item Because of the rounding, we might find that $x$ is feasible with respect to the
+              rounded coefficients, whereas $x$ is infeasible with respect to the true
+              coefficients.
+        \item Thus we need an $x$ such that $w^T x$ is sufficiently smaller than $t$ so the
+              rounding does not affect the feasibility.
+        \item But, we cannot rule out the existence of solutions $x \in S$ that are very
+              close to the threshold, because there are exponentially large numbers of
+              solutions so some might be in that neighborhood.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some True Statement}
+
+    It is possible to \textbf{prove} the following.
+
+    \begin{itemize}
+        \item Assume that there is some ranking among the solutions $x \in S$. Let the winner
+              be the solution $x^{*} \in S$ that fulfills $w^T x^{*} \leq t$ is ranked
+              highest among all such solutions.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some True Statement}
+
+    It is possible to \textbf{prove} the following.
+
+    \begin{itemize}
+        \item Assume that there is some ranking among the solutions $x \in S$. Let the winner
+              be the solution $x^{*} \in S$ that fulfills $w^T x^{*} \leq t$ is ranked
+              highest among all such solutions.
+        \item It is likely that $t - w^T x$ is not too small.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some True Statement}
+
+    It is possible to \textbf{prove} the following.
+
+    \begin{itemize}
+        \item Assume that there is some ranking among the solutions $x \in S$. Let the winner
+              be the solution $x^{*} \in S$ that fulfills $w^T x^{*} \leq t$ is ranked
+              highest among all such solutions.
+        \item It is likely that $t - w^T x^{*}$ is not too small.
+        \item Now, any solution that is ranked higher than $x^{*}$ must be infeasible because
+              it violates the weight constraint.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some True Statement}
+
+    It is possible to \textbf{prove} the following.
+
+    \begin{itemize}
+        \item Assume that there is some ranking among the solutions $x \in S$. Let the winner
+              be the solution $x^{*} \in S$ that fulfills $w^T x^{*} \leq t$ is ranked
+              highest among all such solutions.
+        \item It is likely that $t - w^T x^{*}$ is not too small.
+        \item Now, any solution that is ranked higher than $x^{*}$ must be infeasible because
+              it violates the weight constraint.
+        \item Suppose $\hat{x}$ be the solution that minimizes $w^T \hat{x} - t$ among all
+              solutions ranked higher than $x^{*}$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some True Statement}
+
+    It is possible to \textbf{prove} the following.
+
+    \begin{itemize}
+        \item Assume that there is some ranking among the solutions $x \in S$. Let the winner
+              be the solution $x^{*} \in S$ that fulfills $w^T x^{*} \leq t$ is ranked
+              highest among all such solutions.
+        \item It is likely that $t - w^T x^{*}$ is not too small.
+        \item Now, any solution that is ranked higher than $x^{*}$ must be infeasible because
+              it violates the weight constraint.
+        \item Suppose $\hat{x}$ be the solution that minimizes $w^T \hat{x} - t$ among all
+              solutions ranked higher than $x^{*}$.
+        \item Then, it is also unlikely that $w^T \hat{x} - t$ is extremely small that is
+              $\hat{x}$ violates the weight constraint by only a small margin.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{More about the Ranking of solutions}
+
+    \begin{itemize}
+        \item In analysis done in class the ranking was given by the objective function (the
+              profitable solution).
+        \item We do not have an objective function here because we deal with decision
+              problems,
+        \item Thus, we have to introduce a ranking artificially.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Strategy for Ranking of solutions}
+
+    We'll use the lexicographic ordering, which satisfies the following
+    monotonicity property,
+
+    \begin{align*}
+        \text{If } x > y \: \forall x, y \in S \text{ then } \exists \: i \text{ with } x_i = 1, y_i = 0
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Basic Definitions}
+
+    \begin{define}{Winner Gap}{defn32}
+        \textit{Let $x^{*}$ be the winner if it exists that is, the highest ranked solution among all feasible solutions
+            then we define winner gap to be $\Gamma(t)$ as}
+
+        \begin{align*}
+            \Gamma(t) =
+            \begin{cases}
+                t - w^T x^{*}, & \text{if there exists a feasible solution and} \\
+                \bot,          & \text{otherwise}
+            \end{cases}
+        \end{align*}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some Basic Definitions}
+
+    \begin{define}{Looser Gap}{defn33}
+        \textit{Let $\hat{x}$ be the solution (looser) that is ranked higher than $x^{*}$
+            but cut off by the weight constraint $w^T \hat{x} \leq t$. It is the solution with
+            minimal $w^T x - t$ among all such solutions. Now we define}
+
+        \begin{align*}
+            \Lambda(t) =
+            \begin{cases}
+                w^T \hat{x} - t, & \text{if there exists a looser $\hat{x}$ and} \\
+                \bot,            & \text{otherwise}
+            \end{cases}
+        \end{align*}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Winner gap is not too small}
+
+    \begin{center}
+        The goal is to show that the value of $\Gamma(t)$ is not too small.
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\Lambda$ is enough to know $\Gamma$}
+
+    \begin{lemm}{To know $\Gamma(t)$ it is enough to know $\Lambda(t)$}{lemm2}
+        \textit{For all $t, \delta$ we have $\Pr[\Gamma(t) \leq \delta] = \Pr[\Lambda(t - \delta) \leq \delta]$}
+    \end{lemm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    Suppose a solution $x \in S$ is \textit{Pareto-Optimal}.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    Suppose a solution $x \in S$ is \textit{Pareto-Optimal}.
+
+    Now a little observation is that
+
+    \begin{itemize}
+        \item First, we observe that both winners and losers are Pareto-optimal,
+        \item For every Pareto-optimal solution $x$ there exists a threshold $t$ such that
+              $x$ is the loser for this particular threshold. To see this, simply set $t =
+                  w^T - 1$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof - Continued}
+
+    Let $P \subseteq S$ be the Pareto-optimal set. Then
+
+    \begin{align*}
+        \Gamma(t)  & = \min \{t - w^T x \mid x \in P, w^T x \leq t\}                                              \\
+        \Lambda(t) & = \min \{w^T x - t \mid x \in P, w^T x > t\} = \min \{w^T x - t \mid x \in P, w^T x \geq t\}
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    \begin{itemize}
+        \item If $\Lambda(t) \leq \delta$ if and only if there is an $x \in P$ with $t - w^T
+                  x \in \{0, \dots, \delta - 1\}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    \begin{itemize}
+        \item If $\Lambda(t) \leq \delta$ if and only if there is an $x \in P$ with $t - w^T
+                  x \in \{0, \dots, \delta - 1\}$
+        \item This is equivalent to $w^T x - t \in \{-\delta + 1, \dots, 0\}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    \begin{itemize}
+        \item If $\Lambda(t) \leq \delta$ if and only if there is an $x \in P$ with $t - w^T
+                  x \in \{0, \dots, \delta - 1\}$
+        \item This is equivalent to $w^T x - t \in \{-\delta + 1, \dots, 0\}$
+        \item Which is then equivalent to $w^T x - t + \delta \in \{1, \dots, \delta\}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    \begin{itemize}
+        \item If $\Lambda(t) \leq \delta$ if and only if there is an $x \in P$ with $t - w^T
+                  x \in \{0, \dots, \delta - 1\}$
+        \item This is equivalent to $w^T x - t \in \{-\delta + 1, \dots, 0\}$
+        \item Which is then equivalent to $w^T x - t + \delta \in \{1, \dots, \delta\}$
+        \item This is equivalent to $w^T x - (t - \delta) \in \{1, \dots, \delta\}$ $\equiv
+                  \Lambda(t - \delta) \leq \delta$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analyze $\Lambda(t)$}
+
+    Given that it is equivalent to analyze $\Lambda(t)$ we state the following
+    lemma
+
+    \begin{lemm}{Separating Lemma}{lem32}
+        For every $\delta, t \in \mathbb{N}$, we have $\Pr[\Gamma < \delta] = \Pr[\Lambda(t) \leq \delta] \leq \phi^{\frac{1}{n}} n \delta$
+    \end{lemm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Final Lemma}
+
+    We'll not see a proof of the previous lemma. This is same as the separating
+    lemma done in the class. Instead We'll move on the next lemma. For that We need
+    two definitions.
+
+    \begin{define}{$\lfloor a \rfloor _{b}$}{dd2}
+        \textit{We define $\lfloor a \rfloor _{b}$ be the number obtained from a by only taking the b most significant bits. This means}
+
+        \begin{align*}
+            \lfloor a \rfloor _{b} = 2^{n - b} \cdot \left\lfloor \frac{a}{2^{n - b}} \right\rfloor
+        \end{align*}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lemma}
+
+    \begin{lemm}{Probability that rounded solution is the solution}{lemmlast}
+        \textit{Assume that we use $b$ bits for each coefficient of $w$. Let $x^{*}$
+            be the winner with respect to the true coefficient of $w$ without rounding. 
+            The probability that solving the problem with b bits for each coefficient yields a 
+            solution different from $x^{*}$ is bounded above by $2^{n - b} \phi^{\frac{1}{n}} n^2$} 
+    \end{lemm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    
+    \begin{itemize}
+        \item We only get a different from $x^{*}$ if there exists a solution $\hat{x}$ ranked higher than
+        $x^{*}$ that is feasible with the linear constraint when the coefficients are rounded. For true coefficients
+        $\hat{x}$ crosses the linear constraint.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Proof}
+
+    
+    \begin{itemize}
+        \item We only get a different from $x^{*}$ if there exists a solution $\hat{x}$ ranked higher than
+        $x^{*}$ that is feasible with the linear constraint when the coefficients are rounded. For true coefficients
+        $\hat{x}$ crosses the linear constraint.
+        \item When rounding we change the coefficients by at most $2^{n - b}$. So $w^T \hat{x} - \lfloor w \rfloor _{b} ^T \hat{x} \leq 2^{n - b} n$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    This says that we find a $\hat{x}$ instead of $x$ if the looser gap is $\Lambda \leq 2^{n - b} n$. Probability of that happening via the Sparating Lemma is at most $2^{n - b} n^2 \phi^{\frac{1}{n}}$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Theorem: Binary Decision Problem is $\in$ \textsf{Smoothed-P}}
+
+    
+    \begin{theo}{Binary Decision Problem is $\in$ \textsf{Smoothed-P}}{tractable-main-theo}
+        \textit{If a binary decision problem can be solved in pseudo-polynomial time,
+        then it is in \textsf{Smoothed-P}}.
+    \end{theo}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    
+    \begin{itemize}
+        \item We must show the running time of the Algorithm 3 has polynomially decreasing tail bound.
+        \item Recall Algorithm 3 uses pseudo-polynomial time algorithm as a subroutine. Hence the theorem will be proved.
+        \item If $b$ bits for each coefficient are used, the running time of the pseudo-polynomial algorithm is bounded from above by $O((n \cdot 2^n) ^c)$ for some constant $c$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof Continued}
+
+    Probability that more than $t = O((n2^b) ^c)$ time required is upper bounded by $2^{n - b} \phi^{1/n} n^2$ according to the last lemma.
+
+    
+    \begin{align*}
+        \Pr[\text{Algorithm 3 takes more than } O((n2^b) ^c) \text{ time}] &\leq 2^{n - b} \phi^{1/n} n^2\\
+        &= n^2 2^{-b} (2^{n^2} \phi)^{1/n}\\
+        &= \frac{n^3}{O(t^{1/c})} \cdot (2^{n^2} \phi)^{1/n}\\
+        &\leq \frac{n^3}{O(t^{1/c})} \cdot (2^{n^2} \phi)
+    \end{align*}
+
+    Hence the theorem is proved that this tail bound is sufficient to have an problem in $\textsf{Smoothed-P}$.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Other things not discussed here}
+
+    
+    \begin{itemize}
+        \item Some of the other \textsf{Smoothed-P} problems
+            \begin{itemize}
+                \item Graph Coloring and Smoothed Extension of $G_{n,p}$.
+                \item K Coloring is in \textsf{Smoothed-P} for any $k \in \mathbb{N}$.
+            \end{itemize}
+
+        \item $\textsf{Dist-NP}_{\text{para}}$ the \textsf{NP} equivalent class in Smoothed Complexity Theory.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Smoothed Extension of $G_{n,p}$}
+
+    \textbf{Model of $G_{n,p}$ in smoothed extension}:
+
+    \vspace{1em}
+
+    Given an adversarial graph $G = (V, E)$ and an $\epsilon \in \left(0, \frac{1}{2}\right]$, we obtain
+    a new graph $G' = (V', E')$ on the same set of vertices by flipping each non-edge of $G$
+    independently with probability $\epsilon$.
+
+    \vspace{1em}
+
+    This means that if $e = (u,v) \in G.E$ then $\Pr[e \in G'.E] \leq 1 - \epsilon$
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$G_{n,p}$ model in our framework}
+
+    
+    \begin{itemize}
+        \item We represent a graph $G$ on $n$ vertices as a binary string of length $\binom{n}{2}$.
+        \item Now we have $N_{n, G} = 2^{\binom{n}{2}}$.
+        \item We choose $\epsilon \leq \frac{1}{2}$ such that $(1 - \epsilon)^{\binom{n}{2}} = \phi$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Theorem}
+
+    We'll not show proof and any other problems in \textsf{Smoothed-P}
+    
+    \begin{theo}{k-Coloring in \textsf{Smoothed-P}}{lasttheo}
+        \textit{\textsf{k-Coloring} is a known NP-Complete Problem for $k > 3$.
+        For any $k \in \mathbb{N}$ \textsf{k-Coloring} $ \in \textsf{Smoothed-P}$}
+    \end{theo}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof idea}
+    
+    \begin{itemize}
+        \item A graph is \textsf{k-colorable} if and only if it does not contain a clique of size $k + 1$.
+        \item The Probability of a specific set of $k + 1$ vertices form a $k + 1$ clique is at least $\epsilon^{\binom{k + 1}{2}}$
+        \item Then the graph $G$ does not contain a $k + 1$ clique is at most $(1 - \epsilon^{\binom{k + 1}{2}})^{\frac{n}{k + 1}}$
+        \item For $\epsilon \geq 0.1$ we can show that expected running time to the power $\lg_k(\frac{1}{c})$ is bounded from above by some polynomial.
+        \item For $\epsilon < 0.1$ we can do a brute force search in every run.
+    \end{itemize}
+
+\end{frame}

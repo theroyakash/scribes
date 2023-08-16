@@ -1,0 +1,89 @@
+\begin{frame}
+    \frametitle{Sorting + Searching}
+
+    Before introducing other data structure in the STL library,
+    I'll show you some algorithms and iterator access on vector which is used often.
+
+
+    \begin{itemize}
+        \item Iterators
+        \item Sorting
+        \item Searching
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Iterators}
+
+    
+    \begin{itemize}
+        \item Similar to pointers in C, C++ has Iterators \pause[]
+        \item \texttt{vector<int>::iterator it = v.begin();} returns a \textit{Pointer} to the first element of vector, \pause[]
+        \item Or you can use \texttt{auto it = v.begin();}\pause[]
+        \item For example if you have an array $v = [10, 12, 13,14]$ then \texttt{*it} would return $10$,\pause[]
+        \item Similar to pointer you can increase and decrease them, \texttt{it++;} and then \texttt{*it} would return $12$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Last Iterator}
+
+    
+    \begin{itemize}
+        \item \texttt{vector<int>::iterator it = v.end();} points to a non-existent element sits after the last element.\pause[]
+        \item Hence \texttt{*it} would dereference nothing when \texttt{it = v.end();}.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sorting}
+
+    Sorting and searching is the most common thing you do on a vector.
+
+    \lstinputlisting[language=C]{codes/9.cpp}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Custom Sorting}
+
+    \textbf{What to do when you have a vector of custom data structure?}
+    \pause[]
+    
+    For that we need to design custom comparators.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Custom Comparators Showcase}
+    \lstinputlisting[language=C]{codes/10.cpp}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Custom Comparators Showcase II}
+    \textbf{Using this you can define your own rule for sorting}, for example following shows
+    how to sort in decreasing order.
+    \pause[]
+
+    \lstinputlisting[language=C]{codes/11.cpp}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Custom Comparators Showcase III}
+    \textbf{Following is an example of sorting a custom class of data}.
+    \pause[]
+    
+    \lstinputlisting[language=C]{codes/12.cpp}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Note}
+
+    This comparator should return true for argument $(a, b)$ if and only if
+    $a$ sits left of $b$ in the sorted array.
+
+\end{frame}

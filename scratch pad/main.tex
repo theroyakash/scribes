@@ -16,6 +16,62 @@
 
 \maketitle
 
+\section*{Packing Coloring on full $3$-degree tree}
+
+\begin{algorithm}
+	\caption{\textsc{Packing Coloring on Full Binary Tree}}
+	
+	Color Every odd layer with color $1$.
+
+	\For{Every Layer $l \in \{2, 4, 6, \dots\}$}{
+		\uIf{$l = 2$}{
+			Color left vertex with $2$\;
+			Color right vertex with $3$\;
+		} \ElseIf{$l = 4$}{
+			\If{Grand Parent Color = $2$}{
+				Color children with $3,4,3,5$\;
+			} \ElseIf{Grand Parent Color = $3$} {
+				Color children with $2, 4, 2, 5$\;
+			}
+		}
+
+		\BlankLine
+
+		/* For other layers lower than $4$ */
+
+		\If{Grand Parent Color $\in \{4,5,6,7\}$}{
+			Color children with $2,3,2,3$\;
+			\textsf{GOTO next node}\;
+		}
+
+		\BlankLine
+
+		\If{Grand Parent Color is $3$ or $2$} {
+			$x \gets$ grandparent node\;
+
+			\uIf{color$(x) = 3$} {
+				Color each left grand-childern with $2$\;
+			}\ElseIf{color$(x) = 2$} {
+				Color each left grand-childern with $3$\;
+			}
+
+			$(u_1,u_2, u_3), x, (v_1,v_2,v_3)$ is a triplet $u_j, v_j$ are left and right siblings of $x$\;
+
+			\BlankLine
+			$u_j,v_j \gets \phi$ if there is none exists, if either is $\phi$ ignore\;
+			$C \gets$ visit each $u_i, v_i$ upto distance $7$ to find an un-used color\;
+
+			\BlankLine
+			Color node with $C$\;
+		}
+	}
+
+	\textbf{Output} Coloring\;
+
+\end{algorithm}
+
+\newpage
+
 \section*{Two Pass Strategy}
 
 \begin{algorithm}
