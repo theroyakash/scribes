@@ -1,0 +1,29 @@
+\nobreakspace {} \hfill {\bfseries Page}\par 
+\contentsline {chapter}{\nonumberline \MakeUppercase []{Acknowledgements}}{i}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{Abstract}}{iii}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{List of Tables}}{vii}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{List of Figures}}{ix}{}%
+\contentsline {chapter}{\numberline {\MakeUppercase []{Chapter\nobreakspace {}1}}\MakeUppercase []{Introduction Chapter Name}}{1}{}%
+\contentsline {section}{\numberline {1.1}The first section}{1}{}%
+\contentsline {subsection}{\numberline {1.1.1}A subsection}{1}{}%
+\contentsline {section}{\numberline {1.2}This is an example of a very long section header, highly discouraged, but it works nonetheless}{1}{}%
+\contentsline {chapter}{\numberline {\MakeUppercase []{Chapter\nobreakspace {}2}}\MakeUppercase []{Itemized Lists and Quotes}}{3}{}%
+\contentsline {section}{\numberline {2.1}Unnumbered lists}{3}{}%
+\contentsline {section}{\numberline {2.2}Numbered lists}{4}{}%
+\contentsline {section}{\numberline {2.3}More complex lists made easy}{6}{}%
+\contentsline {section}{\numberline {2.4}Quotes}{6}{}%
+\contentsline {section}{\numberline {2.5}Footnotes}{7}{}%
+\contentsline {chapter}{\numberline {\MakeUppercase []{Chapter\nobreakspace {}3}}\MakeUppercase []{Mathematics}}{9}{}%
+\contentsline {section}{\numberline {3.1}Equations}{9}{}%
+\contentsline {section}{\numberline {3.2}Conveniences}{10}{}%
+\contentsline {chapter}{\numberline {\MakeUppercase []{Chapter\nobreakspace {}4}}\MakeUppercase []{Figures and Tables}}{11}{}%
+\contentsline {section}{\numberline {4.1}Figures}{11}{}%
+\contentsline {section}{\numberline {4.2}Tables}{12}{}%
+\contentsline {section}{\numberline {4.3}Bibliography References}{14}{}%
+\contentsline {chapter}{\numberline {\MakeUppercase []{Appendix\nobreakspace {}A}}\MakeUppercase []{General Notes}}{15}{}%
+\contentsline {section}{\numberline {A.1}Source files}{15}{}%
+\contentsline {section}{\numberline {A.2}Some useful packages}{16}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{Bibliography}}{19}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{Curriculum Vitae}}{21}{}%
+\contentsline {chapter}{\nonumberline \MakeUppercase []{{Doctoral Committee}}}{23}{}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

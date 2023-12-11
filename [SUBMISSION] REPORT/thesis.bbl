@@ -1,0 +1,91 @@
+\begin{thebibliography}{15}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Chernoff(1972)}]{Chernoff_1972}
+{\bf Chernoff, H.}, {\em Sequential Analysis and Optimal Design\/}.
+\newblock Society for Industrial and Applied Mathematics, 1972.
+\newblock ISBN 9780898710069.
+\newblock \urlprefix\url{http://epubs.siam.org/doi/book/10.1137/1.9781611970593}.
+
+\bibitem[{Els(2020)}]{booktabs}
+{\bf Els, D.} (2020).
+\newblock {\ttfamily booktabs} -- publication quality tables in {\LaTeX}.
+\newblock \urlprefix\url{https://ctan.org/pkg/booktabs}.
+
+\bibitem[{López(2019)}]{enumitem}
+{\bf López, J.~B.} (2019).
+\newblock {\ttfamily enumitem} -- control layout of itemize, enumerate, description.
+\newblock \urlprefix\url{https://ctan.org/pkg/enumitem}.
+
+\bibitem[{Nash(1951)}]{Nash_1951}
+{\bf Nash, J.} (1951).
+\newblock Non-cooperative games.
+\newblock {\em Annals of Mathematics\/}, {\bf 54}(2), 286–295.
+\newblock ISSN 0003-486X.
+\newblock \urlprefix\url{https://www.jstor.org/stable/1969529}.
+
+\bibitem[{Polyanskiy {\em et~al.\/}(2010)Polyanskiy, Poor, and Verdu}]{Polyanskiy_Poor_Verdu_2010}
+{\bf Polyanskiy, Y.}, {\bf H.~V. Poor}, and {\bf S.~Verdu} (2010).
+\newblock Channel coding rate in the finite blocklength regime.
+\newblock {\em IEEE Transactions on Information Theory\/}, {\bf 56}(5), 2307–2359.
+\newblock ISSN 1557-9654.
+
+\bibitem[{Shannon(1948)}]{Shannon_1948}
+{\bf Shannon, C.~E.} (1948).
+\newblock A mathematical theory of communication.
+\newblock {\em The Bell System Technical Journal\/}, {\bf 27}(3), 379–423.
+\newblock ISSN 0005-8580.
+
+\bibitem[{Sommerfeldt(2020)}]{subcaption}
+{\bf Sommerfeldt, A.} (2020).
+\newblock {\ttfamily subcaption} -- subcaption – support for sub-captions.
+\newblock \urlprefix\url{https://ctan.org/pkg/subcaption}.
+
+\bibitem[{Stroock and Varadhan(1971)}]{Stroock_Varadhan_1971}
+{\bf Stroock, D.~W.} and {\bf S.~R.~S. Varadhan} (1971).
+\newblock Diffusion processes with boundary conditions.
+\newblock {\em Communications on Pure and Applied Mathematics\/}, {\bf 24}(2), 147–225.
+\newblock ISSN 00103640, 10970312.
+\newblock \urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1002/cpa.3160240206}.
+
+\bibitem[{Talbot(2021)}]{glossaries}
+{\bf Talbot, N.} (2021).
+\newblock {\ttfamily glossaries} -- create glossaries and lists of acronyms.
+\newblock \urlprefix\url{https://ctan.org/pkg/glossaries}.
+
+\bibitem[{Team and Kern(2021)}]{xcolor}
+{\bf Team, T.~L.} and {\bf D.~U. Kern} (2021).
+\newblock Driver-independent color extensions for {\LaTeX} and {pdf\LaTeX}.
+\newblock \urlprefix\url{https://ctan.org/pkg/xcolor}.
+
+\bibitem[{Team and Mittelbach(2021)}]{array}
+{\bf Team, T.~L.} and {\bf F.~Mittelbach} (2021).
+\newblock {\ttfamily array} -- extending the array and tabular environments.
+\newblock \urlprefix\url{https://ctan.org/pkg/array}.
+
+\bibitem[{van Oostrum(2020)}]{multirow}
+{\bf van Oostrum, P.} (2020).
+\newblock {\ttfamily multirow} -- create tabular cells spanning multiple rows.
+\newblock \urlprefix\url{https://ctan.org/pkg/multirow}.
+
+\bibitem[{Veytsman {\em et~al.\/}(2021)Veytsman, Shandl, Netherton, and Radhakrishnan}]{nomencl}
+{\bf Veytsman, B.}, {\bf B.~Shandl}, {\bf L.~Netherton}, and {\bf C.~Radhakrishnan} (2021).
+\newblock {\ttfamily nomencl} -- produce lists of symbols as in nomenclatur.
+\newblock \urlprefix\url{https://ctan.org/pkg/nomencl}.
+
+\bibitem[{Wald(2004)}]{Wald_2004}
+{\bf Wald, A.}, {\em Sequential Analysis\/}.
+\newblock Courier Corporation, 2004.
+\newblock ISBN 9780486439129.
+
+\bibitem[{Zhang(2014)}]{Zhang_2014}
+{\bf Zhang, Y.} (2014).
+\newblock Bounded gaps between primes.
+\newblock {\em Annals of Mathematics\/}, {\bf 179}(3), 1121–1174.
+\newblock ISSN 0003-486X.
+\newblock \urlprefix\url{https://www.jstor.org/stable/24522787}.
+
+\end{thebibliography}
