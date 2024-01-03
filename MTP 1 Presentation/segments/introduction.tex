@@ -1,0 +1,89 @@
+\begin{frame}
+    \frametitle{Introduction to Packing Coloring}
+    
+    We start with a few definitions. First we define what is graph coloring.\pause
+
+    Let $G= (V,E)$ be an undirected graph.\pause
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Graph Coloring}
+
+    \begin{define}{Vertex Coloring}{}
+        A vertex $k$ coloring of $G$ is a map $f: V \to \{1,\ldots, k\}$. A coloring $f$ is said to be proper, if for every edge $(u,v)\in E$, $f(u) \neq f(v)$. The chromatic number of a graph is the minimum value of $k$ such that $G$ has a proper $k$ colouring.
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Graph Packing Coloring}
+
+
+    \begin{itemize}
+        \item Given the centrality of graph colouring to graph theory and computer science, there have been several variants of colouring problems on graphs with some additional conditions imposed.\pause
+        \item One such variant is the packing coloring problem.\pause
+        \item List coloring, path coloring, repetition free colouring are some of the other prominent examples.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Graph Packing Coloring}
+    \textit{We  begin with a definition of the  graph packing-coloring problem.}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Graph Packing Coloring}
+
+    \begin{define}{$S$-Packing Coloring and Packing Coloring}{}
+        \textit{Suppose $S = (a_i)_{i \in \left[1 \to \infty\right)}$ is a increasing sequence of integers, then $S$ packing coloring of the graph is partition on the vertex set $V(G)$ into sets $V_1, V_2, V_3 \dots$ such that for every pair $(x, y) \in V_k$ is at a distance more than $a_k$. If $a_i = i$ for every $i \in \left[1 \to \infty\right)$, then we call the problem packing coloring.}
+    \end{define}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Graph Packing Coloring}
+
+    \begin{define}{$S$-Packing Chromatic Number}{}
+        \textit{If there exists an integer $k$ such that $V(G) = V_1, V_2, V_3 \dots V_k$, each $V_i$ is a vertex-partition, then this partition is called $S$-packing, $k$ coloring, and minimum of such $k$ is the $S$-Packing Chromatic Number.}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Difference between Packing Coloring and Graph Coloring}
+
+    
+    \begin{itemize}
+        \item There are several approximation algorithms for graph coloring, but there aren't any approximation algorithms for packing coloring.\pause
+        \item Any graph is three-colorable is a \textsf{NP}-complete problem. So there are reasons to develop an approximation scheme for graph coloring.\pause
+        \item We also know from early on that the decision version of the packing coloring is a \textsf{NP} complete problem.\pause
+        \item The decision version in the form of \textit{A graph G and a positive integer K, does G have a packing-K coloring}, is \textsf{NP}-complete for \textit{k = 4} even when restricted to \textit{planner} graphs.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Packing Coloring on Trees}
+
+    \textit{Packing coloring is also \textsf{NP}-Hard for the case of trees (which are acyclic undirected unweighted graphs).}    
+
+    \pause
+    It is one thing to compute the decision version of the packing coloring problem for which we don't have any efficient algorithm. It is equally or more difficult to have a fast algorithm for getting hold of an valid packing coloring assignment.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Packing Coloring on Trees}
+
+    \textit{In this presentation I'll show an algorithm that gets us a valid packing coloring assignment in polynomial time. \pause However the algorithm do not get us the minimum number of colors that is the packing chromatic number. It is \textbf{an approximation} of the actual packing chromatic number.}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Simple Algorithm for Packing Coloring}
+
+    \textit{We are to find a valid assignment of packing coloring to the vertices of the graph. \pause Most straight forward algorithm we can think of is simply assign some color, and backtrack and re-color in case of conflicts.}
+
+\end{frame}

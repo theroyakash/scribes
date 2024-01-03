@@ -1,0 +1,177 @@
+\begin{frame}
+    \frametitle{List container}
+
+    
+    \begin{itemize}
+        \item List is a doubly linked list, this includes functions such as \texttt{push\_front}, \texttt{push\_back}, \texttt{insert}, \texttt{erase}, etc.\pause[]
+        \item However I'd say not to use \texttt{std::list} as a data structure because difficult to manipulate.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Few Example}
+
+    
+    Following is the usage of \texttt{front(), back()} on a list. This runs in $O(1)$ time.\pause[]
+
+    \lstinputlisting[language=C]{codes/13.cpp}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Singly Linked List}
+
+    \begin{itemize}
+        \item Similarly there is singly linked list called \texttt{std::forward\_list}.\pause[]
+        \item It is not recommended to use these list data structures as you have limited control on the pointers.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Example Usage}
+
+    \textbf{Finding Middle of linked list}
+    \lstinputlisting[language=C]{codes/middle.cpp}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Example Usage on STL List}
+
+    \textbf{Finding Middle of STL Forward List}
+    \lstinputlisting[language=C]{codes/middlestl.cpp}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Example Usage on STL List}
+
+    \lstinputlisting[language=C]{codes/middlestl2.cpp}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Map and Set}
+
+    
+    \begin{itemize}
+        \item Associative containers (Map and Set) are not sequential; they use keys to access data.\pause[]
+        \item Both Maps and Sets are internally implemented using trees, \pause[]
+        \item Allows for efficient searching, insertion and deletion
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Set Example}
+
+    
+    \begin{itemize}
+        \item Stores unique values\pause[]
+        \item Interface functions: \texttt{insert, erase, clear, find, upper\_bound, lower\_bound}.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Example Usage}
+
+    \lstinputlisting[language=C]{codes/setshow.cpp}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Example Usage}
+
+    \textbf{Storing from Larger to Smaller}
+
+    \lstinputlisting[language=C]{codes/setshow2.cpp}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\texttt{std::multiset}}
+
+    \textbf{Multiset} works same as a set but allows duplicate values.
+
+    \lstinputlisting[language=C]{codes/multiset.cpp}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\texttt{std::map}}
+
+    To store Key-Value pairs you have two options \texttt{std::map} and \texttt{std::unordered\_map}.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\texttt{std::map}}
+
+    In \texttt{std::map} when you access the elements you get the values in sorted order.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\texttt{std::map}}
+
+    \begin{itemize}
+        \item Each key is unique\pause[]
+        \item Internally implemented using \texttt{Red-Black Trees}\pause[]
+        \item Interface contains functions such as \texttt{find, count, clear, erase}, etc,
+        \item Also supports array-like indexing with keys.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\texttt{std::unordered\_map}}
+
+    
+    \begin{itemize}
+        \item Works same as the map, but has better time complexity when access, find, and erase is called.\pause[]
+        \item Each of the operations on \texttt{std::map} is $O(\lg n)$ but on \texttt{std::unordered\_map} each access, find, erase is amortized $O(1)$.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Amortization}
+
+    
+    \begin{itemize}
+        \item With \texttt{C++11} we got hash set and hash map in the form of \texttt{std::unordered\_set} and \texttt{std::unordered\_map}\pause[]
+        \item By amortized $O(1)$ insertion time we mean that each item only runs into $O(1)$ collisions on average,\pause[] This means there exists a sequence of elements for which \texttt{std::unordered\_map} has collisions in every insertion.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Other hash functions}
+
+    The \textbf{builtin} hash function for C++ is not optimal. There exists far better hash functions
+    one such example is \texttt{SplitMix64}.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SplitMix64}
+
+    \textbf{Example Usage}
+
+    \lstinputlisting[language=C]{codes/splitmix64.cpp}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{SplitMix64}
+
+    \textbf{Redefinition With} \texttt{SplitMix64}
+
+    Now you define the \texttt{unordered\_map} as \texttt{unordered\_map<int, int, SplitMix64> unmap;}
+
+\end{frame}

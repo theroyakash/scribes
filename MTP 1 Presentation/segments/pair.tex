@@ -1,0 +1,234 @@
+\begin{frame}
+    \frametitle{Simple Greedy Heuristic for Packing Coloring}
+
+    \begin{itemize}
+        \item \textit{We'll start our algorithm to work specifically on trees first because it is easier to analyze and then we'll extend it to general graphs.} \pause[]
+        \item \textit{In trees every odd layer we can color with a single color $1$ as every odd layer nodes are at distance more than $1$.}\pause[]
+        \item \textit{Hence number of Node remains to be colored is significantly less than the total nodes ($n$). For example a complete $3$-ary tree we can color $75\%$ of the nodes with color $1$.}\pause[]
+        \item \textit{We first see how algorithm working on a complete trees. Then we'll look into some of the optimizations we can do to improve the performance of the algorithm.}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Simple Greedy Heuristic for Packing Coloring}
+
+    \begin{algorithm}[H]\label{alg:1}
+        \SetKwInOut{Input}{Input}
+    
+        \Input{Tree $T$}
+        \BlankLine
+        Compute Level order traversal of Tree $T$\;
+        Color Every Odd layer nodes with \textbf{COLOR(1)}\;
+        \texttt{level} $\gets d - 1$ ($d$ is the last level)\;
+        \While{\texttt{level} $\geq 0$}{
+            \texttt{maximum\_permissible\_color} = $n$\;
+            \texttt{current\_color} = $2$\;
+            \ForEach{\textsf{Node} in this \textsf{level}}{
+                \While{\texttt{current\_color} $<$ \texttt{maximum\_permissible\_color}}{
+                    Travel to every node within distance \texttt{( int ) current\_color} and check if there is any node
+                    colored with color \texttt{current\_color}\;
+                }
+            }
+        }
+        \caption{\textsc{Basic Greedy Algorithm For Any tree}}
+    \end{algorithm}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Simple Greedy Heuristic for Packing Coloring}
+
+    \begin{algorithm}[H]
+        \SetKwInOut{Input}{Input}
+    
+            Travel to every node within distance \texttt{( int ) current\_color} and check if there is any node
+            colored with color \texttt{current\_color}\;
+
+            \uIf{None of the node is colored with color \texttt{current\_color}} {
+                Color this node with color \texttt{current\_color}\;
+                \textbf{break from the loop, go to next node in level}\;
+            }\Else{
+                \texttt{current\_color} $\gets$ \texttt{current\_color} $+1$\;
+            }
+            \textsf{level} $\gets$ \textsf{level} $-1$\;
+    
+        \textbf{Output:} Output this coloring assignment.
+    
+        \caption{\textsc{Basic Greedy Algorithm For Any tree}}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Analysis of the Basic Algorithm}
+
+    \textit{During the analysis we find that there are optimizations we can do to improve the run-time of our algorithm.}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Complexity Analysis}
+
+    Our algorithm for each node $i \in (1, n)$ in the worst case visits all the $n$ node to find a color (from $1 \to n$). Hence worst case time complexity is $O(n^3)$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimizations 1}
+
+    We observe one simple fact, that for any complete tree, the maximum number of nodes at any level is present at the last level ($=x^d$, $x$ is the number of children and $d$ is the depth of the last level starting root from $0$).    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimizations 1}
+
+    We are coloring every odd layer with color $1$. \pause[] 
+    
+    Instead of that if we color the last level and then every alternate level with color $1$ we'll color much more nodes with color $1$ and reduce the total number of colors used. Here is a simple example how this optimization saved thousands of colors.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimizations 1}
+
+    \begin{table}[h]
+        \centering
+    \begin{tabular}{|l|l|r|l|}
+    \hline
+    \multicolumn{1}{|l|}{Nodes} & \multicolumn{1}{l|}{Layers} & \multicolumn{1}{l|}{Maximum Colors used} & \multicolumn{1}{l|}{Runtime} \\ \hline
+    265720 & 12 & 20633 & 52m 32s 280ms \\ \hline
+    265720 & 12 & 6890 & 4m 17s 31ms \\ \hline
+    \end{tabular}
+    \end{table}
+
+    \pause
+    \textit{This one simple optimization reduces the runtime by $92\%$}
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Optimizations 2}
+
+    Suppose we are at the moment trying to color node $u$. Our algorithm for each color $i \in (1, n)$ goes to distance $i$ from the node $u$ and checks if that color exists already or not in all the nodes sitting within distance $i$ from node $u$?
+
+    \pause[]
+
+    \textit{Lets see this step of the basic algorithm with an example.}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimizations 2}
+
+    
+    \begin{itemize}
+        \item Suppose we are currently looking to color some node $u$ with color $d$.\pause[]
+        \item We went to $d$ distance from node $u$ to find all the colors we find. Suppose we find color $d, d + 1, \dots, d+k$ are present in some of the nodes.\pause[]
+        \item So we should not check this again for node $u$ with color $d + (1 \to k)$.\pause[]
+        \item Hence we implement this modification to improve the runtime.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimizations 2}
+    \textit{We define a subroutine called \texttt{Check(u, d)}. This subroutine returns a set of colors present within distance $d$ for any node $u$.}
+    \pause[]
+    \begin{algorithm}[H]\label{alg:11}
+        $\mathcal{C} \gets \phi$\;
+    
+        Visit all nodes within distance $d$ from node $u$ and collect all the colors into $\mathcal{C}$\;
+    
+        \textbf{return} Set $\mathcal{C}$\;
+        
+        \caption{\texttt{Check(Node u, Color d)}}
+    \end{algorithm}
+
+
+    \pause[]
+    We can call this subroutine from the main coloring BFS call (we are coloring left to right, level by level). We start with the color $2$ and then we follow the following coloring strategy.
+\end{frame}
+
+\begin{frame}
+    \frametitle{New coloring strategy}
+
+    \begin{algorithm}[H]
+        \For{Each node from last uncolored level, left to right} {
+            $d_{\text{prev}}$ $\gets \phi$\;
+            \For{Each Color $i$ from $2 \to n$} {
+    
+                \uIf{Color $i \in d_{\text{prev}}$}{
+                It is not possible to color this node with color $i$ because we found color $i$ at distance less than $i$ in $d_{\text{prev}}$\;
+                    Continue with color $i + 1$\;
+                }
+    
+                \Else {
+                    
+                }
+            }
+        }
+        \caption{\texttt{Updated Main Coloring Scheme}}
+    \end{algorithm}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{New coloring strategy}
+
+    \begin{algorithm}[H]
+        \For{Each node from last uncolored level, left to right} {
+            $d_{\text{prev}}$ $\gets \phi$\;
+            \For{Each Color $i$ from $2 \to n$} {
+                \uIf{Color $i \in d_{\text{prev}}$}{
+
+                }
+                \Else{
+                    $d_{\text{new}} = $ \texttt{Check(node, i, $d_{\text{prev}}$)}\;
+    
+                    \uIf{$i \notin d_{\text{new}}$}{
+                        Color this node with color $i$\;
+                        Break from this loop and start coloring next uncolored node\;
+                    } \Else{
+                        $d_{\text{prev}} = d_{\text{new}}$
+                    }
+                }
+            }
+        }
+        \caption{\texttt{Updated Main Coloring Scheme}}
+    \end{algorithm}
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimization 3}
+
+    
+    \begin{itemize}
+        \item This optimization comes from the observations of the structure of the complete trees.\pause
+        \item Complete $x$-ary trees has a depth of $\log_{x} n$ with $n$ many nodes in them.\pause[]
+        \item With the following optimization our algorithm time complexity will reduce from $O(n^3)$ down to $O(n d^2)$ for $x$-ary trees with $d$ diameter. This is a significant complexity improvement.
+    \end{itemize}    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization 3}
+
+    
+    \begin{itemize}
+        \item Suppose $j$ is a color that has been used in the tree for the first time (during our run of the algorithm).\pause[] 
+        \item If $j >$ the longest path in the tree, then color $j$ can never be used again.\pause[]
+        \item Any color after $j$ that is $j + 1$ and so on will also not be possible to reuse.\pause[]
+        \item So there is a upper bound on the number of color that are reusable. This depends on the longest path on the tree.
+    \end{itemize}    
+
+\end{frame}

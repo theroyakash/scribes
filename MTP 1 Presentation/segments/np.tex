@@ -1,0 +1,137 @@
+
+\begin{frame}
+    \frametitle{Disjoint Support}
+
+    Let's define pair $\langle x, y \rangle$ as ``$y$ was drawn according to
+    $D_{n,x,\phi}$''. For a parameterized distributional problem $(\mathcal{L},
+        \mathcal{D})$ we define
+
+    \begin{align*}
+        L_{\text{ds}} = \{\langle x, y \rangle \: \vert \: y \in \mathcal{L} \text{ and } \vert \: y \: \vert \leq \text{poly}(\mid x\mid)\}
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Disjoint Support Continued, Reducibility}
+
+    With this notion of $L_{\text{ds}}$ we define the notion of reducibility.
+
+    \begin{define}{Notion of Reduction}{defn3}
+        \textit{Let $\mathcal{L}$, $\mathcal{D}$ and $\mathcal{L}$', $\mathcal{D}$' be
+            two parameterized distributional problem. We say $\mathcal{L}$, $\mathcal{D}$
+            polynomial time smoothed reduces to $\mathcal{L}$', $\mathcal{D}$' if there exist
+            a polynomial time computable function $f$ such that following holds}
+
+    \end{define}
+
+    \begin{itemize}
+        \item $\langle x, y \rangle \in L_{\text{ds}}$ if and only if $f(\langle x, y \rangle; n, \phi) \in L_{\text{ds}}'$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Disjoint Support Continued, Reducibility}
+
+    \begin{define}{Notion of Reduction}{defn3}
+        \textit{Let $\mathcal{L}$, $\mathcal{D}$ and $\mathcal{L}$', $\mathcal{D}$' be
+            two parameterized distributional problem. We say $\mathcal{L}$, $\mathcal{D}$
+            polynomial time smoothed reduces to $\mathcal{L}$', $\mathcal{D}$' if there exist
+            a polynomial time computable function $f$ such that following holds}
+
+    \end{define}
+
+    \begin{itemize}
+        \item $\langle x, y \rangle \in L_{\text{ds}}$ if and only if $f(\langle x, y \rangle; n, \phi) \in L_{\text{ds}}'$
+
+        \item There exist a polynomial $p$ and $m$ such that for every $n, x, \phi, y' \in$
+              supp $D_{m(n), f_1(\langle x, y \rangle; n, \phi), \phi}$ we have
+              \begin{align*}
+                  \displaystyle\sum_{y:f_1(\langle x, y \rangle; n, \phi), \phi = y'} D_{n,x,\phi} (y) \leq p(n) * D_{m(n), f_1(\langle x, y \rangle; n, \phi), \phi} (y')'
+              \end{align*}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\textsf{PComp}_{\textsf{para}}$ and $\textsf{Dist-NP}_{\textsf{para}}$}
+
+    We'll define the smoothed analog of classical worst case \textsf{NP} and
+    average-case \textsf{Dist-NP} called $\textsf{Dist-NP}_{\textsf{para}}$. But first define $\textsf{PComp}_{\textsf{para}}$.
+
+    \begin{define}{$\textsf{PComp}_{\textsf{para}}$}{defn 4}
+        \textit{A parameterized family of distribution $\in$ $\textsf{PComp}_{\textsf{para}}$, if the cumulative probability}
+        
+        \begin{align*}
+            F_{D_{n, x, \phi}} = \displaystyle\sum_{z \leq x} D_{n, x, \phi}
+        \end{align*}
+
+        \textit{can be computed in polynomial time given $n, x, \phi$ in binary.}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\textsf{PComp}_{\textsf{para}}$ and $\textsf{Dist-NP}_{\textsf{para}}$}
+
+    
+    \begin{center}
+        $z \leq x$ means $z$ comes lexicographically before \(x\) or \(z = x\).
+        
+        With definiton 3.4 we define $\textsf{Dist-NP}_{\textsf{para}}$
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\textsf{Dist-NP}_{\textsf{para}}$}
+
+    
+    \begin{define}{$\textsf{Dist-NP}_{\textsf{para}}$}{defn5}
+        $\textsf{Dist-NP}_{\textsf{para}}$ = \{($L$, $\mathcal{D}$) $\mid$ $L \in \textsf{NP}$ and $\mathcal{D} \in \textsf{PComp}_{\textsf{para}}$\}
+    \end{define}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\textsf{Dist-NP}_{\textsf{para}}$ has Complete Problems}
+
+    
+    \begin{theo}{$\textsf{Dist-NP}_{\textsf{para}}$ completeness}{theo22}
+        $\textsf{Dist-NP}_{\textsf{para}}$ has Complete Problems. Bounded Halting is one such example.
+    \end{theo}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+
+    First we define Bounded Halting Problem.
+
+    \begin{define}{Bounded Halting}{defnbnhalt}
+        \textsf{BH} = \{ $\langle g, x, 1^t \rangle$ \(\mid\) the non deterministic Turing machine with Gödel number $g$ accepts x within t steps\}
+    \end{define}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Proof}
+
+    First we define Bounded Halting Problem.
+
+    \begin{define}{Bounded Halting}{defnbnhalt}
+        \textsf{BH} = \{ $\langle g, x, 1^t \rangle$ \(\mid\) the non deterministic Turing machine with Gödel number $g$ accepts x within t steps\}
+    \end{define}
+
+    \textbf{Note}: Think of Gödel Number $g$ is an encoding of the Turing Machine.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lemma}Support
+
+    
+
+\end{frame}

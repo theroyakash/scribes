@@ -1,0 +1,79 @@
+\documentclass[aspectratio=169, compress]{beamer}
+% \usetheme{Boadilla}
+% \usecolortheme{beaver}
+
+\usetheme{Boadilla}
+\usecolortheme{default}
+\usepackage{beamerthemesplit}
+
+\usefonttheme{serif}
+
+\usepackage{lipsum}
+\usepackage{graphicx,xcolor}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+
+\lstset{style=codestyle}
+
+\newtcbtheorem[number within=section]{theo}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{lemm}{Lemma}%
+{colback=yellow!30,colframe=red!75!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{hypothesis}{Hypothesis}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{define}{Definition}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+
+\title[Packing Coloring Algorithms\hspace{0.5cm}\insertframenumber/\inserttotalframenumber]{Design and Analysis of Algorithms for Packing Coloring}
+\institute{\textsc{Indian Institute of Technology Madras}}
+\logo{\includegraphics[height=0.75cm]{iitm.png}}
+\author{\href{https://www.theroyakash.com}{theroyakash}}
+
+\date{\today{}}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\input{segments/introduction}
+
+\section{Data Structure}
+\input{segments/pair.tex}
+\input{segments/sorting.tex}
+\input{segments/other-container.tex}
+
+\end{document}
