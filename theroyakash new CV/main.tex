@@ -2,8 +2,12 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
+% FOR VSCODE LATEX-COMPILER ARGUMENTS
+%!TEX program = lualatex
+% REMOVE THIS OTHERWISE
 
-\documentclass[10pt,a4paper]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt, a4paper]{moderncv}
+% possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstylef' and 'banking'
@@ -25,7 +29,7 @@
 % personal data
 \name{Roy}{Akash}
 \title{CS22M007}
-\insti{M.Tech CS | Indian Institute of technology, Madras}
+\insti{M.Tech CS $\mid$ Indian Institute of technology, Madras}
 % \extrainfo{Roll Number: CS22M007}
 % optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 % \phone[mobile]{+91-9163611726}                   % optional, remove / comment the line if not wanted
@@ -55,8 +59,7 @@
 
 \noindent
 \begin{minipage}{.78\textwidth}
-\makecvtitle
-
+ \makecvtitle
 \end{minipage}%
 \begin{minipage}{.30\textwidth}
   \centering
@@ -65,14 +68,15 @@
 \vspace{-1em}
 
 \section{Education}
+\vspace{0.3em}
 \begin{minipage}{\textwidth}
 \centering
 \setlength{\tabcolsep}{10pt}
 \begin{tabular}{|p{3cm}|p{8cm}|p{2cm}|p{3cm}|}
 \hline
 \textbf{Program} & \textbf{Institution} & \textbf{\%/CGPA} & \textbf{Year} \\ \hline
-\textbf{M.Tech in CS} & Indian Institute of Technology, Madras & 8.25/10 & 2022-2024 \\ \hline
-\textbf{B.Tech in CS} & Government College of Engineering and Ceramic technology & 8.94/10 & 2018-2022 \\ \hline
+\textbf{M.Tech in CS} & Indian Institute of Technology, Madras & 8.58/10 & 2022-2024 \\ \hline
+\textbf{B.Tech in CS} & Government College of Engineering and Ceramic Technology & 8.94/10 & 2018-2022 \\ \hline
 \textbf{HS (Class 12)} & Barasat Mahatma Gandhi Memorial High School & 78.60\% & 2018 \\\hline
 \textbf{Class 10} & Barasat Mahatma Gandhi Memorial High School & 88.71\% & 2016 \\
 \hline
@@ -82,23 +86,28 @@
 
 \vspace{1em}
 \section{Work Experience}
-\cventry{}{Got internship offer within one months of joining IIT Madras}{SDE intern at Amazon India}{May 2023 - July 2023}{}{}
-\cvlistitem{Did the Internship with the Registration and Core Services Team at Amazon Bangalore.}
-\cvlistitem{Worked with the Post-Registration Team which handles post registration workflow of a seller on the Amazon Seller Platform.}
-\cvlistitem{}
+\cventry{}{India, Hyderabad Office, Joining June 2024}{Software Engineer at Microsoft India}{June 2024 - Present}{}{}
 
-\cventry{}{Introduction to programming CS1100, Object Oriented Programming CS2810}{Teaching Assistant at Department of Computer Science, IIT Madras}{August 2022 - July 2024}{}{}
-\cvlistitem{Taught and managed total of 15 students from Mechanical, Metallurgy and Naval Architecture department students at IIT Madras for the course CS1100 Introduction to Programming from November 2022 to February 2023.}
-\cvlistitem{Taught and managed second year CS B.Tech students at IIT Madras for the course CS2810 Object Oriented design Lab from January 2023 to May 2023. Responsibilities include Question Design, Automated testcase generation, verification of student submitted code.}
+
+\cventry{}{India, Bangalore Office, Registration and Core Services Team}{SDE intern at Amazon India}{May 2023 - July 2023}{}{}
+\cvlistitem{Received an inclined offer based on the performance during the Internship.}
+\cvlistitem{Internship with the Registration and Core Services Team at Amazon Bangalore. Implemented a \textbf{redirection feature} which is currently deployed to \textbf{production environment} on the \textbf{Amazon Worldwide Seller Central}, which automatically redirects seller from Add new bank account page to the account verification page. This implementation improves customer experience and reduces time and effort in verifying bank accounts. The framework did not inherently support redirection. Using \textbf{WebLabs (selective deployment)}, we \textbf{eventually deployed} redirection feature to sellers.}
+\cvlistitem{In our implementation, we found one edge case for which our redirection feature was incomplete. To solve this problem, I designed and implemented \textbf{foundational API changes} along with suggestions from SDE-I and SDE-III. These code changes migrated logic from service orchestration package to service management package, which then calls service orchestration package based on certain parameters. This movement of orchestration logic into management service is a foundational code change that is a stepping stone toward team vision.}
+
+\cventry{}{Introduction to programming, Object Oriented Programming, C++ Advanced Programming}{Teaching Assistant at CS Department, IIT Madras}{July 2022 - May 2024}{}{}
+\cvlistitem{Was a lead teaching assistant in CS1100 managing 70+ teaching assistants and 350+ students who took the course. Was responsible for smooth operation of the course to the completion and was responsible for \textbf{question design}, conducting exams, doubt clearing and leading the exam evaluation done by the other TAs.}
+
+\cvlistitem{Taught various computer science courses at IIT Madras, including a lead teaching assistantship and an instructor position in the \textbf{CS6150 Advanced Programming Lab in C++} course for incoming CS Masters students, \textbf{CS5410 Security in Cyber Physical System} for the under-graduate and graduate students, \textbf{CS2810 Object Oriented Design Lab} for second-year CS B.Tech students, and \textbf{CS1100 Introduction to Programming} for incoming B.Tech students of various departments at IITM coming through JEE Advanced. Responsibilities encompassed designing questions, \textbf{conducting classes}, \textbf{teaching}, \textbf{automated test-case generation}, and verifying student-submitted code.}
+
 
 \section{Publications}
 % \cventry{IIT Madras}{During M.Tech}{Distributed Systems Design, a foundational book}{Spring 2022}{Book Coming Soon}{}
-% \cvlistitem{Building distributed systems is difficult, often challenging. To get started with system designing I wrote this book when I was starting to learn distributed systems from scratch}
-% \cvlistitem{This book introduces people to the concept of distributed systems, tools and algorithms that one need to build those systems helping them switch from \textbf{monolith} to \textbf{microservices} if needed in no time.}
+% \cvlistitem{Building distributed systems is difficult, often challenging. To get started with system designing, I wrote this book when I was starting to learn distributed systems from scratch}
+% \cvlistitem{This book introduces people to the concept of distributed systems, tools, and algorithms that one needs to build those systems, helping them switch from \textbf{monolith} to \textbf{microservices} if needed in no time.}
 
 \vspace{2mm}
-\cventry{}{Over 400+ five star ratings}{Python basics to get started book}{Spring 2020}{Available on \href{https://play.google.com/store/books/details/theroyakash_Python_Basics_to_get_started?id=ZaSTDwAAQBAJ}{\textcolor{blue}{Google Play}}}{}
-\cvlistitem{Python basics to get started is a introductory python book for first year freshman students to get started with programming with python. With over 20,000 copies sold in last 3 years, my python introduction book is widely used by my juniors from B.Tech college and received over 400+ five star ratings.}
+\cventry{}{Over 400+ five star ratings}{Python basics to get started book}{Spring 2020}{Available on Google Play}{}
+\cvlistitem{Python Basics to get started is an introductory Python book for first-year students to start with Python programming. With over 20,000 copies sold in the last three years, my Python introduction book is widely used by my juniors from B.Tech college and received over 480+ five-star ratings.}
 
 % technical skills
 \section{Technical Skills}
@@ -108,81 +117,81 @@
 
 \cvlistdoubleitem{
 {\textbf{Database Systems}}: MySQL PostgreSQL, NoSQL}{
-{\textbf{Systems}}: Docker, Redis}
+{\textbf{Systems}}: Docker, Redis, CI/CD}
 
-\cvlistitem{{\textbf{Computer Science Fundamentals}:} {Operating Systems, Computer Networks, Database Management Systems, Theory of Computation, Randomized algorithms, Design and analysis of algorithms, Probabilistic and Smoothed analysis of algorithms.}}
+% \cvlistitem{{\textbf{Computer Science Fundamentals}:} {Operating Systems, Computer Networks, Database Management Systems, Theory of Computation, Randomized algorithms, Design and analysis of algorithms, Probabilistic and Smoothed analysis of algorithms.}}
 
 
 % KEY Projects
 
-\section{Key Projects}
+\section{Key Research and Technical Projects}
 
-\cventry{Indian Institute of Technology, Madras}{Bootstrap CSS, Python, Flask, Sessions, SQLite3}
-{{\href{https://github.com/theroyakash/passwordManager}{\textcolor{blue}{Password Manager}}}}{March 2022 to July 2022}{}{}
-\cvlistitem{Web-based locally-runnable password manager, that stores unlimited passwords in a local SQLite3 database,}
-\cvlistitem{Users are supposed to create a local account with a master password to manage and store passwords under that account. Data is stored in the user's personal computer so there is no chance of data leak, users also have the option to self-host on any PaaS platform.}
-\cvlistitem{Users have the options to create multiple local profiles and store separate login information in separate profiles and users also have the option to generate really long hard to guess, random passwords that they can use in any services they want.}
+
+\cventry{Indian Institute of Technology, Madras}{Theoretical Computer Science, Graph Theory, Graph Coloring}
+{Master's Research Project in Theoretical Computer Science}{July 2023 - May 2024}{}{}
+\cvlistitem{Researcher in the \textbf{Theoretical CS group, IIT-M}, collaborating with \textbf{Dr. B. V. Raghavendra Rao.}}
+\cvlistitem{Broadly studying the complexity of graph packing coloring problems. Designing, architecting, and implementing several schemes for packing coloring in degree-bounded trees and other special graphs.}
+
+
+\cventry{Indian Institute of Technology, Madras}{GoLang, Python, Large Scale Distributed systems design, Database technology}
+{Large Scale Distributed Notification System}{June 2023 - August 2023}{}{}
+\cvlistitem{This notification service implementation can scale up to millions of customers to reliably deliver notifications. The primary purpose of such a service is to provide central or local government or police the ability to deliver disaster notifications to millions of residents.}
+
+\cvlistitem{Built on Golang and Python, the main notification service is divided into four services \textit{RepositoryService}, \textit{AuthorizationService}, \textit{PersistentStoreService}, \textit{Publisher} and \textit{Subscriber}, each runs in their docker container, and are independently scalable. System Design, HLD, and other documentation can be found online.}
+
+
+\cventry{Indian Institute of Technology, Madras}{Tailwind CSS, Vanilla JavaScript, ElectronJS}
+{\textit{AmbientBuddy}}{June 2023 to July 2023}{}{}
+\cvlistitem{Beautifully designed AmbientBuddy is a macOS, Windows-based meditation app that has 30+ ambient sounds built into it. AmbientBuddy has the best design among all available ambient apps and works offline. AmbientBuddy is designed to work offline so that users don't require an active connection to listen to the audio.}
+\cvlistitem{Audios are also customizable; users can mix multiple sounds and re-adjust volumes of multiple audio to listen to a calming experience. AmbientBuddy has a beautifully designed landing page, and the code is open-sourced.}
+
+% \cventry{Indian Institute of Technology, Madras}{Bootstrap CSS, Python, Flask, Sessions, SQLite3}
+% {\textit{Password Manager}}{March 2022 to July 2022}{}{}
+
+% \cvlistitem{Web-based locally-runnable password manager, that stores unlimited passwords in a local SQLite3 database,}
+% \cvlistitem{Users are supposed to create a local account with a master password to manage and store passwords under that account. Data is stored in the user's personal computer, so there is no chance of data leaks. Users also have the option to self-host on any PaaS platform.}
+% \cvlistitem{Users have the option to create multiple local profiles and store separate login information in separate profiles, and users also have the option to generate long hard to guess, random passwords that they can use in any services they want.}
 
 \cventry{Indian Institute of Technology, Madras}{Free interview preparation platform}
-{{\href{https://algorithms.theroyakash.com}{\textcolor{blue}{algorithms.theroyakash.com}}}}{Feb 2022 to Aug 2022}{}{}
-\cvlistitem{Used by 400+ monthly active users, these are materials for FAANG and top startup coding interviews,}
-\cvlistitem{Has over 130+ interview questions with detailed explanations on several data structures and algorithm concepts. It is used as a starting point for bachelor and master in computer science students to start their interview preparations.}
+{algorithms.theroyakash.com}{Feb 2022 to Today}{}{}
+\cvlistitem{Used by 650+ users from all over the world, these are materials for coding interviews, has over 150+ interview questions with detailed explanations on several data structures and algorithm concepts. It is a starting point for many bachelor and master in computer science students to start their interview preparations.}
 
-\vspace{2mm}
+\vspace{1mm}
 
-% \cventry{Indian Institute of Technology, Madras}{Python, Flask, Redis, MySQL, Docker}
-% {\textit{{\href{https://github.com/dnofs}{\textcolor{blue}{DNofS}}}} }{Aug 2022}{}{}
-% \cvlistitem{DNofS is a \textbf{Flask Python} based \textbf{distributed} notification service implementation that can scale up to \textbf{millions of customers} to \textbf{reliably} deliver notifications,}
-% \cvlistitem{The primary purpose of such service is to provide central or local government or the police the capability to deliver disaster notifications to \textbf{millions of residences}.}
-% \cvlistitem{DNofS includes a client-side end-point that users can opt-out of, a client to issue notifications from, databases to store subscribers, and a soft real-time system server.}
+\cventry{Government College of Engineering and Ceramic Technology}{Python Package with PIP}
+{\textit{AKDSFramework}}{Nov 2020 - Sep 2021}{}{}
+\cvlistitem{Pure pythonic, efficient implementations for all popular data structures and algorithms. AKDSFramework provides one-line benchmarking tools, an easy-to-use one-of-a-kind Big O analyzer, and a caching decorator.}
+\cvlistitem{AKDSFramework has API to draw graphs from an AKDSFramework graph object (using mermaid-js API in Python, which I contributed to the mermaid project). All run-able functions and modules are tested with Python unit tests using GitHub actions. Framework documentation and open source code are available online.}
 
-% \vspace{2mm}
-
-\cventry{}{Python Package with PIP}
-{\textit{{\href{https://github.com/theroyakash/AKDSFramework}{\textcolor{blue}{AKDSFramework}}}}}{Nov 2020 - Sep 2021}{}{}
-\cvlistitem{Pure pythonic, efficient implementations for all popular data-structures and algorithms. AKDSFramework provides one line \href{https://publications.theroyakash.com/benchmark-your-python-program}{\textcolor{blue}{benchmarking tools}}, easy to use, one of a kind \href{https://publications.theroyakash.com/introducing-an-efficient-big-o-analyzer}{\textcolor{blue}{Big O analyzer}}, and also  \href{https://publications.theroyakash.com/cache-your-code}{\textcolor{blue}{ a caching decorator}}.}
-\cvlistitem{AKDSFramework has API to draw graphs from a AKDSFramework graph object (using mermaid-js API in Python which is contributed to {\href{https://github.com/mermaid-js/mermaid/issues/1791}{\textcolor{blue}{ the mermaid project}}} by me). All run-able functions, modules are tested with python unit tests using github actions on three different major operating systems.}
-\cvlistitem{See open source on  \href{https://github.com/theroyakash/AKDSFramework}{\textcolor{blue}{github}}  and \href{https://docs.akdsframework.theroyakash.com/}{\textcolor{blue}{docs}}.}
-
-\vspace{2mm}
-
-\cventry{Indian Institute of Technology, Madras}{Python}
-{{\href{https://theroyakash.notion.site/BOT-037afbdb4cd1417db23573e9434ef06b}{\textcolor{blue}{Multipurpose discord bot}}}}{April 2021 - Currently}{}{}
-\cvlistitem{This Python-based discord bot is a multipurpose discord bot consisting of many fun features including getting memes from subreddits, getting a random non-existent AI-generated image (calling APIs), searching music on YouTube (using Google APIs), resizing, black and white, and bluring images right from the chat,}
-\cvlistitem{Bot also has a feature, to call Google News to find new news happening across India. It has a built-in XML parser that parses the RSS contents from Google News. All the Google News links are shortened using TinyURL API and then sent to the chat.}
+% \cventry{Indian Institute of Technology, Madras}{Python}
+% {{\href{https://theroyakash.notion.site/BOT-037afbdb4cd1417db23573e9434ef06b}{\textcolor{blue}{Multipurpose discord bot}}}}{April 2021 - Currently}{}{}
+% \cvlistitem{This Python-based fun discord bot is a multipurpose discord bot consisting of many features, including getting memes from subreddits, getting a random non-existent AI-generated image (calling APIs), searching music on YouTube (using Google APIs), and several other image operations, getting news (by parsing Google News XML).}
 % \cvlistitem{The discord bot also has a wine recommendation system that recommends wines from user inputs matching with the description in the database using \textbf{fuzzzy search}. Data is stored in a \textbf{SQLite} database.}
 
 % Course Work
 
 \section{Other Projects}
 
-\cventry{Government College of Engineering and Ceramic technology}{Independent Research}{\href{https://scholar.google.com/citations?view_op=view_citation&hl=en&user=AjmZ9WkAAAAJ&citation_for_view=AjmZ9WkAAAAJ:u-x6o8ySG0sC}{\textcolor{blue}{AKHCRNet}}}{April 2020 - October 2020}{}{}
-\cvlistitem{\texttt{AKHCRNet} is a state of the art deep neural architectural solution for handwritten character recognition for Bengali alphabets.}
-\cvlistitem{Gained total of 6 citations across India.}
+\cventry{Government College of Engineering and Ceramic technology}{Independent Research}{\texttt{AKHCRNet}}{April 2020 - October 2020}{}{}
+\cvlistitem{\texttt{AKHCRNet} is a state-of-the-art deep neural architectural solution for handwritten character recognition for Bengali alphabets. Gained eight citations, including researchers from IITs.}
 
-\cventry{Indian Institute of Technology, Madras}{Python, GitHub Actions Cron Jobs, RestAPI}{\textbf{\href{https://github.com/theroyakash/sosleafy}{\textcolor{blue}{@sosleafy}}} News Bot}{Jun 2021}{}{}
-\cvlistitem{\textbf{\href{https://twitter.com/sosleafy}{\textcolor{blue}{@sosleafy}}} is a twitter account and a \href{https://t.me/indiaheadline}{\textcolor{blue}{telegram group}} where every 3 hours a bot posts fresh news contents run via github actions.}
-\cvlistitem{Using Github actions and cron jobs the script takes new news contents from the web and puts it in a GitHub repository. Then once every three hours a cron job is scheduled to post new news content on Twitter and telegram.}
-\cvlistitem{In it's operation \textbf{\href{https://twitter.com/sosleafy}{\textcolor{blue}{@sosleafy}}} posted over \textbf{11K} tweets on twitter and currently shut down.}
+\cventry{Government College of Engineering and Ceramic Technology}{Python, GitHub Actions Cron Jobs, RestAPI}{@sosleafy News Bot}{Jun 2021}{}{}
+\cvlistitem{@sosleafy is a Twitter account and a telegram group where every 3 hours, a bot posts fresh news content run via GitHub actions. Using \textbf{Github actions} and \textbf{Cron jobs}, the script takes new news content from the web and puts it in a GitHub repository. Then once every three hours, another \textbf{cron job} is scheduled to post new news content on Twitter and Telegram, setting the GitHub repository as the news source. In it's operation \textbf{@sosleafy} posted over \textbf{11K} tweets on twitter and currently shut down.}
 
-\cventry{Indian Institute of Technology, Madras}{Language: C++}{\href{http://github.com/theroyakash/tinyds}{\textcolor{blue}{tinyds}}}{May 2022 to July 2022}{}{}
-\cvlistitem{\texttt{tinyds} is a small and simple C++ implementation library for most of data structures and algorithms that are asked in SDE I or II interviews at FAANGs that one can implement in an exam setting if asked.}
-
-\cventry{Indian Institute of Technology, Madras}{Python installable package with Pip}{\href{https://pypi.org/project/placeholderfile/}{\textcolor{blue}{placeholderfile}}}{October 2020}{}{}
+\cventry{Government College of Engineering and Ceramic Technology}{Python installable package with Pip}{placeholderfile in \texttt{pip} package manager}{October 2020}{}{}
 \cvlistitem{\texttt{placeholderfile} is a random filename and UUID generator installable via pip.}
-
 
 \section{Course Work}
 \cventry{Indian Institute of Technology Madras}{(Core and electives)}{Key Courses in M.Tech}{July 2022-May 2024}{}{}
-\cvlistitem{\textit{Courses}: Advanced data structures and algorithms, Randomized Algorithms, Computability and Complexity theory, Advanced Programming Lab, Probabilistic and Smoothed Analysis of Algorithms, Security in Cyber Physical Systems, Digital System testing and testable design, Theory and application of Ontologies.}
+\cvlistitem{\textit{Courses}: Advanced data structures and algorithms, Randomized Algorithms, Computability, and Complexity theory, Advanced Programming Lab, Probabilistic and Smoothed Analysis of Algorithms, Security in Cyber Physical Systems, Digital System testing and testable design, Theory and application of Ontologies.}
 
 \cventry{Government College of Engineering and Ceramic technology}{(Core and electives)}{Key Courses in B.Tech}{August 2018-April 2022}{}{}
 \cvlistitem{\textit{Courses}: Theory of computation, Discrete Maths, Computer Networks, Compiler Design, Design and analysis of Algorithms, Data Structures, Object Oriented design, Digital Logic, Computer Organizations, Operating Systems, Database management systems, Machine learning, Deep learning.}
 
-\section{Positions of Responsibility}
-\begin{itemize}
-\item \textit{Teaching Assistant} for Computer Science Department, Indian Institute of Technology, Madras (2022-2024).
-\end{itemize}
+% \section{Positions of Responsibility}
+% \begin{itemize}
+% \item \textit{Teaching Assistant} for Computer Science Department, Indian Institute of Technology, Madras (2022-2024).
+% \end{itemize}
 
 
 \section{Achievements}
@@ -192,7 +201,7 @@
 
 \cvlistitem {Became Course topper and Elite + Silver Medal in NPTEL Cloud computing course conducted by IIT Kharagpur,}
 
-\cvlistitem {Topped in Theory of computation NPTEL Course conducted by IIT Kanpur.}
+\cvlistitem {Got 70\% in Theory of computation NPTEL Course conducted by IIT Kanpur.}
 
 %Languages (Spoken/known): Assamese, Bengali, English, Garo, Hindi, Nepali. 
 
@@ -200,9 +209,9 @@
 % \cvlistdoubleitem{Hobbies: Video Making, Photography, Apps making}{Languages: Bengali, Hindi, English.}
 
 
-\section{Declaration}
-{I do hereby declare that all the details furnished above are true to the best of my knowledge and belief.}
+% \section{Declaration}
+% {I do hereby declare that all the details furnished above are true to the best of my knowledge and belief.}
 
-\vspace{4mm}
-{Last updated: 2023 March \hspace{35em} (Akash Roy)}
+% \vspace{4mm}
+% {Last updated: 2023 March \hspace{35em} (Akash Roy)}
 \end{document}

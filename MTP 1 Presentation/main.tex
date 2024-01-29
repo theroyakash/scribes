@@ -55,11 +55,13 @@
 \newtcbtheorem[number within=section]{define}{Definition}%
 {colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
 
+\newtcbtheorem[number within=section]{Fact}{Fact}%
+{colback=red!5,colframe=red!35!black,fonttitle=\bfseries}{th}
 
 \title[Packing Coloring Algorithms\hspace{0.5cm}\insertframenumber/\inserttotalframenumber]{Design and Analysis of Algorithms for Packing Coloring}
 \institute{\textsc{Indian Institute of Technology Madras}}
 \logo{\includegraphics[height=0.75cm]{iitm.png}}
-\author{\href{https://www.theroyakash.com}{theroyakash}}
+\author{\href{https://www.theroyakash.com}{theroyakash} and B.V. Raghavendra Rao}
 
 \date{\today{}}
 
@@ -71,9 +73,11 @@
 \section{Introduction}
 \input{segments/introduction}
 
-\section{Data Structure}
-\input{segments/pair.tex}
-\input{segments/sorting.tex}
-\input{segments/other-container.tex}
+\section{Theory}
+\input{segments/opt.tex}
+\input{segments/mat-ana.tex}
+
+\section{Expt. Results and Future}
+\input{segments/fut.tex}
 
 \end{document}

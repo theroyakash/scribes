@@ -215,20 +215,62 @@
     \begin{itemize}
         \item This optimization comes from the observations of the structure of the complete trees.\pause
         \item Complete $x$-ary trees has a depth of $\log_{x} n$ with $n$ many nodes in them.\pause[]
-        \item With the following optimization our algorithm time complexity will reduce from $O(n^3)$ down to $O(n d^2)$ for $x$-ary trees with $d$ diameter. This is a significant complexity improvement.
-    \end{itemize}    
+        \item With the following optimization our algorithm time complexity will reduce from $O(n^3)$ down to $O(n d^2)$ for $x$-ary trees with $d$ depth. This is a significant complexity improvement.
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}
     \frametitle{Optimization 3}
-
-    
     \begin{itemize}
         \item Suppose $j$ is a color that has been used in the tree for the first time (during our run of the algorithm).\pause[] 
         \item If $j >$ the longest path in the tree, then color $j$ can never be used again.\pause[]
         \item Any color after $j$ that is $j + 1$ and so on will also not be possible to reuse.\pause[]
         \item So there is a upper bound on the number of color that are reusable. This depends on the longest path on the tree.
     \end{itemize}    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimization 3}
+
+
+    \begin{itemize}
+        \item For a complete tree longest path is the diameter of the tree. This is equal to $O(\log_{x} n)$ for an complete $x$-ary tree.\pause[]
+        \item So in our coloring algorithm we do a simple modification.\pause[]
+        \item For each of the node we only check for colors from $1 \to 2*d+2$. The value $2d+2$ is always the upper bound on the color that can be reusable.\pause[]
+        \item It is loose bound, can be improved to $\epsilon_1*d \pm \epsilon$ for some fraction $\epsilon_1$ and some integer $\epsilon$. But that would not improve the time complexity of our algorithm.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experimental Results}
+
+    We will quickly look at some experimental results on the number of reusable colors and the diameter of the tree.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Experimental Results}
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Color number} & \textbf{Number of nodes} \\ \hline
+            1                      & 7381                      \\ \hline
+            2, 3                      & 738                       \\ \hline
+            4, 5                      & 244                       \\ \hline
+            6, 7                      & 81                        \\ \hline
+            8, 9                      & 27                        \\ \hline
+            10, 11                     & 9                         \\ \hline
+            12, 13                     & 3                         \\ \hline
+            14 $\to$ 269  & 1\\ \hline
+        \end{tabular}
+        \caption{Number of nodes colored with each color for a 9-layer complete tree.}
+        \label{tab:colors}
+    \end{table}
 
 \end{frame}
